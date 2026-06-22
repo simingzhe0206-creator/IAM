@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --iam-page-blue: #242321;
+  --iam-sky: #d2a253;
+  --iam-blue: #bd8b36;
+  --iam-blue-hover: #a9782e;
+  --iam-blue-deep: #242321;
+  --iam-blue-ink: #242321;
+  --iam-blue-soft: #fbf6ec;
+  --iam-blue-mist: #f2e6cf;
+  --iam-line: rgba(122, 85, 32, 0.18);
+  font-family:
+    "Outfit",
+    "Aptos",
+    "Segoe UI",
+    system-ui,
+    sans-serif;
+  background: var(--iam-page-blue);
+  color: #242321;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  width: 100%;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(210, 162, 83, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(210, 162, 83, 0.08) 1px, transparent 1px),
+    var(--iam-page-blue);
+  background-size: 48px 48px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(210, 162, 83, 0.36);
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 999px;
+  background: var(--iam-blue);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  min-width: 0;
+}
+
+.page-canvas {
+  border: 1px solid rgba(210, 162, 83, 0.26);
+  border-radius: 1.5rem;
+  background: #fffdfa;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+  min-width: 0;
+}
+
+.surface-card {
+  border: 1px solid var(--iam-line);
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 16px 44px rgba(36, 35, 33, 0.12);
+  min-width: 0;
+}
+
+.glass-panel {
+  border: 1px solid var(--iam-line);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(251, 246, 236, 0.94)),
+    rgba(255, 253, 250, 0.94);
+  box-shadow: 0 16px 44px rgba(36, 35, 33, 0.12);
+  backdrop-filter: blur(10px);
+  min-width: 0;
+}
+
+.technical-grid {
+  background-image:
+    linear-gradient(rgba(189, 139, 54, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(189, 139, 54, 0.1) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 74%);
+}
+
+.image-treatment {
+  filter: saturate(0.84) contrast(1.08) brightness(0.98);
+}
+
+.text-balance {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.quote-field input,
+.quote-field select,
+.quote-field textarea {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(122, 85, 32, 0.2);
+  background: #ffffff;
+  color: #242321;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.quote-field textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.quote-field input:focus,
+.quote-field select:focus,
+.quote-field textarea:focus {
+  border-color: var(--iam-blue);
+  box-shadow: 0 0 0 4px rgba(189, 139, 54, 0.18);
+}
+
+.quote-field option {
+  background: #ffffff;
+  color: #242321;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 700ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
