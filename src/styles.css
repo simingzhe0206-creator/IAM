@@ -2,11 +2,11 @@
 
 :root {
   color-scheme: dark;
-  --iam-page-blue: #4b4a48;
+  --iam-page-blue: #343331;
   --iam-sky: #f4e00c;
   --iam-blue: #f4e00c;
   --iam-blue-hover: #f4e00c;
-  --iam-blue-deep: #4b4a48;
+  --iam-blue-deep: #343331;
   --iam-blue-ink: #f0eedc;
   --iam-blue-soft: rgba(240, 238, 220, 0.08);
   --iam-blue-mist: rgba(205, 205, 205, 0.18);
@@ -93,8 +93,8 @@ textarea {
   border: 1px solid rgba(240, 238, 220, 0.14);
   border-radius: 1.5rem;
   background:
-    linear-gradient(145deg, rgba(240, 238, 220, 0.1), rgba(75, 74, 72, 0.94) 38%, rgba(75, 74, 72, 0.98)),
-    #4b4a48;
+    linear-gradient(145deg, rgba(240, 238, 220, 0.1), rgba(52, 51, 49, 0.94) 38%, rgba(52, 51, 49, 0.98)),
+    #343331;
   box-shadow: 0 26px 70px rgba(26, 25, 23, 0.34);
   min-width: 0;
 }
@@ -104,7 +104,7 @@ textarea {
   border-radius: 1.25rem;
   background:
     linear-gradient(160deg, rgba(240, 238, 220, 0.095), rgba(240, 238, 220, 0.035)),
-    rgba(75, 74, 72, 0.92);
+    rgba(52, 51, 49, 0.92);
   box-shadow: 0 18px 48px rgba(26, 25, 23, 0.24);
   min-width: 0;
 }
@@ -113,7 +113,7 @@ textarea {
   border: 1px solid rgba(240, 238, 220, 0.16);
   background:
     linear-gradient(135deg, rgba(240, 238, 220, 0.12), rgba(205, 205, 205, 0.045)),
-    rgba(75, 74, 72, 0.9);
+    rgba(52, 51, 49, 0.9);
   box-shadow: 0 18px 52px rgba(26, 25, 23, 0.26);
   backdrop-filter: blur(12px);
   min-width: 0;
@@ -128,7 +128,7 @@ textarea {
 }
 
 .image-treatment {
-  filter: saturate(0.58) contrast(1.18) brightness(0.74);
+  filter: saturate(0.72) contrast(1.1) brightness(0.9);
 }
 
 .text-balance {
@@ -170,7 +170,7 @@ textarea {
 }
 
 .quote-field option {
-  background: #4b4a48;
+  background: #343331;
   color: #f0eedc;
 }
 

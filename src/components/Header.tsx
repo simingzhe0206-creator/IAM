@@ -20,8 +20,8 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-[#4b4a48]/95 py-3 backdrop-blur-xl">
-        <div className="section-shell flex h-14 items-center justify-between gap-6 rounded-2xl border border-[#f0eedc]/16 bg-[#4b4a48]/88 px-4 shadow-[0_16px_38px_rgba(26,25,23,0.30)] md:px-5">
+      <header className="sticky top-0 z-50 bg-[#343331]/95 py-3 backdrop-blur-xl">
+        <div className="section-shell flex h-14 items-center justify-between gap-6 rounded-2xl border border-[#f0eedc]/16 bg-[#343331]/88 px-4 shadow-[0_16px_38px_rgba(26,25,23,0.30)] md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
             <img className="h-10 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
           </Link>
@@ -58,7 +58,7 @@ export function Header() {
 
         {open && (
           <div className="section-shell pb-3 lg:hidden">
-            <div className="mt-2 rounded-2xl border border-[#f0eedc]/16 bg-[#4b4a48] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
+            <div className="mt-2 rounded-2xl border border-[#f0eedc]/16 bg-[#343331] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
               <nav className="grid gap-2" aria-label="Mobile navigation">
                 {nav.map(([label, path]) => (
                   <NavLink

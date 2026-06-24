@@ -4,9 +4,9 @@ import { assets, contact, services } from '../content/site';
 
 export function Footer() {
   return (
-    <footer className="bg-[#4b4a48] py-8">
+    <footer className="bg-[#343331] py-8">
       <div className="section-shell">
-        <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#4b4a48] p-7 text-[#f0eedc] shadow-[0_22px_60px_rgba(26,25,23,0.30)] md:p-10">
+        <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#343331] p-7 text-[#f0eedc] shadow-[0_22px_60px_rgba(26,25,23,0.30)] md:p-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
             <div>
               <img className="h-12 w-auto rounded-sm bg-white px-2 py-1 shadow-[0_10px_28px_rgba(26,25,23,0.28)]" src={assets.logo} alt="IAM Surveyors" />

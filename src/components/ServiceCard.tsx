@@ -13,13 +13,13 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       }`}
     >
       <div className="relative z-10 flex h-full flex-col">
-        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#4b4a48]">
+        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#343331]">
           <img
             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105 image-treatment"
             src={service.image}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#4b4a48]/8 to-[#4b4a48]/34" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#343331]/6 to-[#343331]/24" />
         </div>
         <div className="flex items-center justify-between">
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#4b4a48]">

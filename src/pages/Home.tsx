@@ -35,10 +35,10 @@ export function Home() {
       <section className="py-8 md:py-12">
         <div className="section-shell">
           <div className="page-canvas overflow-hidden p-5 md:p-8">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#4b4a48]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#343331]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.hero} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#4b4a48]/90 via-[#4b4a48]/58 to-[#4b4a48]/18" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4b4a48]/42 via-transparent to-[#f0eedc]/4" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#343331]/64 via-[#343331]/30 to-[#343331]/4" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#343331]/20 via-transparent to-[#f0eedc]/3" />
               <div className="relative z-10 flex min-h-[520px] max-w-3xl flex-col justify-center px-6 py-10 md:px-10">
                 <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
                   Sydney and NSW land surveying
@@ -116,9 +116,9 @@ export function Home() {
       <section className="py-8 md:py-12">
         <div className="section-shell">
           <div className="page-canvas grid gap-8 overflow-hidden p-5 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#4b4a48]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#343331]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.field} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4b4a48]/42 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#343331]/18 to-transparent" />
               <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-black leading-5 text-[#4b4a48] shadow-[0_18px_42px_rgba(26,25,23,0.32)]">
                 Clear quote
                 <br />
@@ -177,11 +177,11 @@ export function Home() {
                   }`}
                 >
                   <img
-                    className="absolute inset-0 h-full w-full object-cover opacity-25 transition duration-700 group-hover:scale-105 group-hover:opacity-40 image-treatment"
+                    className="absolute inset-0 h-full w-full object-cover opacity-35 transition duration-700 group-hover:scale-105 group-hover:opacity-55 image-treatment"
                     src={project.image}
                     alt=""
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#4b4a48]/88 via-[#4b4a48]/74 to-[#4b4a48]/52" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#343331]/74 via-[#343331]/58 to-[#343331]/36" />
                   <div className="relative z-10 flex h-full flex-col justify-end">
                     <h3 className="max-w-xl text-2xl font-black tracking-normal text-[#f0eedc]">{project.title}</h3>
                     <p className="mt-3 max-w-xl text-sm leading-6 text-[#cdcdcd]">{project.description}</p>
@@ -195,7 +195,7 @@ export function Home() {
 
       <section className="py-8 pb-14 md:py-12 md:pb-20">
         <div className="section-shell">
-          <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#4b4a48] p-8 text-[#f0eedc] shadow-[0_24px_70px_rgba(26,25,23,0.36)] md:p-12">
+          <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#343331] p-8 text-[#f0eedc] shadow-[0_24px_70px_rgba(26,25,23,0.36)] md:p-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <h2 className="text-balance text-4xl font-black tracking-normal md:text-5xl">

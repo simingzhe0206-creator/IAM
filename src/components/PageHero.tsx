@@ -16,9 +16,9 @@ export function PageHero({ title, children, image }: PageHeroProps) {
             <div className="mt-6 max-w-2xl text-base leading-8 text-[#cdcdcd] sm:text-lg">{children}</div>
           </div>
           {image && (
-            <div className="relative min-h-72 overflow-hidden rounded-2xl bg-[#4b4a48]">
+            <div className="relative min-h-72 overflow-hidden rounded-2xl bg-[#343331]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={image} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4b4a48]/10 via-transparent to-[#4b4a48]/36" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#343331]/6 via-transparent to-[#343331]/22" />
             </div>
           )}
         </div>
