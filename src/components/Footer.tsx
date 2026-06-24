@@ -6,10 +6,10 @@ export function Footer() {
   return (
     <footer className="bg-[#4b4a48] py-8">
       <div className="section-shell">
-        <div className="rounded-2xl border border-[#a9a9a7] bg-[#4b4a48] p-7 text-white shadow-[0_20px_54px_rgba(75,74,72,0.24)] md:p-10">
+        <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#4b4a48] p-7 text-[#f0eedc] shadow-[0_22px_60px_rgba(26,25,23,0.30)] md:p-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
             <div>
-              <img className="h-12 w-auto rounded-sm bg-white px-2 py-1 shadow-[0_10px_28px_rgba(75,74,72,0.22)]" src={assets.logo} alt="IAM Surveyors" />
+              <img className="h-12 w-auto rounded-sm bg-white px-2 py-1 shadow-[0_10px_28px_rgba(26,25,23,0.28)]" src={assets.logo} alt="IAM Surveyors" />
               <p className="mt-5 max-w-sm text-sm leading-7 text-[#cdcdcd]">
                 Professional land surveying services for residential, commercial and land development projects across
                 Sydney and NSW.
@@ -70,7 +70,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-10 border-t border-[#a9a9a7]/40 pt-6 text-xs text-[#a9a9a7]">
+          <div className="mt-10 border-t border-[#f0eedc]/14 pt-6 text-xs text-[#a9a9a7]">
             Copyright 2026 IAM Surveyors. Prototype for local review.
           </div>
         </div>

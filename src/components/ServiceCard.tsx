@@ -13,24 +13,24 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       }`}
     >
       <div className="relative z-10 flex h-full flex-col">
-        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#cdcdcd]">
+        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#4b4a48]">
           <img
             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105 image-treatment"
             src={service.image}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#f0eedc]/6 to-[#4b4a48]/14" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#4b4a48]/8 to-[#4b4a48]/34" />
         </div>
         <div className="flex items-center justify-between">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#f0eedc] text-[#4b4a48]">
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#4b4a48]">
             <Icon size={25} weight="duotone" />
           </span>
-          <ArrowUpRight className="text-[#a9a9a7] transition group-hover:text-[#4b4a48]" size={22} />
+          <ArrowUpRight className="text-[#a9a9a7] transition group-hover:text-[#f4e00c]" size={22} />
         </div>
-        <h2 className="mt-6 text-balance text-2xl font-black tracking-normal text-[#4b4a48]">
+        <h2 className="mt-6 text-balance text-2xl font-black tracking-normal text-[#f0eedc]">
           {service.title}
         </h2>
-        <p className="mt-4 line-clamp-3 text-sm leading-6 text-[#4b4a48]">{service.intro}</p>
+        <p className="mt-4 line-clamp-3 text-sm leading-6 text-[#cdcdcd]">{service.intro}</p>
       </div>
     </Link>
   );

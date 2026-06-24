@@ -23,12 +23,12 @@ export function Projects() {
                 <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={project.image} alt="" />
               </div>
               <div className="p-7 md:p-10">
-                <div className="text-sm font-black text-[#4b4a48]">Project category {index + 1}</div>
-                <h2 className="mt-5 text-balance text-4xl font-black tracking-normal text-[#4b4a48]">{project.title}</h2>
-                <p className="mt-5 text-lg leading-8 text-[#4b4a48]">{project.description}</p>
+                <div className="text-sm font-black text-[#f4e00c]">Project category {index + 1}</div>
+                <h2 className="mt-5 text-balance text-4xl font-black tracking-normal text-[#f0eedc]">{project.title}</h2>
+                <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">{project.description}</p>
                 <div className="mt-8 grid gap-3">
                   {services.slice(index, index + 3).map((service) => (
-                    <div key={service.slug} className="rounded-xl border border-[#cdcdcd] bg-[#f0eedc] px-4 py-3 text-sm text-[#4b4a48]">
+                    <div key={service.slug} className="rounded-xl border border-[#f0eedc]/14 bg-[#f0eedc]/8 px-4 py-3 text-sm text-[#cdcdcd]">
                       {service.title}
                     </div>
                   ))}
@@ -44,8 +44,8 @@ export function Projects() {
           <div className="glass-panel rounded-2xl p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-normal text-[#4b4a48]">Have project documents ready?</h2>
-              <p className="mt-3 max-w-2xl text-[#4b4a48]">
+              <h2 className="text-3xl font-black tracking-normal text-[#f0eedc]">Have project documents ready?</h2>
+              <p className="mt-3 max-w-2xl text-[#cdcdcd]">
                 Upload plans, approvals, title information or previous survey documents with your quote request.
               </p>
             </div>

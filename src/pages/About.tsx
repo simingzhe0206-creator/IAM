@@ -17,10 +17,10 @@ export function About() {
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="sticky top-28">
-          <h2 className="text-balance text-4xl font-black tracking-normal text-[#4b4a48] md:text-6xl">
+          <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-6xl">
               Accurate survey information with clear development support.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-[#4b4a48]">
+            <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">
               IAM does not only provide survey plans. The team supports clients through the full development
               documentation process.
             </p>
@@ -34,7 +34,7 @@ export function About() {
             ].map((item) => (
               <div key={item} className="glass-panel flex gap-4 rounded-2xl p-6">
             <CheckCircle className="mt-1 shrink-0 text-[#f4e00c]" size={24} weight="fill" />
-                <p className="text-lg leading-8 text-[#4b4a48]">{item}</p>
+                <p className="text-lg leading-8 text-[#cdcdcd]">{item}</p>
               </div>
             ))}
           </div>
@@ -45,18 +45,18 @@ export function About() {
 
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-8 lg:grid-cols-2">
-        <div className="overflow-hidden rounded-2xl border border-[#f4e00c]/25 shadow-[0_18px_60px_rgba(75,74,72,0.16)]">
+        <div className="overflow-hidden rounded-2xl border border-[#f4e00c]/25 shadow-[0_18px_60px_rgba(26,25,23,0.30)]">
             <img className="h-full min-h-[440px] w-full object-cover image-treatment" src={assets.equipment} alt="IAM surveying equipment" />
           </div>
           <div className="glass-panel rounded-2xl p-8 md:p-10">
-          <h2 className="text-4xl font-black tracking-normal text-[#4b4a48]">Mission and values</h2>
-            <p className="mt-5 text-lg leading-8 text-[#4b4a48]">
+          <h2 className="text-4xl font-black tracking-normal text-[#f0eedc]">Mission and values</h2>
+            <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">
               To deliver accurate survey information, clear documentation and reliable support throughout every stage
               of the development process.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {values.map((value) => (
-                <div key={value} className="rounded-xl border border-[#cdcdcd] bg-white px-4 py-3 text-sm font-bold text-[#4b4a48]">
+                <div key={value} className="rounded-xl border border-[#f0eedc]/14 bg-[#f0eedc]/8 px-4 py-3 text-sm font-bold text-[#f0eedc]">
                   {value}
                 </div>
               ))}

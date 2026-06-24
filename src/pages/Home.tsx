@@ -35,10 +35,10 @@ export function Home() {
       <section className="py-8 md:py-12">
         <div className="section-shell">
           <div className="page-canvas overflow-hidden p-5 md:p-8">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#cdcdcd]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#4b4a48]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.hero} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#4b4a48]/82 via-[#4b4a48]/48 to-[#f4e00c]/18" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4b4a48]/20 via-transparent to-white/6" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#4b4a48]/90 via-[#4b4a48]/58 to-[#4b4a48]/18" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4b4a48]/42 via-transparent to-[#f0eedc]/4" />
               <div className="relative z-10 flex min-h-[520px] max-w-3xl flex-col justify-center px-6 py-10 md:px-10">
                 <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
                   Sydney and NSW land surveying
@@ -61,27 +61,27 @@ export function Home() {
 
             <div className="grid gap-10 py-14 md:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
-                <h2 className="text-balance text-4xl font-black tracking-normal text-[#4b4a48] md:text-5xl">
+                <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-5xl">
                   About IAM
                 </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-[#4b4a48]">
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-[#cdcdcd]">
                   IAM Surveyors supports property owners, architects, builders and development teams with survey plans,
                   title documentation and practical project coordination.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {stats.slice(0, 4).map(([value, label]) => (
-                  <div key={label} className="min-w-0 rounded-2xl bg-[#f0eedc] p-5">
-                    <div className="text-3xl font-black tracking-normal text-[#4b4a48]">{value}</div>
+                  <div key={label} className="min-w-0 rounded-2xl border border-[#f0eedc]/12 bg-[#f0eedc]/8 p-5">
+                    <div className="text-3xl font-black tracking-normal text-[#f0eedc]">{value}</div>
                     <div className="mt-2 break-words text-xs font-semibold uppercase tracking-[0.12em] text-[#a9a9a7]">{label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="grid gap-3 border-y border-[#cdcdcd] py-5 md:grid-cols-5">
+            <div className="grid gap-3 border-y border-[#f0eedc]/14 py-5 md:grid-cols-5">
               {audience.map((item) => (
-                <div key={item} className="rounded-xl bg-white px-4 py-3 text-center text-sm font-bold text-[#a9a9a7]">
+                <div key={item} className="rounded-xl border border-[#f0eedc]/12 bg-[#f0eedc]/7 px-4 py-3 text-center text-sm font-bold text-[#cdcdcd]">
                   {item}
                 </div>
               ))}
@@ -90,10 +90,10 @@ export function Home() {
             <section className="py-14 md:py-16">
               <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                 <div>
-                  <h2 className="text-balance text-4xl font-black tracking-normal text-[#4b4a48] md:text-5xl">
+                  <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-5xl">
                     Service catalogue.
                   </h2>
-                  <p className="mt-4 max-w-2xl text-lg leading-8 text-[#4b4a48]">
+                  <p className="mt-4 max-w-2xl text-lg leading-8 text-[#cdcdcd]">
                     A practical service structure for architects, builders, developers, homeowners, certifiers and
                     solicitors.
                   </p>
@@ -116,10 +116,10 @@ export function Home() {
       <section className="py-8 md:py-12">
         <div className="section-shell">
           <div className="page-canvas grid gap-8 overflow-hidden p-5 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#cdcdcd]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-2xl bg-[#4b4a48]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.field} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/8 to-transparent" />
-              <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-black leading-5 text-[#4b4a48] shadow-[0_18px_42px_rgba(75,74,72,0.24)]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4b4a48]/42 to-transparent" />
+              <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-black leading-5 text-[#4b4a48] shadow-[0_18px_42px_rgba(26,25,23,0.32)]">
                 Clear quote
                 <br />
                 process
@@ -127,22 +127,22 @@ export function Home() {
             </div>
 
             <div className="flex flex-col justify-center py-4">
-              <h2 className="text-balance text-4xl font-black tracking-normal text-[#4b4a48] md:text-5xl">
+              <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-5xl">
                 How we work.
               </h2>
-              <p className="mt-4 max-w-xl text-lg leading-8 text-[#4b4a48]">
+              <p className="mt-4 max-w-xl text-lg leading-8 text-[#cdcdcd]">
                 A simple workflow for moving from project information to a clear surveying scope and deliverables.
               </p>
               <div className="mt-8 grid gap-4">
                 {steps.map(({ title, text, Icon }, index) => (
-                  <div key={title} className="grid grid-cols-[3rem_1fr] gap-4 rounded-2xl border border-[#cdcdcd] bg-white p-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#4b4a48] text-[#f4e00c]">
+                  <div key={title} className="grid grid-cols-[3rem_1fr] gap-4 rounded-2xl border border-[#f0eedc]/14 bg-[#f0eedc]/7 p-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f4e00c] text-[#4b4a48]">
                       <Icon size={22} weight="duotone" />
                     </div>
                     <div>
                       <div className="text-xs font-black uppercase tracking-[0.12em] text-[#a9a9a7]">Step {index + 1}</div>
-                      <h3 className="mt-1 text-lg font-black text-[#4b4a48]">{title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-[#4b4a48]">{text}</p>
+                      <h3 className="mt-1 text-lg font-black text-[#f0eedc]">{title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[#cdcdcd]">{text}</p>
                     </div>
                   </div>
                 ))}
@@ -156,10 +156,10 @@ export function Home() {
         <div className="section-shell">
           <div className="page-canvas grid gap-8 p-5 md:p-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
-              <h2 className="text-balance text-4xl font-black tracking-normal text-[#4b4a48] md:text-5xl">
+              <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-5xl">
                 Project types IAM supports.
               </h2>
-              <p className="mt-5 max-w-xl text-lg leading-8 text-[#4b4a48]">
+              <p className="mt-5 max-w-xl text-lg leading-8 text-[#cdcdcd]">
                 The prototype avoids invented case studies and presents the project categories supplied in the brief.
               </p>
               <div className="mt-8">
@@ -181,10 +181,10 @@ export function Home() {
                     src={project.image}
                     alt=""
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/94 via-[#f0eedc]/76 to-[#cdcdcd]/56" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#4b4a48]/88 via-[#4b4a48]/74 to-[#4b4a48]/52" />
                   <div className="relative z-10 flex h-full flex-col justify-end">
-                    <h3 className="max-w-xl text-2xl font-black tracking-normal text-[#4b4a48]">{project.title}</h3>
-                    <p className="mt-3 max-w-xl text-sm leading-6 text-[#4b4a48]">{project.description}</p>
+                    <h3 className="max-w-xl text-2xl font-black tracking-normal text-[#f0eedc]">{project.title}</h3>
+                    <p className="mt-3 max-w-xl text-sm leading-6 text-[#cdcdcd]">{project.description}</p>
                   </div>
                 </Link>
               ))}
@@ -195,7 +195,7 @@ export function Home() {
 
       <section className="py-8 pb-14 md:py-12 md:pb-20">
         <div className="section-shell">
-          <div className="rounded-2xl bg-[#4b4a48] p-8 text-white shadow-[0_24px_70px_rgba(75,74,72,0.30)] md:p-12">
+          <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#4b4a48] p-8 text-[#f0eedc] shadow-[0_24px_70px_rgba(26,25,23,0.36)] md:p-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <h2 className="text-balance text-4xl font-black tracking-normal md:text-5xl">

@@ -24,24 +24,24 @@ export function Contact() {
           <div className="grid gap-4 md:grid-cols-2">
             {channels.map(({ label, value, Icon }) => (
               <div key={label} className="surface-card p-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f0eedc] text-[#4b4a48]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#4b4a48]">
                   <Icon size={24} weight="duotone" />
                 </div>
-              <h2 className="mt-6 text-xl font-black text-[#4b4a48]">{label}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#4b4a48]">{value}</p>
+              <h2 className="mt-6 text-xl font-black text-[#f0eedc]">{label}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#cdcdcd]">{value}</p>
               </div>
             ))}
           </div>
           <div className="glass-panel rounded-2xl p-8">
-            <h2 className="text-4xl font-black tracking-normal text-[#4b4a48]">Ready to send project details?</h2>
-            <p className="mt-5 text-lg leading-8 text-[#4b4a48]">
+            <h2 className="text-4xl font-black tracking-normal text-[#f0eedc]">Ready to send project details?</h2>
+            <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">
               The Quote page is the preferred path because it captures project type, stage, required service and file
               uploads in one submission.
             </p>
             <div className="mt-8">
               <ButtonLink to="/quote">Open Quote Form</ButtonLink>
             </div>
-            <div className="mt-8 border-t border-[#cdcdcd] pt-6 text-sm leading-7 text-[#a9a9a7]">
+            <div className="mt-8 border-t border-[#f0eedc]/14 pt-6 text-sm leading-7 text-[#a9a9a7]">
               Business hours: {contact.hours}
             </div>
           </div>
