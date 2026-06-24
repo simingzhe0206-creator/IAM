@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import fs from 'node:fs';
+import path from 'node:path';
 import multer from 'multer';
 import {
   ALLOWED_FILE_EXTENSIONS,
@@ -41,7 +43,7 @@ const upload = multer({
   }
 });
 
-export function createEnquiryApp(_options: { mailer: EnquiryMailer }) {
+export function createEnquiryApp(_options: { mailer: EnquiryMailer; staticDir?: string }) {
   const app = express();
   app.use(cors());
 
@@ -83,6 +85,23 @@ export function createEnquiryApp(_options: { mailer: EnquiryMailer }) {
       next(error);
     }
   });
+
+  if (_options.staticDir) {
+    const staticDir = path.resolve(_options.staticDir);
+    const indexHtml = path.join(staticDir, 'index.html');
+
+    if (fs.existsSync(indexHtml)) {
+      app.use(express.static(staticDir));
+      app.use((request, response, next) => {
+        if (request.method !== 'GET' || request.path.startsWith('/api/')) {
+          next();
+          return;
+        }
+
+        response.sendFile(indexHtml);
+      });
+    }
+  }
 
   app.use((error: Error, _request: express.Request, response: express.Response, _next: express.NextFunction) => {
     response.status(400).json({

@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "concurrently -k -n client,api -c yellow,cyan \"vite --host 127.0.0.1\" \"tsx watch server/index.ts\"",
     "dev:client": "vite --host 127.0.0.1",
     "dev:server": "tsx watch server/index.ts",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "tsc --noEmit && vite build",
+    "build:server": "vite build --config vite.server.config.ts",
+    "start": "node server-dist/index.js",
     "test": "vitest run",
     "preview": "vite preview --host 127.0.0.1"
   },
