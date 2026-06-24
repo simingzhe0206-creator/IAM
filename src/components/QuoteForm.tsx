@@ -137,13 +137,13 @@ export function QuoteForm() {
         </Field>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-dashed border-[#f4e00c]/60 bg-[#f0eedc]/8 p-5">
-        <label className="flex cursor-pointer flex-col gap-3 text-sm text-[#f0eedc] md:flex-row md:items-center md:justify-between">
+      <div className="mt-5 rounded-2xl border border-dashed border-[#f4e00c]/60 bg-[#fffdf0]/8 p-5">
+        <label className="flex cursor-pointer flex-col gap-3 text-sm text-[#fffdf0] md:flex-row md:items-center md:justify-between">
           <span className="flex items-center gap-3 font-semibold">
             <UploadSimple className="text-[#f4e00c]" size={22} />
             Upload supporting files
           </span>
-          <span className="text-xs text-[#a9a9a7]">
+          <span className="text-xs text-[#cdcdcd]">
             {ALLOWED_FILE_EXTENSIONS.join(', ')}. {megabytes(MAX_FILE_BYTES)} each, {megabytes(MAX_TOTAL_FILE_BYTES)} total.
           </span>
           <input
@@ -155,14 +155,14 @@ export function QuoteForm() {
           />
         </label>
         {files.length > 0 && (
-          <div className="mt-4 grid gap-2 text-sm text-[#f0eedc]">
+          <div className="mt-4 grid gap-2 text-sm text-[#fffdf0]">
             {files.map((file) => (
-              <span key={`${file.name}-${file.size}`} className="flex justify-between gap-4 rounded-xl bg-[#f0eedc]/8 px-3 py-2">
+              <span key={`${file.name}-${file.size}`} className="flex justify-between gap-4 rounded-xl bg-[#fffdf0]/8 px-3 py-2">
                 <span>{file.name}</span>
-                <span className="text-[#a9a9a7]">{megabytes(file.size)}</span>
+                <span className="text-[#cdcdcd]">{megabytes(file.size)}</span>
               </span>
             ))}
-            <span className="text-xs text-[#a9a9a7]">Total: {megabytes(totalBytes)}</span>
+            <span className="text-xs text-[#cdcdcd]">Total: {megabytes(totalBytes)}</span>
           </div>
         )}
         {errors.files && <p className="mt-3 text-sm font-semibold text-red-700">{errors.files}</p>}
@@ -172,7 +172,7 @@ export function QuoteForm() {
         <div
           className={`mt-5 flex gap-3 rounded-2xl p-4 text-sm ${
             status === 'sent'
-              ? 'border border-[#f4e00c]/35 bg-[#f4e00c]/10 text-[#f0eedc]'
+              ? 'border border-[#f4e00c]/35 bg-[#f4e00c]/10 text-[#fffdf0]'
               : 'border border-red-200 bg-red-50 text-red-800'
           }`}
         >
@@ -184,7 +184,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-black text-[#4b4a48] transition hover:brightness-95 active:translate-y-px disabled:cursor-wait disabled:opacity-70 md:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-black text-[#242321] shadow-[0_14px_34px_rgba(244,224,12,0.16)] transition hover:brightness-105 active:translate-y-px disabled:cursor-wait disabled:opacity-70 md:w-auto"
       >
         <PaperPlaneTilt size={20} weight="fill" />
         {status === 'sending' ? 'Sending enquiry' : 'Submit Quote Request'}
@@ -205,7 +205,7 @@ function Field({
   children: React.ReactElement;
 }) {
   return (
-    <label className={`quote-field grid gap-2 text-sm font-semibold text-[#f0eedc] ${wide ? 'md:col-span-2' : ''}`}>
+    <label className={`quote-field grid gap-2 text-sm font-semibold text-[#fffdf0] ${wide ? 'md:col-span-2' : ''}`}>
       {label}
       {children}
       {error && <span className="text-xs font-semibold text-red-700">{error}</span>}

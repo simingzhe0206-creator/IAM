@@ -12,7 +12,7 @@ import { Services } from './pages/Services';
 
 export default function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#343331] text-[#f0eedc]">
+    <div className="min-h-screen overflow-x-hidden bg-[#252422] text-[#fffdf0]">
       <Header />
       <main id="main-content">
         <Routes>

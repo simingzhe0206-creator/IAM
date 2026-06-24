@@ -4,17 +4,17 @@ import { assets, contact, services } from '../content/site';
 
 export function Footer() {
   return (
-    <footer className="bg-[#343331] py-8">
+    <footer className="section-band section-band-muted py-12">
       <div className="section-shell">
-        <div className="rounded-2xl border border-[#f0eedc]/14 bg-[#343331] p-7 text-[#f0eedc] shadow-[0_22px_60px_rgba(26,25,23,0.30)] md:p-10">
+        <div className="border-y border-[#fffdf0]/12 py-8 text-[#fffdf0] md:py-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
             <div>
               <img className="h-12 w-auto rounded-sm bg-white px-2 py-1 shadow-[0_10px_28px_rgba(26,25,23,0.28)]" src={assets.logo} alt="IAM Surveyors" />
-              <p className="mt-5 max-w-sm text-sm leading-7 text-[#cdcdcd]">
+              <p className="mt-5 max-w-sm text-sm leading-7 text-[#e6e2d2]">
                 Professional land surveying services for residential, commercial and land development projects across
                 Sydney and NSW.
               </p>
-              <div className="mt-6 grid gap-3 text-sm text-[#f0eedc]">
+              <div className="mt-6 grid gap-3 text-sm text-[#fffdf0]">
                 <span className="flex gap-3">
                   <MapPin className="mt-1 text-[#f4e00c]" size={18} />
                   {contact.address}
@@ -31,8 +31,8 @@ export function Footer() {
             </div>
 
             <div>
-              <h2 className="text-sm font-bold text-[#f0eedc]">Quick Links</h2>
-              <div className="mt-4 grid gap-3 text-sm text-[#cdcdcd]">
+              <h2 className="text-sm font-bold text-[#fffdf0]">Quick Links</h2>
+              <div className="mt-4 grid gap-3 text-sm text-[#e6e2d2]">
                 <Link to="/">Home</Link>
                 <Link to="/about">About IAM</Link>
                 <Link to="/services">Services</Link>
@@ -43,8 +43,8 @@ export function Footer() {
             </div>
 
             <div>
-              <h2 className="text-sm font-bold text-[#f0eedc]">Featured Services</h2>
-              <div className="mt-4 grid gap-3 text-sm text-[#cdcdcd]">
+              <h2 className="text-sm font-bold text-[#fffdf0]">Featured Services</h2>
+              <div className="mt-4 grid gap-3 text-sm text-[#e6e2d2]">
                 {services.slice(0, 7).map((service) => (
                   <Link key={service.slug} to={`/services/${service.slug}`}>
                     {service.shortTitle}
@@ -54,8 +54,8 @@ export function Footer() {
             </div>
 
             <div>
-              <h2 className="text-sm font-bold text-[#f0eedc]">Contact Channels</h2>
-              <div className="mt-4 grid gap-3 text-sm text-[#cdcdcd]">
+              <h2 className="text-sm font-bold text-[#fffdf0]">Contact Channels</h2>
+              <div className="mt-4 grid gap-3 text-sm text-[#e6e2d2]">
                 <span className="flex items-center gap-2">
                   <WhatsappLogo className="text-[#f4e00c]" size={18} />
                   {contact.whatsapp}
@@ -70,7 +70,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-10 border-t border-[#f0eedc]/14 pt-6 text-xs text-[#a9a9a7]">
+          <div className="mt-10 border-t border-[#fffdf0]/14 pt-6 text-xs text-[#cdcdcd]">
             Copyright 2026 IAM Surveyors. Prototype for local review.
           </div>
         </div>

@@ -20,8 +20,8 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-[#343331]/95 py-3 backdrop-blur-xl">
-        <div className="section-shell flex h-14 items-center justify-between gap-6 rounded-2xl border border-[#f0eedc]/16 bg-[#343331]/88 px-4 shadow-[0_16px_38px_rgba(26,25,23,0.30)] md:px-5">
+      <header className="sticky top-0 z-50 bg-[#252422]/95 py-3 backdrop-blur-xl">
+        <div className="section-shell flex h-14 items-center justify-between gap-6 rounded-2xl border border-[#fffdf0]/16 bg-[#242321]/88 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.34)] md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
             <img className="h-10 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
           </Link>
@@ -33,7 +33,7 @@ export function Header() {
                 to={path}
                 className={({ isActive }) =>
                   `rounded-xl px-4 py-2 text-sm font-semibold transition ${
-                    isActive ? 'bg-[#f4e00c] text-[#4b4a48]' : 'text-[#cdcdcd] hover:bg-[#f0eedc]/10 hover:text-[#f0eedc]'
+                    isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
                   }`
                 }
               >
@@ -47,7 +47,7 @@ export function Header() {
           </div>
 
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#f0eedc]/16 bg-[#f0eedc]/8 text-[#f0eedc] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#fffdf0]/16 bg-[#fffdf0]/8 text-[#fffdf0] lg:hidden"
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen((value) => !value)}
@@ -58,14 +58,14 @@ export function Header() {
 
         {open && (
           <div className="section-shell pb-3 lg:hidden">
-            <div className="mt-2 rounded-2xl border border-[#f0eedc]/16 bg-[#343331] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
+            <div className="mt-2 rounded-2xl border border-[#fffdf0]/16 bg-[#252422] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
               <nav className="grid gap-2" aria-label="Mobile navigation">
                 {nav.map(([label, path]) => (
                   <NavLink
                     key={path}
                     to={path}
                     onClick={() => setOpen(false)}
-                    className="rounded-xl border border-[#f0eedc]/14 px-4 py-3 text-sm font-semibold text-[#f0eedc]"
+                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
                   >
                     {label}
                   </NavLink>
@@ -73,16 +73,16 @@ export function Header() {
                 <Link
                   to="/quote"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl bg-[#f4e00c] px-4 py-3 text-center text-sm font-bold text-[#4b4a48] transition hover:brightness-95"
+                  className="rounded-xl bg-[#f4e00c] px-4 py-3 text-center text-sm font-bold text-[#242321] transition hover:brightness-105"
                 >
                   Get a Free Quote
                 </Link>
               </nav>
-              <div className="mt-5 grid gap-2 border-t border-[#f0eedc]/14 pt-5">
+              <div className="mt-5 grid gap-2 border-t border-[#fffdf0]/14 pt-5">
                 {services.slice(0, 5).map((service) => (
                   <Link
                     key={service.slug}
-                    className="text-sm text-[#cdcdcd]"
+                    className="text-sm text-[#e6e2d2]"
                     to={`/services/${service.slug}`}
                     onClick={() => setOpen(false)}
                   >

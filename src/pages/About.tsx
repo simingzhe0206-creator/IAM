@@ -17,10 +17,10 @@ export function About() {
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="sticky top-28">
-          <h2 className="text-balance text-4xl font-black tracking-normal text-[#f0eedc] md:text-6xl">
+          <h2 className="text-balance text-4xl font-black tracking-normal text-[#fffdf0] md:text-6xl">
               Accurate survey information with clear development support.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">
+            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
               IAM does not only provide survey plans. The team supports clients through the full development
               documentation process.
             </p>
@@ -34,7 +34,7 @@ export function About() {
             ].map((item) => (
               <div key={item} className="glass-panel flex gap-4 rounded-2xl p-6">
             <CheckCircle className="mt-1 shrink-0 text-[#f4e00c]" size={24} weight="fill" />
-                <p className="text-lg leading-8 text-[#cdcdcd]">{item}</p>
+                <p className="text-lg leading-8 text-[#e6e2d2]">{item}</p>
               </div>
             ))}
           </div>
@@ -49,14 +49,14 @@ export function About() {
             <img className="h-full min-h-[440px] w-full object-cover image-treatment" src={assets.equipment} alt="IAM surveying equipment" />
           </div>
           <div className="glass-panel rounded-2xl p-8 md:p-10">
-          <h2 className="text-4xl font-black tracking-normal text-[#f0eedc]">Mission and values</h2>
-            <p className="mt-5 text-lg leading-8 text-[#cdcdcd]">
+          <h2 className="text-4xl font-black tracking-normal text-[#fffdf0]">Mission and values</h2>
+            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
               To deliver accurate survey information, clear documentation and reliable support throughout every stage
               of the development process.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {values.map((value) => (
-                <div key={value} className="rounded-xl border border-[#f0eedc]/14 bg-[#f0eedc]/8 px-4 py-3 text-sm font-bold text-[#f0eedc]">
+                <div key={value} className="rounded-xl border border-[#fffdf0]/14 bg-[#fffdf0]/8 px-4 py-3 text-sm font-bold text-[#fffdf0]">
                   {value}
                 </div>
               ))}

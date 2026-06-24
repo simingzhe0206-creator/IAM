@@ -6,19 +6,19 @@ type PageHeroProps = {
 
 export function PageHero({ title, children, image }: PageHeroProps) {
   return (
-    <section className="py-8 md:py-12">
+    <section className="section-band section-band-hero py-12 md:py-16">
       <div className="section-shell">
-        <div className="page-canvas grid gap-8 overflow-hidden p-5 md:p-8 lg:grid-cols-[1fr_0.82fr] lg:items-stretch">
-          <div className="flex flex-col justify-center py-6 md:py-10">
-            <h1 className="max-w-4xl text-balance text-3xl font-black leading-[1.06] tracking-normal text-[#f0eedc] sm:text-4xl md:text-6xl md:leading-[0.98]">
+        <div className="grid gap-8 py-4 md:py-8 lg:grid-cols-[1fr_0.82fr] lg:items-stretch">
+          <div className="flex flex-col justify-center py-6 md:py-12">
+            <h1 className="max-w-4xl text-balance text-3xl font-black leading-[1.06] tracking-normal text-[#fffdf0] sm:text-4xl md:text-6xl md:leading-[0.98]">
               {title}
             </h1>
-            <div className="mt-6 max-w-2xl text-base leading-8 text-[#cdcdcd] sm:text-lg">{children}</div>
+            <div className="mt-6 max-w-2xl text-base leading-8 text-[#e6e2d2] sm:text-lg">{children}</div>
           </div>
           {image && (
-            <div className="relative min-h-72 overflow-hidden rounded-2xl bg-[#343331]">
+            <div className="relative min-h-72 overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#252422] shadow-[0_28px_70px_rgba(18,17,16,0.32)]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={image} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#343331]/6 via-transparent to-[#343331]/22" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#252422]/4 via-transparent to-[#252422]/12" />
             </div>
           )}
         </div>

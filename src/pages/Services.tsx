@@ -21,14 +21,14 @@ export function Services() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
-        <div className="section-shell page-canvas p-8 md:p-10">
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+      <section className="section-band section-band-muted py-14 md:py-[4.5rem]">
+        <div className="section-shell">
+          <div className="grid gap-6 border-y border-[#fffdf0]/12 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-            <h2 className="text-3xl font-black tracking-normal text-[#f0eedc]">
+            <h2 className="text-3xl font-black tracking-normal text-[#fffdf0]">
                 Not sure which survey you need?
               </h2>
-              <p className="mt-3 max-w-2xl text-[#cdcdcd]">
+              <p className="mt-3 max-w-2xl text-[#e6e2d2]">
                 Send the address, project stage and documents you already have. IAM can review the information and
                 guide the next step.
               </p>
