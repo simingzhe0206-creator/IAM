@@ -23,12 +23,12 @@ export function Projects() {
                 <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={project.image} alt="" />
               </div>
               <div className="p-7 md:p-10">
-                <div className="text-sm font-black text-[#7a5520]">Project category {index + 1}</div>
-                <h2 className="mt-5 text-balance text-4xl font-black tracking-normal text-[#242321]">{project.title}</h2>
-                <p className="mt-5 text-lg leading-8 text-slate-600">{project.description}</p>
+                <div className="text-sm font-black text-[#4b4a48]">Project category {index + 1}</div>
+                <h2 className="mt-5 text-balance text-4xl font-black tracking-normal text-[#4b4a48]">{project.title}</h2>
+                <p className="mt-5 text-lg leading-8 text-[#4b4a48]">{project.description}</p>
                 <div className="mt-8 grid gap-3">
                   {services.slice(index, index + 3).map((service) => (
-                    <div key={service.slug} className="rounded-xl border border-[#ead9bb] bg-[#fbf6ec] px-4 py-3 text-sm text-slate-600">
+                    <div key={service.slug} className="rounded-xl border border-[#cdcdcd] bg-[#f0eedc] px-4 py-3 text-sm text-[#4b4a48]">
                       {service.title}
                     </div>
                   ))}
@@ -44,8 +44,8 @@ export function Projects() {
           <div className="glass-panel rounded-2xl p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-normal text-[#242321]">Have project documents ready?</h2>
-              <p className="mt-3 max-w-2xl text-slate-600">
+              <h2 className="text-3xl font-black tracking-normal text-[#4b4a48]">Have project documents ready?</h2>
+              <p className="mt-3 max-w-2xl text-[#4b4a48]">
                 Upload plans, approvals, title information or previous survey documents with your quote request.
               </p>
             </div>

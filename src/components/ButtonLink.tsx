@@ -9,10 +9,10 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    'bg-[#bd8b36] text-white shadow-[0_14px_34px_rgba(140,95,35,0.24)] hover:bg-[#a9782e]',
+    'bg-[#f4e00c] text-[#4b4a48] shadow-[0_14px_30px_rgba(75,74,72,0.18)] hover:brightness-95',
   secondary:
-    'border border-[#d8be91] bg-white text-[#242321] shadow-[0_10px_24px_rgba(36,35,33,0.10)] hover:border-[#bd8b36] hover:bg-[#fbf6ec] hover:text-[#7a5520]',
-  ghost: 'text-[#7a5520] hover:text-[#5f3f16]'
+    'border border-[#cdcdcd] bg-white text-[#4b4a48] shadow-[0_10px_24px_rgba(75,74,72,0.08)] hover:border-[#f4e00c] hover:bg-[#f0eedc]',
+  ghost: 'text-[#4b4a48] hover:text-[#4b4a48]'
 };
 
 export function ButtonLink({ to, children, variant = 'primary' }: ButtonLinkProps) {

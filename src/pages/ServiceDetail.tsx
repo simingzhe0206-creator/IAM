@@ -22,18 +22,18 @@ export function ServiceDetail() {
 
       <section className="py-20 md:py-28">
         <div className="section-shell">
-        <Link className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-[#7a5520]" to="/services">
+        <Link className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-[#4b4a48]" to="/services">
             <ArrowLeft size={18} />
             Back to services
           </Link>
 
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <aside className="glass-panel rounded-2xl p-6">
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#fbf6ec] text-[#7a5520]">
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f0eedc] text-[#4b4a48]">
                 <Icon size={30} weight="duotone" />
               </div>
-              <h2 className="mt-8 text-3xl font-black tracking-normal text-[#242321]">When do you need it?</h2>
-              <p className="mt-4 text-lg leading-8 text-slate-600">{service.when}</p>
+              <h2 className="mt-8 text-3xl font-black tracking-normal text-[#4b4a48]">When do you need it?</h2>
+              <p className="mt-4 text-lg leading-8 text-[#4b4a48]">{service.when}</p>
               <div className="mt-8">
                 <ButtonLink to="/quote">Get a Quote</ButtonLink>
               </div>
@@ -44,12 +44,12 @@ export function ServiceDetail() {
               <InfoPanel title="Typical deliverables" items={service.deliverables} />
               <InfoPanel title="Who usually requests this service?" items={service.clients} />
               <div className="surface-card p-6">
-                <h2 className="text-2xl font-black tracking-normal text-[#242321]">FAQ</h2>
+                <h2 className="text-2xl font-black tracking-normal text-[#4b4a48]">FAQ</h2>
                 <div className="mt-5 grid gap-4">
                   {service.faq.map((item) => (
-                    <div key={item.question} className="rounded-xl border border-[#ead9bb] bg-[#fbf6ec] p-5">
-                      <h3 className="font-bold text-[#242321]">{item.question}</h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-600">{item.answer}</p>
+                    <div key={item.question} className="rounded-xl border border-[#cdcdcd] bg-[#f0eedc] p-5">
+                      <h3 className="font-bold text-[#4b4a48]">{item.question}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[#4b4a48]">{item.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -65,11 +65,11 @@ export function ServiceDetail() {
 function InfoPanel({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="surface-card p-6">
-      <h2 className="text-2xl font-black tracking-normal text-[#242321]">{title}</h2>
+      <h2 className="text-2xl font-black tracking-normal text-[#4b4a48]">{title}</h2>
       <div className="mt-5 grid gap-3">
         {items.map((item) => (
-          <div key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
-                  <CheckCircle className="mt-0.5 shrink-0 text-[#bd8b36]" size={18} weight="fill" />
+          <div key={item} className="flex gap-3 text-sm leading-6 text-[#4b4a48]">
+                  <CheckCircle className="mt-0.5 shrink-0 text-[#f4e00c]" size={18} weight="fill" />
             {item}
           </div>
         ))}

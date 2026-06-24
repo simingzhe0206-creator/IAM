@@ -25,10 +25,10 @@ export function Services() {
         <div className="section-shell page-canvas p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-            <h2 className="text-3xl font-black tracking-normal text-[#242321]">
+            <h2 className="text-3xl font-black tracking-normal text-[#4b4a48]">
                 Not sure which survey you need?
               </h2>
-              <p className="mt-3 max-w-2xl text-slate-600">
+              <p className="mt-3 max-w-2xl text-[#4b4a48]">
                 Send the address, project stage and documents you already have. IAM can review the information and
                 guide the next step.
               </p>

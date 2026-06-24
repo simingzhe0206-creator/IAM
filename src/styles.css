@@ -2,15 +2,15 @@
 
 :root {
   color-scheme: light;
-  --iam-page-blue: #242321;
-  --iam-sky: #d2a253;
-  --iam-blue: #bd8b36;
-  --iam-blue-hover: #a9782e;
-  --iam-blue-deep: #242321;
-  --iam-blue-ink: #242321;
-  --iam-blue-soft: #fbf6ec;
-  --iam-blue-mist: #f2e6cf;
-  --iam-line: rgba(122, 85, 32, 0.18);
+  --iam-page-blue: #f0eedc;
+  --iam-sky: #f4e00c;
+  --iam-blue: #f4e00c;
+  --iam-blue-hover: #f4e00c;
+  --iam-blue-deep: #4b4a48;
+  --iam-blue-ink: #4b4a48;
+  --iam-blue-soft: #f0eedc;
+  --iam-blue-mist: #cdcdcd;
+  --iam-line: rgba(75, 74, 72, 0.18);
   font-family:
     "Outfit",
     "Aptos",
@@ -18,7 +18,7 @@
     system-ui,
     sans-serif;
   background: var(--iam-page-blue);
-  color: #242321;
+  color: #4b4a48;
 }
 
 * {
@@ -37,8 +37,8 @@ body {
   width: 100%;
   overflow-x: hidden;
   background:
-    linear-gradient(rgba(210, 162, 83, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(210, 162, 83, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(205, 205, 205, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 205, 205, 0.32) 1px, transparent 1px),
     var(--iam-page-blue);
   background-size: 48px 48px;
 }
@@ -59,7 +59,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(210, 162, 83, 0.36);
+  background: rgba(244, 224, 12, 0.46);
 }
 
 .skip-link {
@@ -89,41 +89,41 @@ textarea {
 }
 
 .page-canvas {
-  border: 1px solid rgba(210, 162, 83, 0.26);
+  border: 1px solid #cdcdcd;
   border-radius: 1.5rem;
-  background: #fffdfa;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+  background: #f0eedc;
+  box-shadow: 0 18px 48px rgba(75, 74, 72, 0.14);
   min-width: 0;
 }
 
 .surface-card {
-  border: 1px solid var(--iam-line);
+  border: 1px solid #cdcdcd;
   border-radius: 1.25rem;
   background: #ffffff;
-  box-shadow: 0 16px 44px rgba(36, 35, 33, 0.12);
+  box-shadow: 0 14px 36px rgba(75, 74, 72, 0.1);
   min-width: 0;
 }
 
 .glass-panel {
-  border: 1px solid var(--iam-line);
+  border: 1px solid #cdcdcd;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(251, 246, 236, 0.94)),
-    rgba(255, 253, 250, 0.94);
-  box-shadow: 0 16px 44px rgba(36, 35, 33, 0.12);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 238, 220, 0.94)),
+    rgba(240, 238, 220, 0.94);
+  box-shadow: 0 16px 40px rgba(75, 74, 72, 0.1);
   backdrop-filter: blur(10px);
   min-width: 0;
 }
 
 .technical-grid {
   background-image:
-    linear-gradient(rgba(189, 139, 54, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(189, 139, 54, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(169, 169, 167, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 169, 167, 0.18) 1px, transparent 1px);
   background-size: 38px 38px;
   mask-image: radial-gradient(circle at center, black 0%, transparent 74%);
 }
 
 .image-treatment {
-  filter: saturate(0.84) contrast(1.08) brightness(0.98);
+  filter: saturate(0.9) contrast(1.04) brightness(1.02);
 }
 
 .text-balance {
@@ -142,9 +142,9 @@ textarea {
   width: 100%;
   min-height: 3rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(122, 85, 32, 0.2);
+  border: 1px solid #cdcdcd;
   background: #ffffff;
-  color: #242321;
+  color: #4b4a48;
   padding: 0.75rem 1rem;
   outline: none;
   transition:
@@ -161,12 +161,12 @@ textarea {
 .quote-field select:focus,
 .quote-field textarea:focus {
   border-color: var(--iam-blue);
-  box-shadow: 0 0 0 4px rgba(189, 139, 54, 0.18);
+  box-shadow: 0 0 0 4px rgba(244, 224, 12, 0.32);
 }
 
 .quote-field option {
   background: #ffffff;
-  color: #242321;
+  color: #4b4a48;
 }
 
 @keyframes rise-in {
