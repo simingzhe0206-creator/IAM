@@ -13,13 +13,15 @@ import {
 } from '@phosphor-icons/react';
 import type { Icon } from '@phosphor-icons/react';
 
+const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 export const assets = {
-  logo: '/images/iam-logo.png',
-  logoFooter: '/images/iam-logo.png',
-  hero: '/images/hero-blue-survey.png',
-  field: '/images/field.jpg',
-  equipment: '/images/equipment.jpg',
-  construction: '/images/construction.jpg'
+  logo: assetPath('/images/iam-logo.png'),
+  logoFooter: assetPath('/images/iam-logo.png'),
+  hero: assetPath('/images/hero-blue-survey.png'),
+  field: assetPath('/images/field.jpg'),
+  equipment: assetPath('/images/equipment.jpg'),
+  construction: assetPath('/images/construction.jpg')
 };
 
 export const contact = {
