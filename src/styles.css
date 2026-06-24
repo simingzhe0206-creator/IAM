@@ -2,20 +2,29 @@
 
 :root {
   color-scheme: dark;
-  --iam-page-blue: #252422;
+  --iam-page-blue: #22211f;
+  --iam-surface: #262522;
+  --iam-surface-soft: #2b2926;
   --iam-sky: #f4e00c;
   --iam-blue: #f4e00c;
   --iam-blue-hover: #f4e00c;
-  --iam-blue-deep: #242321;
+  --iam-blue-deep: #22211f;
   --iam-blue-ink: #fffdf0;
   --iam-blue-soft: rgba(255, 253, 240, 0.08);
   --iam-blue-mist: rgba(205, 205, 205, 0.16);
   --iam-line: rgba(255, 253, 240, 0.14);
   font-family:
-    "Outfit",
     "Aptos",
     "Segoe UI",
+    "Helvetica Neue",
+    Arial,
     system-ui,
+    sans-serif;
+  --iam-heading-font:
+    "Aptos Display",
+    "Segoe UI Semibold",
+    "Helvetica Neue",
+    Arial,
     sans-serif;
   background: var(--iam-page-blue);
   color: #fffdf0;
@@ -37,11 +46,19 @@ body {
   width: 100%;
   overflow-x: hidden;
   background:
-    linear-gradient(rgba(255, 253, 240, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 253, 240, 0.035) 1px, transparent 1px),
-    linear-gradient(120deg, rgba(255, 253, 240, 0.055), transparent 30%, rgba(244, 224, 12, 0.035)),
+    linear-gradient(rgba(255, 253, 240, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 253, 240, 0.026) 1px, transparent 1px),
+    linear-gradient(120deg, rgba(255, 253, 240, 0.04), transparent 34%, rgba(244, 224, 12, 0.02)),
     var(--iam-page-blue);
   background-size: 48px 48px;
+}
+
+h1,
+h2,
+h3,
+.heading-font {
+  font-family: var(--iam-heading-font);
+  letter-spacing: -0.015em;
 }
 
 a {
@@ -94,16 +111,16 @@ textarea {
   overflow: hidden;
   border-block: 1px solid rgba(255, 253, 240, 0.08);
   background:
-    linear-gradient(135deg, rgba(255, 253, 240, 0.055), transparent 32%),
-    linear-gradient(165deg, rgba(244, 224, 12, 0.035), transparent 46%),
-    #252422;
+    linear-gradient(135deg, rgba(255, 253, 240, 0.04), transparent 34%),
+    linear-gradient(165deg, rgba(244, 224, 12, 0.018), transparent 50%),
+    var(--iam-surface);
 }
 
 .section-band-muted {
   background:
-    linear-gradient(135deg, rgba(255, 253, 240, 0.042), transparent 30%),
-    linear-gradient(165deg, rgba(244, 224, 12, 0.026), transparent 44%),
-    #242321;
+    linear-gradient(135deg, rgba(255, 253, 240, 0.035), transparent 32%),
+    linear-gradient(165deg, rgba(244, 224, 12, 0.014), transparent 48%),
+    var(--iam-surface);
 }
 
 .section-band-hero {
@@ -115,7 +132,7 @@ textarea {
   border-radius: 1.5rem;
   background:
     linear-gradient(145deg, rgba(255, 253, 240, 0.08), rgba(37, 36, 34, 0.94) 38%, rgba(36, 35, 33, 0.98)),
-    #252422;
+    var(--iam-surface);
   box-shadow: 0 26px 70px rgba(26, 25, 23, 0.34);
   min-width: 0;
 }
@@ -125,7 +142,7 @@ textarea {
   border-radius: 1.25rem;
   background:
     linear-gradient(160deg, rgba(255, 253, 240, 0.085), rgba(255, 253, 240, 0.028)),
-    rgba(37, 36, 34, 0.92);
+    rgba(38, 37, 34, 0.94);
   box-shadow: 0 18px 48px rgba(26, 25, 23, 0.24);
   min-width: 0;
 }
@@ -134,7 +151,7 @@ textarea {
   border: 1px solid rgba(255, 253, 240, 0.14);
   background:
     linear-gradient(135deg, rgba(255, 253, 240, 0.1), rgba(205, 205, 205, 0.035)),
-    rgba(37, 36, 34, 0.9);
+    rgba(38, 37, 34, 0.92);
   box-shadow: 0 18px 52px rgba(26, 25, 23, 0.26);
   backdrop-filter: blur(12px);
   min-width: 0;
@@ -191,7 +208,7 @@ textarea {
 }
 
 .quote-field option {
-  background: #252422;
+  background: var(--iam-surface);
   color: #fffdf0;
 }
 

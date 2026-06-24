@@ -25,7 +25,7 @@ export function Services() {
         <div className="section-shell">
           <div className="grid gap-6 border-y border-[#fffdf0]/12 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-            <h2 className="text-3xl font-black tracking-normal text-[#fffdf0]">
+            <h2 className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">
                 Not sure which survey you need?
               </h2>
               <p className="mt-3 max-w-2xl text-[#e6e2d2]">

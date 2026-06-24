@@ -23,8 +23,8 @@ export function Projects() {
                 <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={project.image} alt="" />
               </div>
               <div className="p-7 md:p-10">
-                <div className="text-sm font-black text-[#f4e00c]">Project category {index + 1}</div>
-                <h2 className="mt-5 text-balance text-4xl font-black tracking-normal text-[#fffdf0]">{project.title}</h2>
+                <div className="text-sm font-extrabold text-[#f4e00c]">Project category {index + 1}</div>
+                <h2 className="mt-5 text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0]">{project.title}</h2>
                 <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">{project.description}</p>
                 <div className="mt-8 grid gap-3">
                   {services.slice(index, index + 3).map((service) => (
@@ -44,7 +44,7 @@ export function Projects() {
           <div className="glass-panel rounded-2xl p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-normal text-[#fffdf0]">Have project documents ready?</h2>
+              <h2 className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">Have project documents ready?</h2>
               <p className="mt-3 max-w-2xl text-[#e6e2d2]">
                 Upload plans, approvals, title information or previous survey documents with your quote request.
               </p>

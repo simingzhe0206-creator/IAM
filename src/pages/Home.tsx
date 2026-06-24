@@ -35,7 +35,7 @@ export function Home() {
       <section className="section-band section-band-hero py-10 md:py-14">
         <div className="section-shell">
           <div className="overflow-hidden">
-            <div className="relative min-h-[560px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#252422] shadow-[0_28px_78px_rgba(18,17,16,0.34)]">
+            <div className="relative min-h-[560px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_28px_78px_rgba(18,17,16,0.34)]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.hero} alt="" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#252422]/48 via-[#252422]/18 to-[#252422]/2" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#252422]/14 via-transparent to-[#fffdf0]/4" />
@@ -43,7 +43,7 @@ export function Home() {
                 <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
                   Sydney and NSW land surveying
                 </p>
-                <h1 className="text-balance text-3xl font-black leading-[1.04] tracking-normal text-white sm:text-5xl md:text-7xl">
+                <h1 className="text-balance text-3xl font-extrabold leading-[1.04] tracking-normal text-white sm:text-5xl md:text-7xl">
                   Professional Land Surveying Services
                 </h1>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-white/90 sm:text-lg">
@@ -61,7 +61,7 @@ export function Home() {
 
             <div className="grid gap-10 py-14 md:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
-                <h2 className="text-balance text-4xl font-black tracking-normal text-[#fffdf0] md:text-5xl">
+                <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                   About IAM
                 </h2>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
@@ -72,7 +72,7 @@ export function Home() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {stats.slice(0, 4).map(([value, label]) => (
                   <div key={label} className="min-w-0 rounded-2xl border border-[#fffdf0]/12 bg-[#fffdf0]/7 p-5">
-                    <div className="text-3xl font-black tracking-normal text-[#fffdf0]">{value}</div>
+                    <div className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">{value}</div>
                     <div className="mt-2 break-words text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e2d2]">{label}</div>
                   </div>
                 ))}
@@ -90,7 +90,7 @@ export function Home() {
             <section className="py-14 md:py-16">
               <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                 <div>
-                  <h2 className="text-balance text-4xl font-black tracking-normal text-[#fffdf0] md:text-5xl">
+                  <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                     Service catalogue.
                   </h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
@@ -116,10 +116,10 @@ export function Home() {
       <section className="section-band section-band-muted py-12 md:py-16">
         <div className="section-shell">
           <div className="grid gap-8 overflow-hidden lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#252422] shadow-[0_24px_68px_rgba(18,17,16,0.30)]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_24px_68px_rgba(18,17,16,0.30)]">
               <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.field} alt="" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#252422]/10 to-transparent" />
-              <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-black leading-5 text-[#242321] shadow-[0_18px_42px_rgba(18,17,16,0.32)]">
+              <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-extrabold leading-5 text-[#242321] shadow-[0_18px_42px_rgba(18,17,16,0.32)]">
                 Clear quote
                 <br />
                 process
@@ -127,7 +127,7 @@ export function Home() {
             </div>
 
             <div className="flex flex-col justify-center py-4">
-              <h2 className="text-balance text-4xl font-black tracking-normal text-[#fffdf0] md:text-5xl">
+              <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 How we work.
               </h2>
               <p className="mt-4 max-w-xl text-lg leading-8 text-[#e6e2d2]">
@@ -140,8 +140,8 @@ export function Home() {
                       <Icon size={22} weight="duotone" />
                     </div>
                     <div>
-                      <div className="text-xs font-black uppercase tracking-[0.12em] text-[#e6e2d2]">Step {index + 1}</div>
-                      <h3 className="mt-1 text-lg font-black text-[#fffdf0]">{title}</h3>
+                      <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#e6e2d2]">Step {index + 1}</div>
+                      <h3 className="mt-1 text-lg font-extrabold text-[#fffdf0]">{title}</h3>
                       <p className="mt-2 text-sm leading-6 text-[#e6e2d2]">{text}</p>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export function Home() {
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
-              <h2 className="text-balance text-4xl font-black tracking-normal text-[#fffdf0] md:text-5xl">
+              <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 Project types IAM supports.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#e6e2d2]">
@@ -183,7 +183,7 @@ export function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-[#252422]/58 via-[#252422]/42 to-[#252422]/22" />
                   <div className="relative z-10 flex h-full flex-col justify-end">
-                    <h3 className="max-w-xl text-2xl font-black tracking-normal text-[#fffdf0]">{project.title}</h3>
+                    <h3 className="max-w-xl text-2xl font-extrabold tracking-normal text-[#fffdf0]">{project.title}</h3>
                     <p className="mt-3 max-w-xl text-sm leading-6 text-[#e6e2d2]">{project.description}</p>
                   </div>
                 </Link>
@@ -198,7 +198,7 @@ export function Home() {
           <div className="border-y border-[#fffdf0]/12 py-10 text-[#fffdf0] md:py-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <h2 className="text-balance text-4xl font-black tracking-normal md:text-5xl">
+                <h2 className="text-balance text-4xl font-extrabold tracking-normal md:text-5xl">
                   Need a survey for your next project?
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
@@ -208,7 +208,7 @@ export function Home() {
               </div>
               <Link
                 to="/quote"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-black text-[#242321] shadow-[0_16px_42px_rgba(244,224,12,0.18)] transition hover:brightness-105"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-extrabold text-[#242321] shadow-[0_16px_42px_rgba(244,224,12,0.18)] transition hover:brightness-105"
               >
                 Request a Quote
                 <ArrowRight size={18} weight="bold" />

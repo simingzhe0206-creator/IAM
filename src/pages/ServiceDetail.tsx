@@ -32,7 +32,7 @@ export function ServiceDetail() {
             <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#f4e00c] text-[#242321]">
                 <Icon size={30} weight="duotone" />
               </div>
-              <h2 className="mt-8 text-3xl font-black tracking-normal text-[#fffdf0]">When do you need it?</h2>
+              <h2 className="mt-8 text-3xl font-extrabold tracking-normal text-[#fffdf0]">When do you need it?</h2>
               <p className="mt-4 text-lg leading-8 text-[#e6e2d2]">{service.when}</p>
               <div className="mt-8">
                 <ButtonLink to="/quote">Get a Quote</ButtonLink>
@@ -44,7 +44,7 @@ export function ServiceDetail() {
               <InfoPanel title="Typical deliverables" items={service.deliverables} />
               <InfoPanel title="Who usually requests this service?" items={service.clients} />
               <div className="surface-card p-6">
-                <h2 className="text-2xl font-black tracking-normal text-[#fffdf0]">FAQ</h2>
+                <h2 className="text-2xl font-extrabold tracking-normal text-[#fffdf0]">FAQ</h2>
                 <div className="mt-5 grid gap-4">
                   {service.faq.map((item) => (
                     <div key={item.question} className="rounded-xl border border-[#fffdf0]/14 bg-[#fffdf0]/8 p-5">
@@ -65,7 +65,7 @@ export function ServiceDetail() {
 function InfoPanel({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="surface-card p-6">
-      <h2 className="text-2xl font-black tracking-normal text-[#fffdf0]">{title}</h2>
+      <h2 className="text-2xl font-extrabold tracking-normal text-[#fffdf0]">{title}</h2>
       <div className="mt-5 grid gap-3">
         {items.map((item) => (
           <div key={item} className="flex gap-3 text-sm leading-6 text-[#e6e2d2]">

@@ -184,7 +184,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-black text-[#242321] shadow-[0_14px_34px_rgba(244,224,12,0.16)] transition hover:brightness-105 active:translate-y-px disabled:cursor-wait disabled:opacity-70 md:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#f4e00c] px-6 text-sm font-extrabold text-[#242321] shadow-[0_14px_34px_rgba(244,224,12,0.16)] transition hover:brightness-105 active:translate-y-px disabled:cursor-wait disabled:opacity-70 md:w-auto"
       >
         <PaperPlaneTilt size={20} weight="fill" />
         {status === 'sending' ? 'Sending enquiry' : 'Submit Quote Request'}

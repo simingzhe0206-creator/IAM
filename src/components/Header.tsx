@@ -1,38 +1,84 @@
-import { List, X } from '@phosphor-icons/react';
+import { CaretDown, List, X } from '@phosphor-icons/react';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { assets, services } from '../content/site';
 import { ButtonLink } from './ButtonLink';
 
 const nav = [
   ['Home', '/'],
-  ['About IAM', '/about'],
   ['Services', '/services'],
   ['Projects', '/projects'],
+  ['Reviews', '/reviews'],
   ['Contact', '/contact']
+] as const;
+
+const aboutNav = [
+  ['About IAM', '/about'],
+  ['Capabilities', '/about/capabilities']
 ] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const aboutActive = location.pathname === '/about' || location.pathname.startsWith('/about/');
 
   return (
     <>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-[#252422]/95 py-3 backdrop-blur-xl">
-        <div className="section-shell flex h-14 items-center justify-between gap-6 rounded-2xl border border-[#fffdf0]/16 bg-[#242321]/88 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.34)] md:px-5">
+      <header className="sticky top-0 z-50 bg-[#22211f]/95 py-3 backdrop-blur-xl">
+        <div className="section-shell flex h-14 items-center justify-between gap-5 rounded-2xl border border-[#fffdf0]/16 bg-[#262522]/90 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.34)] md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
             <img className="h-10 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-            {nav.map(([label, path]) => (
+            {nav.slice(0, 1).map(([label, path]) => (
               <NavLink
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `rounded-xl px-4 py-2 text-sm font-semibold transition ${
+                  `rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                    isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+            <div className="group relative">
+              <Link
+                to="/about"
+                className={`inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                  aboutActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                }`}
+              >
+                About
+                <CaretDown size={14} weight="bold" />
+              </Link>
+              <div className="invisible absolute left-0 top-full z-50 min-w-48 translate-y-2 rounded-2xl border border-[#fffdf0]/14 bg-[#262522] p-2 opacity-0 shadow-[0_18px_44px_rgba(18,17,16,0.34)] transition group-hover:visible group-hover:translate-y-3 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-3 group-focus-within:opacity-100">
+                {aboutNav.map(([label, path]) => (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    className={({ isActive }) =>
+                      `block rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                        isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                      }`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+            {nav.slice(1).map(([label, path]) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={({ isActive }) =>
+                  `rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
                     isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
                   }`
                 }
@@ -58,9 +104,29 @@ export function Header() {
 
         {open && (
           <div className="section-shell pb-3 lg:hidden">
-            <div className="mt-2 rounded-2xl border border-[#fffdf0]/16 bg-[#252422] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
+            <div className="mt-2 rounded-2xl border border-[#fffdf0]/16 bg-[#262522] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
               <nav className="grid gap-2" aria-label="Mobile navigation">
-                {nav.map(([label, path]) => (
+                {nav.slice(0, 1).map(([label, path]) => (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+                {aboutNav.map(([label, path]) => (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+                {nav.slice(1).map(([label, path]) => (
                   <NavLink
                     key={path}
                     to={path}

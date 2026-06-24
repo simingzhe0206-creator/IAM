@@ -35,8 +35,10 @@ export function Footer() {
               <div className="mt-4 grid gap-3 text-sm text-[#e6e2d2]">
                 <Link to="/">Home</Link>
                 <Link to="/about">About IAM</Link>
+                <Link to="/about/capabilities">Capabilities</Link>
                 <Link to="/services">Services</Link>
                 <Link to="/projects">Projects</Link>
+                <Link to="/reviews">Customer Reviews</Link>
                 <Link to="/quote">Get a Quote</Link>
                 <Link to="/contact">Contact</Link>
               </div>

@@ -27,13 +27,13 @@ export function Contact() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#242321]">
                   <Icon size={24} weight="duotone" />
                 </div>
-              <h2 className="mt-6 text-xl font-black text-[#fffdf0]">{label}</h2>
+              <h2 className="mt-6 text-xl font-extrabold text-[#fffdf0]">{label}</h2>
                 <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{value}</p>
               </div>
             ))}
           </div>
           <div className="glass-panel rounded-2xl p-8">
-            <h2 className="text-4xl font-black tracking-normal text-[#fffdf0]">Ready to send project details?</h2>
+            <h2 className="text-4xl font-extrabold tracking-normal text-[#fffdf0]">Ready to send project details?</h2>
             <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
               The Quote page is the preferred path because it captures project type, stage, required service and file
               uploads in one submission.

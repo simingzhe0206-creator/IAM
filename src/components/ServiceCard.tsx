@@ -13,7 +13,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       }`}
     >
       <div className="relative z-10 flex h-full flex-col">
-        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#252422]">
+        <div className="relative mb-6 h-36 overflow-hidden rounded-xl bg-[#262522]">
           <img
             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105 image-treatment"
             src={service.image}
@@ -27,10 +27,11 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
           </span>
           <ArrowUpRight className="text-[#cdcdcd] transition group-hover:text-[#f4e00c]" size={22} />
         </div>
-        <h2 className="mt-6 text-balance text-2xl font-black tracking-normal text-[#fffdf0]">
+        <h2 className="mt-6 text-balance text-2xl font-extrabold tracking-normal text-[#fffdf0]">
           {service.title}
         </h2>
         <p className="mt-4 line-clamp-3 text-sm leading-6 text-[#e6e2d2]">{service.intro}</p>
+        <div className="mt-5 text-sm font-bold text-[#f4e00c]">View service details</div>
       </div>
     </Link>
   );

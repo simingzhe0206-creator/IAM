@@ -13,7 +13,7 @@ export function Quote() {
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="text-balance text-3xl font-black tracking-normal text-[#fffdf0] md:text-4xl">
+            <h2 className="text-balance text-3xl font-extrabold tracking-normal text-[#fffdf0] md:text-4xl">
               A better quote starts with better context.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
