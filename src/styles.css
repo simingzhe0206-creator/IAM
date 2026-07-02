@@ -21,11 +21,10 @@
     system-ui,
     sans-serif;
   --iam-heading-font:
-    "Aptos Display",
-    "Segoe UI Semibold",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
   background: var(--iam-page-blue);
   color: #fffdf0;
 }

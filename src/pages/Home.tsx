@@ -46,7 +46,7 @@ export function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/58 via-[#11100f]/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/64 via-transparent to-[#11100f]/14" />
-        <div className="section-shell relative z-10 flex min-h-[100dvh] items-end pb-16 pt-28 md:pb-20">
+        <div className="section-shell relative z-10 flex min-h-[100dvh] items-end pb-36 pt-28 md:pb-44">
           <div className="max-w-4xl">
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
               Sydney and NSW land surveying
@@ -54,6 +54,9 @@ export function Home() {
             <h1 className="text-balance text-3xl font-extrabold leading-[1.04] tracking-normal text-white sm:text-5xl md:text-7xl">
               Professional Land Surveying Services
             </h1>
+            <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-white/86 md:text-2xl md:leading-9">
+              Professional Land Surveying and Development Support Across Sydney and NSW.
+            </p>
           </div>
         </div>
       </section>
@@ -105,8 +108,8 @@ export function Home() {
                 </ButtonLink>
               </div>
 
-              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {services.slice(0, 6).map((service, index) => (
+              <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {services.map((service, index) => (
                   <ServiceCard key={service.slug} service={service} index={index} />
                 ))}
               </div>

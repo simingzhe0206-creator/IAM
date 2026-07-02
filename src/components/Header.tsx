@@ -6,21 +6,15 @@ import { ButtonLink } from './ButtonLink';
 
 const nav = [
   ['Home', '/'],
-  ['Services', '/services'],
   ['Projects', '/projects'],
   ['Reviews', '/reviews'],
   ['Contact', '/contact']
 ] as const;
 
-const aboutNav = [
-  ['About IAM', '/about'],
-  ['Capabilities', '/about/capabilities']
-] as const;
-
 export function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const aboutActive = location.pathname === '/about' || location.pathname.startsWith('/about/');
+  const servicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
 
   return (
     <>
@@ -47,30 +41,48 @@ export function Header() {
                 {label}
               </NavLink>
             ))}
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `border-b-2 px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                  isActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
+                }`
+              }
+            >
+              About
+            </NavLink>
             <div className="group relative">
-              <Link
-                to="/about"
+              <NavLink
+                to="/services"
                 className={`inline-flex items-center gap-1 border-b-2 px-3 py-2 text-sm font-semibold transition xl:px-4 ${
-                  aboutActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
+                  servicesActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                 }`}
               >
-                About
+                Services
                 <CaretDown size={14} weight="bold" />
-              </Link>
-              <div className="invisible absolute left-0 top-full z-50 min-w-48 translate-y-2 rounded-2xl border border-[#fffdf0]/14 bg-[#262522] p-2 opacity-0 shadow-[0_18px_44px_rgba(18,17,16,0.34)] transition group-hover:visible group-hover:translate-y-3 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-3 group-focus-within:opacity-100">
-                {aboutNav.map(([label, path]) => (
+              </NavLink>
+              <div className="invisible absolute left-1/2 top-full z-50 w-[26rem] -translate-x-1/2 translate-y-1 pt-3 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="grid gap-1 rounded-2xl border border-[#fffdf0]/14 bg-[#262522] p-3 shadow-[0_18px_44px_rgba(18,17,16,0.34)]">
+                  <Link
+                    to="/services"
+                    className="border-b border-[#fffdf0]/10 px-3 pb-3 pt-1 text-xs font-bold uppercase tracking-[0.12em] text-[#f4e00c]"
+                  >
+                    All services
+                  </Link>
+                  {services.map((service) => (
                   <NavLink
-                    key={path}
-                    to={path}
+                    key={service.slug}
+                    to={`/services/${service.slug}`}
                     className={({ isActive }) =>
                       `block border-l-2 px-4 py-3 text-sm font-semibold transition ${
                         isActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                       }`
                     }
                   >
-                    {label}
+                    {service.shortTitle}
                   </NavLink>
                 ))}
+                </div>
               </div>
             </div>
             {nav.slice(1).map(([label, path]) => (
@@ -116,16 +128,20 @@ export function Header() {
                     {label}
                   </NavLink>
                 ))}
-                {aboutNav.map(([label, path]) => (
-                  <NavLink
-                    key={path}
-                    to={path}
-                    onClick={() => setOpen(false)}
-                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
-                  >
-                    {label}
-                  </NavLink>
-                ))}
+                <NavLink
+                  to="/about"
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                >
+                  About
+                </NavLink>
+                <NavLink
+                  to="/services"
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                >
+                  Services
+                </NavLink>
                 {nav.slice(1).map(([label, path]) => (
                   <NavLink
                     key={path}
@@ -145,7 +161,7 @@ export function Header() {
                 </Link>
               </nav>
               <div className="mt-5 grid gap-2 border-t border-[#fffdf0]/14 pt-5">
-                {services.slice(0, 5).map((service) => (
+                {services.map((service) => (
                   <Link
                     key={service.slug}
                     className="text-sm text-[#e6e2d2]"
