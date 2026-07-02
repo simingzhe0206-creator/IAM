@@ -27,8 +27,8 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-[#22211f]/95 py-3 backdrop-blur-xl">
-        <div className="section-shell flex h-14 items-center justify-between gap-5 rounded-2xl border border-[#fffdf0]/16 bg-[#262522]/90 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.34)] md:px-5">
+      <header className="fixed inset-x-0 top-0 z-50 bg-[#22211f]/92 py-3 backdrop-blur-xl">
+        <div className="section-shell flex h-14 items-center justify-between gap-5 border-b border-[#fffdf0]/14 bg-[#22211f]/72 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.28)] md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
             <img className="h-10 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
           </Link>
@@ -39,8 +39,8 @@ export function Header() {
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
-                    isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                  `border-b-2 px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                    isActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                   }`
                 }
               >
@@ -50,8 +50,8 @@ export function Header() {
             <div className="group relative">
               <Link
                 to="/about"
-                className={`inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
-                  aboutActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                className={`inline-flex items-center gap-1 border-b-2 px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                  aboutActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                 }`}
               >
                 About
@@ -63,8 +63,8 @@ export function Header() {
                     key={path}
                     to={path}
                     className={({ isActive }) =>
-                      `block rounded-xl px-4 py-3 text-sm font-semibold transition ${
-                        isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                      `block border-l-2 px-4 py-3 text-sm font-semibold transition ${
+                        isActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                       }`
                     }
                   >
@@ -78,8 +78,8 @@ export function Header() {
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `rounded-xl px-3 py-2 text-sm font-semibold transition xl:px-4 ${
-                    isActive ? 'bg-[#f4e00c] text-[#242321]' : 'text-[#e6e2d2] hover:bg-[#fffdf0]/10 hover:text-[#fffdf0]'
+                  `border-b-2 px-3 py-2 text-sm font-semibold transition xl:px-4 ${
+                    isActive ? 'border-[#f4e00c] text-[#f4e00c]' : 'border-transparent text-[#e6e2d2] hover:text-[#fffdf0]'
                   }`
                 }
               >

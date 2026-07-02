@@ -32,34 +32,36 @@ const audience = ['Architects', 'Builders', 'Developers', 'Certifiers', 'Solicit
 export function Home() {
   return (
     <>
-      <section className="section-band section-band-hero py-10 md:py-14">
+      <section className="relative min-h-[100dvh] overflow-hidden bg-[#262522]">
+        <video
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          src={assets.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/58 via-[#11100f]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/64 via-transparent to-[#11100f]/14" />
+        <div className="section-shell relative z-10 flex min-h-[100dvh] items-end pb-16 pt-28 md:pb-20">
+          <div className="max-w-4xl">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
+              Sydney and NSW land surveying
+            </p>
+            <h1 className="text-balance text-3xl font-extrabold leading-[1.04] tracking-normal text-white sm:text-5xl md:text-7xl">
+              Professional Land Surveying Services
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-band section-band-hero py-14 md:py-16">
         <div className="section-shell">
           <div className="overflow-hidden">
-            <div className="relative min-h-[560px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_28px_78px_rgba(18,17,16,0.34)]">
-              <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.hero} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#252422]/48 via-[#252422]/18 to-[#252422]/2" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#252422]/14 via-transparent to-[#fffdf0]/4" />
-              <div className="relative z-10 flex min-h-[560px] max-w-3xl flex-col justify-center px-6 py-10 md:px-10">
-                <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
-                  Sydney and NSW land surveying
-                </p>
-                <h1 className="text-balance text-3xl font-extrabold leading-[1.04] tracking-normal text-white sm:text-5xl md:text-7xl">
-                  Professional Land Surveying Services
-                </h1>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-white/90 sm:text-lg">
-                  IAM Surveyors provides accurate, reliable and efficient surveying solutions for residential,
-                  commercial and land development projects.
-                </p>
-                <div className="mt-8 flex max-w-[21rem] flex-col gap-3 sm:max-w-none sm:flex-row">
-                  <ButtonLink to="/quote">Get a Free Quote</ButtonLink>
-                  <ButtonLink to="/services" variant="secondary">
-                    View Our Services
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-10 py-14 md:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                   About IAM

@@ -19,6 +19,7 @@ export const assets = {
   logo: assetPath('/images/iam-logo.png'),
   logoFooter: assetPath('/images/iam-logo.png'),
   hero: assetPath('/images/hero-blue-survey.png'),
+  heroVideo: assetPath('/videos/iam-home-hero.mp4'),
   field: assetPath('/images/field.jpg'),
   equipment: assetPath('/images/equipment.jpg'),
   construction: assetPath('/images/construction.jpg')
