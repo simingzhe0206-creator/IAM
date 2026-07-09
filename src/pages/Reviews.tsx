@@ -31,7 +31,7 @@ const signals = ['Accuracy', 'Clear communication', 'Reliable documentation', 'P
 export function Reviews() {
   return (
     <>
-      <PageHero title="Customer Reviews" image={assets.hero}>
+      <PageHero title="Customer Reviews" image={assets.reviewsBg}>
         A dedicated place for approved client feedback, project experience notes and review links once final customer
         testimonials are supplied.
       </PageHero>

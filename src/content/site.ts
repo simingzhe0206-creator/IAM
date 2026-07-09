@@ -20,6 +20,31 @@ export const assets = {
   logoFooter: assetPath('/images/iam-logo.png'),
   hero: assetPath('/images/hero-blue-survey.png'),
   heroVideo: assetPath('/videos/iam-home-hero.mp4'),
+  homePoster: assetPath('/images/iam-update/home-poster.jpg'),
+  aboutBg: assetPath('/images/iam-update/about-bg.jpg'),
+  servicesBg: assetPath('/images/iam-update/services-bg.jpg'),
+  reviewsBg: assetPath('/images/iam-update/reviews-bg.jpg'),
+  contactBg: assetPath('/images/iam-update/contact-bg.jpg'),
+  howWork: [
+    assetPath('/images/iam-update/how-work-01.jpg'),
+    assetPath('/images/iam-update/how-work-02.jpg'),
+    assetPath('/images/iam-update/how-work-03.jpg'),
+    assetPath('/images/iam-update/how-work-04.jpg')
+  ],
+  projectMap: assetPath('/images/iam-update/project-map.jpg'),
+  projectCivil: assetPath('/images/iam-update/project-civil.jpg'),
+  projectField: assetPath('/images/iam-update/project-field.jpg'),
+  projectApartment: assetPath('/images/iam-update/project-apartment.jpg'),
+  serviceDetailSurvey: assetPath('/images/iam-update/service-detail-survey.jpg'),
+  serviceBoundarySurvey: assetPath('/images/iam-update/service-boundary-survey.jpg'),
+  serviceIdentification: assetPath('/images/iam-update/service-identification.jpg'),
+  serviceConstructionSetout: assetPath('/images/iam-update/service-construction-setout.jpg'),
+  serviceWae: assetPath('/images/iam-update/service-wae.jpg'),
+  serviceSubdivision: assetPath('/images/iam-update/service-subdivision.jpg'),
+  serviceStrata: assetPath('/images/iam-update/service-strata.jpg'),
+  serviceEasement: assetPath('/images/iam-update/service-easement.jpg'),
+  service3dScanning: assetPath('/images/iam-update/service-3d-scanning.jpg'),
+  serviceTitleCouncil: assetPath('/images/iam-update/service-title-council.jpg'),
   field: assetPath('/images/field.jpg'),
   equipment: assetPath('/images/equipment.jpg'),
   construction: assetPath('/images/construction.jpg')
@@ -58,6 +83,13 @@ export type Service = {
   image: string;
 };
 
+export type ServiceCategory = {
+  title: string;
+  description: string;
+  image: string;
+  services: Array<{ label: string; slug?: string }>;
+};
+
 export const services: Service[] = [
   {
     slug: 'detail-and-level-survey',
@@ -88,7 +120,7 @@ export const services: Service[] = [
       }
     ],
     icon: CompassTool,
-    image: assets.field
+    image: assets.serviceDetailSurvey
   },
   {
     slug: 'boundary-survey-and-boundary-marking',
@@ -117,7 +149,7 @@ export const services: Service[] = [
       }
     ],
     icon: MapPinArea,
-    image: assets.equipment
+    image: assets.serviceBoundarySurvey
   },
   {
     slug: 'identification-survey',
@@ -146,7 +178,7 @@ export const services: Service[] = [
       }
     ],
     icon: FileMagnifyingGlass,
-    image: assets.field
+    image: assets.serviceIdentification
   },
   {
     slug: 'construction-setout-survey',
@@ -175,7 +207,7 @@ export const services: Service[] = [
       }
     ],
     icon: Crane,
-    image: assets.hero
+    image: assets.serviceConstructionSetout
   },
   {
     slug: 'work-as-executed-and-as-built-survey',
@@ -204,7 +236,7 @@ export const services: Service[] = [
       }
     ],
     icon: FileText,
-    image: assets.equipment
+    image: assets.serviceWae
   },
   {
     slug: 'land-subdivision-survey',
@@ -233,7 +265,7 @@ export const services: Service[] = [
       }
     ],
     icon: Polygon,
-    image: assets.hero
+    image: assets.serviceSubdivision
   },
   {
     slug: 'strata-and-community-title-subdivision',
@@ -262,7 +294,7 @@ export const services: Service[] = [
       }
     ],
     icon: Buildings,
-    image: assets.hero
+    image: assets.serviceStrata
   },
   {
     slug: 'easement-creation-and-88e-instrument-preparation',
@@ -291,7 +323,7 @@ export const services: Service[] = [
       }
     ],
     icon: PenNibStraight,
-    image: assets.hero
+    image: assets.serviceEasement
   },
   {
     slug: '3d-scanning-modelling-and-bim',
@@ -321,7 +353,7 @@ export const services: Service[] = [
       }
     ],
     icon: Scan,
-    image: assets.equipment
+    image: assets.service3dScanning
   },
   {
     slug: 'title-council-and-development-consultation',
@@ -350,7 +382,71 @@ export const services: Service[] = [
       }
     ],
     icon: TreeStructure,
-    image: assets.field
+    image: assets.serviceTitleCouncil
+  }
+];
+
+export const serviceCategories: ServiceCategory[] = [
+  {
+    title: 'Property & Boundary Surveys',
+    description:
+      "Our property and boundary survey services provide the accurate information needed for property transactions, planning, design and construction. Whether you're confirming legal boundaries, preparing for development or documenting existing site conditions, we deliver reliable survey data you can build on with confidence.",
+    image: assets.serviceBoundarySurvey,
+    services: [
+      { label: 'Detail & Contour Survey', slug: 'detail-and-level-survey' },
+      { label: 'Boundary Identification Survey', slug: 'boundary-survey-and-boundary-marking' },
+      { label: 'Identification Survey', slug: 'identification-survey' },
+      { label: 'Existing Conditions Survey', slug: 'detail-and-level-survey' },
+      { label: 'Lease Area Survey' }
+    ]
+  },
+  {
+    title: 'Construction Surveys',
+    description:
+      'Our construction survey services support projects from initial site establishment through to final completion. Using modern survey technology and precise field methods, we help contractors, builders and engineers achieve accurate set out, minimise costly errors and keep projects moving efficiently.',
+    image: assets.serviceConstructionSetout,
+    services: [
+      { label: 'Construction Set Out', slug: 'construction-setout-survey' },
+      { label: 'As-Built / Work-As-Executed (WAE) Survey', slug: 'work-as-executed-and-as-built-survey' },
+      { label: 'Monitoring Survey' }
+    ]
+  },
+  {
+    title: 'Development & Cadastral Surveys',
+    description:
+      'Our cadastral surveying team provides professional surveying solutions for land development projects of all sizes. From subdivisions and strata developments to easements and title boundary matters, we deliver accurate surveys that support planning approvals, land registration and successful project delivery.',
+    image: assets.serviceSubdivision,
+    services: [
+      { label: 'Torrens Title Subdivision', slug: 'land-subdivision-survey' },
+      { label: 'Strata Subdivision', slug: 'strata-and-community-title-subdivision' },
+      { label: 'Stratum Subdivision', slug: 'strata-and-community-title-subdivision' },
+      { label: 'Community Title Subdivision', slug: 'strata-and-community-title-subdivision' },
+      { label: 'Easement Surveys', slug: 'easement-creation-and-88e-instrument-preparation' },
+      { label: 'Consolidation Plans' }
+    ]
+  },
+  {
+    title: 'Spatial & Digital Surveys',
+    description:
+      'We capture high-quality spatial data using advanced laser scanning, GNSS, drone and digital surveying technologies. Our digital survey solutions provide accurate, information-rich datasets that support design, asset management, Building Information Modelling (BIM) and digital engineering workflows.',
+    image: assets.service3dScanning,
+    services: [
+      { label: '3D Laser Scanning', slug: '3d-scanning-modelling-and-bim' },
+      { label: 'Drone Survey' },
+      { label: 'Point Cloud Modelling', slug: '3d-scanning-modelling-and-bim' },
+      { label: 'BIM Support', slug: '3d-scanning-modelling-and-bim' }
+    ]
+  },
+  {
+    title: 'Infrastructure & Utility Surveys',
+    description:
+      'Our infrastructure and utility survey services provide accurate information for roads, public spaces and underground assets. We work alongside engineers, councils and contractors to deliver reliable survey data that supports planning, design, construction and ongoing asset management.',
+    image: assets.projectCivil,
+    services: [
+      { label: 'Public Domain Survey', slug: 'title-council-and-development-consultation' },
+      { label: 'Underground Utility Survey' },
+      { label: 'Road & Civil Surveys', slug: 'work-as-executed-and-as-built-survey' }
+    ]
   }
 ];
 
@@ -358,29 +454,36 @@ export const projectTypes = [
   {
     title: 'Residential Renovation and New Builds',
     description: 'Survey information for architects, designers, builders and homeowners.',
-    image: assets.field
+    image: assets.projectApartment
   },
   {
     title: 'Duplex and Dual Occupancy Development',
     description: 'Detail surveys, subdivision support, WAE documentation and 88E coordination.',
-    image: assets.hero
+    image: assets.serviceSubdivision
   },
   {
     title: 'Torrens Title Subdivision',
     description: 'Subdivision plans, administration sheets, council support and registration documentation.',
-    image: assets.field
+    image: assets.projectMap
   },
   {
     title: 'Strata Subdivision',
     description: 'Strata plans for residential, mixed-use and development projects.',
-    image: assets.equipment
+    image: assets.serviceStrata
   },
   {
     title: 'Commercial and Industrial Projects',
     description: 'Construction setout, 3D scanning, as-built surveys and compliance support.',
-    image: assets.hero
+    image: assets.projectCivil
   }
 ];
+
+export const projectExperience = [
+  ['Road and civil infrastructure', 'Construction control, WAE and public domain survey support.'],
+  ['Large apartment developments', 'Strata, setout and as-built documentation across multi-unit projects.'],
+  ['Land subdivision programs', 'Subdivision plans and registration support for staged land release.'],
+  ['Duplex and small developments', 'Detail, boundary, construction and title support for local projects.']
+] as const;
 
 export const formOptions = {
   services: services.map((service) => service.title),

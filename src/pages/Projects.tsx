@@ -1,14 +1,41 @@
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
-import { assets, projectTypes, services } from '../content/site';
+import { assets, projectExperience, projectTypes, services } from '../content/site';
 
 export function Projects() {
   return (
     <>
-      <PageHero title="Project Types" image={assets.hero}>
+      <PageHero title="Project Types" image={assets.projectMap}>
         IAM supports residential, subdivision, strata, commercial and construction related projects. This prototype
         presents categories rather than invented case studies.
       </PageHero>
+
+      <section className="section-band py-20 md:py-28">
+        <div className="section-shell grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+          <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_24px_68px_rgba(18,17,16,0.30)]">
+            <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.projectMap} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/72 via-[#252422]/16 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="max-w-xl text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Project coverage</div>
+              <h2 className="mt-4 max-w-2xl text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
+                Survey experience across residential, civil and development work.
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            {projectExperience.map(([title, text], index) => (
+              <article key={title} className="surface-card p-6">
+                <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
+                  Experience {String(index + 1).padStart(2, '0')}
+                </div>
+                <h3 className="mt-4 text-2xl font-extrabold text-[#fffdf0]">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-6">

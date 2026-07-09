@@ -42,7 +42,7 @@ const deliveryStandards = [
 export function About() {
   return (
     <>
-      <PageHero title="About IAM Surveyors" image={assets.field}>
+      <PageHero title="About IAM Surveyors" image={assets.aboutBg}>
         IAM Surveyors is a Sydney-based surveying company providing professional land surveying and land development
         support services across Sydney and New South Wales.
       </PageHero>
@@ -134,7 +134,7 @@ export function About() {
       <section className="py-20 md:py-28">
         <div className="section-shell grid gap-8 lg:grid-cols-2">
         <div className="overflow-hidden rounded-2xl border border-[#f4e00c]/25 shadow-[0_18px_60px_rgba(26,25,23,0.30)]">
-            <img className="h-full min-h-[440px] w-full object-cover image-treatment" src={assets.equipment} alt="IAM surveying equipment" />
+            <img className="h-full min-h-[440px] w-full object-cover image-treatment" src={assets.projectField} alt="IAM surveying team in the field" />
           </div>
           <div className="glass-panel rounded-2xl p-8 md:p-10">
           <h2 className="text-4xl font-extrabold tracking-normal text-[#fffdf0]">Mission and values</h2>

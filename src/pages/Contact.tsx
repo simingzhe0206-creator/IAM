@@ -14,7 +14,7 @@ const channels = [
 export function Contact() {
   return (
     <>
-      <PageHero title="Contact IAM Surveyors" image={assets.field}>
+      <PageHero title="Contact IAM Surveyors" image={assets.contactBg}>
         Keep the company contact details in one reliable place. Final email, WhatsApp, WeChat and Xiaohongshu links can
         be filled when available.
       </PageHero>

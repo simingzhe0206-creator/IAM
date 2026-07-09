@@ -1,33 +1,32 @@
 import { ArrowRight, CheckCircle, ClipboardText, EnvelopeSimple, MapTrifold } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
-import { ServiceCard } from '../components/ServiceCard';
-import { assets, projectTypes, services, stats } from '../content/site';
+import { assets, projectTypes, serviceCategories } from '../content/site';
 
 const steps = [
   {
-    title: 'Tell Us About Your Project',
+    title: 'Project introduction',
     text: 'Send the site address, project type and required survey service.',
     Icon: ClipboardText
   },
   {
-    title: 'Receive a Clear Fee Proposal',
+    title: 'Review and quotation',
     text: 'IAM reviews the requirements and provides a clear scope of work and quotation.',
     Icon: EnvelopeSimple
   },
   {
-    title: 'Site Survey and Plan Preparation',
+    title: 'Survey and preparation',
     text: 'The survey team attends site and prepares professional survey plans and documents.',
     Icon: MapTrifold
   },
   {
-    title: 'Ongoing Development Support',
+    title: 'Documentation support',
     text: 'IAM can assist with council, certifier, solicitor and registration related documentation.',
     Icon: CheckCircle
   }
 ];
 
-const audience = ['Architects', 'Builders', 'Developers', 'Certifiers', 'Solicitors'];
+const audience = ['Architects', 'Builders', 'Developers', 'Government Agencies', 'Consultants'];
 
 export function Home() {
   return (
@@ -40,6 +39,7 @@ export function Home() {
           muted
           loop
           playsInline
+          poster={assets.homePoster}
           preload="metadata"
           aria-hidden="true"
           tabIndex={-1}
@@ -64,8 +64,8 @@ export function Home() {
       <section className="section-band section-band-hero py-14 md:py-16">
         <div className="section-shell">
           <div className="overflow-hidden">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-              <div>
+            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div className="max-w-2xl">
                 <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                   About IAM
                 </h2>
@@ -74,13 +74,12 @@ export function Home() {
                   title documentation and practical project coordination.
                 </p>
               </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {stats.slice(0, 4).map(([value, label]) => (
-                  <div key={label} className="min-w-0 rounded-2xl border border-[#fffdf0]/12 bg-[#fffdf0]/7 p-5">
-                    <div className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">{value}</div>
-                    <div className="mt-2 break-words text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e2d2]">{label}</div>
-                  </div>
-                ))}
+              <div className="glass-panel rounded-2xl p-7 md:p-9">
+                <div className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Company introduction</div>
+                <p className="mt-4 text-lg leading-8 text-[#e6e2d2]">
+                  A dedicated company introduction can be added here once the final approved copy is ready. The layout is
+                  prepared for a concise professional overview, capability statement and local NSW service positioning.
+                </p>
               </div>
             </div>
 
@@ -108,9 +107,35 @@ export function Home() {
                 </ButtonLink>
               </div>
 
-              <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {services.map((service, index) => (
-                  <ServiceCard key={service.slug} service={service} index={index} />
+              <div className="mt-10 grid gap-5 lg:grid-cols-5">
+                {serviceCategories.map((category, index) => (
+                  <Link
+                    key={category.title}
+                    to="/services"
+                    className={`group surface-card relative min-h-[360px] overflow-hidden p-5 transition duration-500 hover:-translate-y-1 hover:border-[#f4e00c]/75 ${
+                      index === 0 || index === 2 ? 'lg:translate-y-6' : ''
+                    }`}
+                  >
+                    <img
+                      className="absolute inset-0 h-full w-full object-cover opacity-38 transition duration-700 group-hover:scale-105 group-hover:opacity-58 image-treatment"
+                      src={category.image}
+                      alt=""
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
+                    <div className="relative z-10 flex h-full flex-col justify-end">
+                      <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
+                        Catalogue {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#fffdf0]">{category.title}</h3>
+                      <div className="mt-5 grid gap-2">
+                        {category.services.slice(0, 4).map((item) => (
+                          <span key={item.label} className="text-sm font-semibold leading-5 text-[#e6e2d2]">
+                            {item.label}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </section>
@@ -120,38 +145,38 @@ export function Home() {
 
       <section className="section-band section-band-muted py-12 md:py-16">
         <div className="section-shell">
-          <div className="grid gap-8 overflow-hidden lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_24px_68px_rgba(18,17,16,0.30)]">
-              <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.field} alt="" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#252422]/10 to-transparent" />
-              <div className="absolute right-6 top-6 flex h-32 w-32 items-center justify-center rounded-full bg-[#f4e00c] text-center text-sm font-extrabold leading-5 text-[#242321] shadow-[0_18px_42px_rgba(18,17,16,0.32)]">
-                Clear quote
-                <br />
-                process
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center py-4">
+          <div className="grid gap-10 overflow-hidden">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
               <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 How we work.
               </h2>
               <p className="mt-4 max-w-xl text-lg leading-8 text-[#e6e2d2]">
                 A simple workflow for moving from project information to a clear surveying scope and deliverables.
               </p>
-              <div className="mt-8 grid gap-4">
-                {steps.map(({ title, text, Icon }, index) => (
-                  <div key={title} className="grid grid-cols-[3rem_1fr] gap-4 rounded-2xl border border-[#fffdf0]/12 bg-[#fffdf0]/7 p-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f4e00c] text-[#242321]">
-                      <Icon size={22} weight="duotone" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#e6e2d2]">Step {index + 1}</div>
-                      <h3 className="mt-1 text-lg font-extrabold text-[#fffdf0]">{title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-[#e6e2d2]">{text}</p>
+              </div>
+              <ButtonLink to="/quote" variant="secondary">Start a Project</ButtonLink>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-4">
+              {steps.map(({ title, text, Icon }, index) => (
+                <article key={title} className="surface-card overflow-hidden">
+                  <div className="relative h-48 overflow-hidden border-b border-[#fffdf0]/12">
+                    <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={assets.howWork[index]} alt="" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/62 to-transparent" />
+                    <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#f4e00c] text-sm font-extrabold text-[#242321]">
+                      {String(index + 1).padStart(2, '0')}
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div className="p-5">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#fffdf0]/8 text-[#f4e00c]">
+                      <Icon size={22} weight="duotone" />
+                    </div>
+                    <h3 className="text-xl font-extrabold text-[#fffdf0]">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{text}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
