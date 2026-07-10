@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
 import { ServiceCard } from '../components/ServiceCard';
@@ -15,8 +16,9 @@ export function Services() {
         <div className="section-shell">
           <div className="grid gap-5 lg:grid-cols-5">
             {serviceCategories.map((category, index) => (
-              <article
+              <Link
                 key={category.title}
+                to={`/services/category/${category.slug}`}
                 className={`surface-card relative min-h-[420px] overflow-hidden p-5 ${index % 2 ? 'lg:translate-y-8' : ''}`}
               >
                 <img className="absolute inset-0 h-full w-full object-cover opacity-38 image-treatment" src={category.image} alt="" />
@@ -35,7 +37,7 @@ export function Services() {
                     ))}
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

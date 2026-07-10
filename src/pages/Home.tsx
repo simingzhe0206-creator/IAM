@@ -61,84 +61,81 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-band section-band-hero py-14 md:py-16">
+      <section className="section-band section-band-hero py-16 md:py-20">
         <div className="section-shell">
-          <div className="overflow-hidden">
-            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-              <div className="max-w-2xl">
-                <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
-                  About IAM
-                </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
-                  IAM Surveyors supports property owners, architects, builders and development teams with survey plans,
-                  title documentation and practical project coordination.
-                </p>
-              </div>
-              <div className="glass-panel rounded-2xl p-7 md:p-9">
-                <div className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Company introduction</div>
-                <p className="mt-4 text-lg leading-8 text-[#e6e2d2]">
-                  A dedicated company introduction can be added here once the final approved copy is ready. The layout is
-                  prepared for a concise professional overview, capability statement and local NSW service positioning.
-                </p>
-              </div>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
+                Service catalogue.
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
+                A practical service structure for architects, builders, developers, homeowners, certifiers and
+                solicitors.
+              </p>
             </div>
+            <ButtonLink to="/services" variant="secondary">
+              Explore all services
+            </ButtonLink>
+          </div>
 
-            <div className="grid gap-3 border-y border-[#fffdf0]/12 py-5 md:grid-cols-5">
+          <div className="mt-10 grid gap-5 lg:grid-cols-5">
+            {serviceCategories.map((category, index) => (
+              <Link
+                key={category.title}
+                to={`/services/category/${category.slug}`}
+                className={`group surface-card relative min-h-[360px] overflow-hidden p-5 transition duration-500 hover:-translate-y-1 hover:border-[#f4e00c]/75 ${
+                  index === 0 || index === 2 ? 'lg:translate-y-6' : ''
+                }`}
+              >
+                <img
+                  className="absolute inset-0 h-full w-full object-cover opacity-38 transition duration-700 group-hover:scale-105 group-hover:opacity-58 image-treatment"
+                  src={category.image}
+                  alt=""
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
+                <div className="relative z-10 flex h-full flex-col justify-end">
+                  <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
+                    Catalogue {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#fffdf0]">{category.title}</h3>
+                  <div className="mt-5 grid gap-2">
+                    {category.services.slice(0, 4).map((item) => (
+                      <span key={item.label} className="text-sm font-semibold leading-5 text-[#e6e2d2]">
+                        {item.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative min-h-[76vh] overflow-hidden bg-[#1c1b19]">
+        <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.aboutBg} alt="" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/82 via-[#11100f]/42 to-[#11100f]/12" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/70 via-transparent to-[#11100f]/16" />
+        <div className="section-shell relative z-10 flex min-h-[76vh] items-end pb-16 pt-24 md:pb-20 md:pt-32">
+          <div className="max-w-4xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">About IAM</p>
+            <h2 className="mt-5 text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-6xl">
+              Survey plans, title documentation and practical project coordination.
+            </h2>
+            <p className="mt-5 max-w-3xl text-lg font-semibold leading-8 text-[#f0eedc]">
+              IAM Surveyors supports property owners, architects, builders and development teams with accurate survey
+              information across Sydney and NSW.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {audience.map((item) => (
-                <div key={item} className="rounded-xl border border-[#fffdf0]/12 bg-[#fffdf0]/7 px-4 py-3 text-center text-sm font-bold text-[#e6e2d2]">
+                <div
+                  key={item}
+                  className="rounded-xl border border-[#fffdf0]/18 bg-[#11100f]/42 px-4 py-3 text-center text-sm font-bold text-[#fffdf0] backdrop-blur-sm"
+                >
                   {item}
                 </div>
               ))}
             </div>
-
-            <section className="py-14 md:py-16">
-              <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                <div>
-                  <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
-                    Service catalogue.
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-lg leading-8 text-[#e6e2d2]">
-                    A practical service structure for architects, builders, developers, homeowners, certifiers and
-                    solicitors.
-                  </p>
-                </div>
-                <ButtonLink to="/services" variant="secondary">
-                  Explore all services
-                </ButtonLink>
-              </div>
-
-              <div className="mt-10 grid gap-5 lg:grid-cols-5">
-                {serviceCategories.map((category, index) => (
-                  <Link
-                    key={category.title}
-                    to="/services"
-                    className={`group surface-card relative min-h-[360px] overflow-hidden p-5 transition duration-500 hover:-translate-y-1 hover:border-[#f4e00c]/75 ${
-                      index === 0 || index === 2 ? 'lg:translate-y-6' : ''
-                    }`}
-                  >
-                    <img
-                      className="absolute inset-0 h-full w-full object-cover opacity-38 transition duration-700 group-hover:scale-105 group-hover:opacity-58 image-treatment"
-                      src={category.image}
-                      alt=""
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
-                    <div className="relative z-10 flex h-full flex-col justify-end">
-                      <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
-                        Catalogue {String(index + 1).padStart(2, '0')}
-                      </div>
-                      <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#fffdf0]">{category.title}</h3>
-                      <div className="mt-5 grid gap-2">
-                        {category.services.slice(0, 4).map((item) => (
-                          <span key={item.label} className="text-sm font-semibold leading-5 text-[#e6e2d2]">
-                            {item.label}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </section>
           </div>
         </div>
       </section>

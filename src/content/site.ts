@@ -84,6 +84,7 @@ export type Service = {
 };
 
 export type ServiceCategory = {
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -388,6 +389,7 @@ export const services: Service[] = [
 
 export const serviceCategories: ServiceCategory[] = [
   {
+    slug: 'property-boundary-surveys',
     title: 'Property & Boundary Surveys',
     description:
       "Our property and boundary survey services provide the accurate information needed for property transactions, planning, design and construction. Whether you're confirming legal boundaries, preparing for development or documenting existing site conditions, we deliver reliable survey data you can build on with confidence.",
@@ -401,6 +403,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: 'construction-surveys',
     title: 'Construction Surveys',
     description:
       'Our construction survey services support projects from initial site establishment through to final completion. Using modern survey technology and precise field methods, we help contractors, builders and engineers achieve accurate set out, minimise costly errors and keep projects moving efficiently.',
@@ -412,6 +415,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: 'development-cadastral-surveys',
     title: 'Development & Cadastral Surveys',
     description:
       'Our cadastral surveying team provides professional surveying solutions for land development projects of all sizes. From subdivisions and strata developments to easements and title boundary matters, we deliver accurate surveys that support planning approvals, land registration and successful project delivery.',
@@ -426,6 +430,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: 'spatial-digital-surveys',
     title: 'Spatial & Digital Surveys',
     description:
       'We capture high-quality spatial data using advanced laser scanning, GNSS, drone and digital surveying technologies. Our digital survey solutions provide accurate, information-rich datasets that support design, asset management, Building Information Modelling (BIM) and digital engineering workflows.',
@@ -438,6 +443,7 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: 'infrastructure-utility-surveys',
     title: 'Infrastructure & Utility Surveys',
     description:
       'Our infrastructure and utility survey services provide accurate information for roads, public spaces and underground assets. We work alongside engineers, councils and contractors to deliver reliable survey data that supports planning, design, construction and ongoing asset management.',

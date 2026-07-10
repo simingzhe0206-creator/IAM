@@ -8,6 +8,7 @@ import { NotFound } from './pages/NotFound';
 import { Projects } from './pages/Projects';
 import { Quote } from './pages/Quote';
 import { Reviews } from './pages/Reviews';
+import { ServiceCategoryDetail } from './pages/ServiceCategoryDetail';
 import { ServiceDetail } from './pages/ServiceDetail';
 import { Services } from './pages/Services';
 
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/about/capabilities" element={<Navigate to="/about" replace />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/category/:categorySlug" element={<ServiceCategoryDetail />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/reviews" element={<Reviews />} />

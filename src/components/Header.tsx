@@ -71,8 +71,13 @@ export function Header() {
                   </Link>
                   <div className="mt-3 grid gap-3 md:grid-cols-2">
                     {serviceCategories.map((category) => (
-                      <div key={category.title} className="rounded-xl border border-[#fffdf0]/10 bg-[#fffdf0]/6 p-3">
-                        <div className="text-sm font-extrabold text-[#fffdf0]">{category.title}</div>
+                      <div key={category.slug} className="rounded-xl border border-[#fffdf0]/10 bg-[#fffdf0]/6 p-3">
+                        <Link
+                          to={`/services/category/${category.slug}`}
+                          className="text-sm font-extrabold text-[#fffdf0] transition hover:text-[#f4e00c]"
+                        >
+                          {category.title}
+                        </Link>
                         <div className="mt-2 grid gap-1.5">
                           {category.services.slice(0, 4).map((item) =>
                             item.slug ? (
@@ -88,9 +93,13 @@ export function Header() {
                                 {item.label}
                               </NavLink>
                             ) : (
-                              <span key={`${category.title}-${item.label}`} className="text-xs font-semibold text-[#e6e2d2]/70">
+                              <Link
+                                key={`${category.title}-${item.label}`}
+                                to={`/services/category/${category.slug}`}
+                                className="text-xs font-semibold text-[#e6e2d2]/70 transition hover:text-[#fffdf0]"
+                              >
                                 {item.label}
-                              </span>
+                              </Link>
                             )
                           )}
                         </div>
@@ -177,16 +186,21 @@ export function Header() {
               </nav>
               <div className="mt-5 grid gap-2 border-t border-[#fffdf0]/14 pt-5">
                 {serviceCategories.map((category) => (
-                  <div key={category.title} className="grid gap-2 rounded-xl border border-[#fffdf0]/10 p-3">
-                    <div className="text-sm font-bold text-[#fffdf0]">{category.title}</div>
+                  <div key={category.slug} className="grid gap-2 rounded-xl border border-[#fffdf0]/10 p-3">
+                    <Link
+                      className="text-sm font-bold text-[#fffdf0]"
+                      to={`/services/category/${category.slug}`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {category.title}
+                    </Link>
                     {category.services
-                      .filter((item) => item.slug)
                       .slice(0, 4)
                       .map((item) => (
                         <Link
                           key={`${category.title}-${item.label}`}
                           className="text-sm text-[#e6e2d2]"
-                          to={`/services/${item.slug}`}
+                          to={item.slug ? `/services/${item.slug}` : `/services/category/${category.slug}`}
                           onClick={() => setOpen(false)}
                         >
                           {item.label}
