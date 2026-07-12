@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { RouteScroll } from './components/RouteScroll';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Home } from './pages/Home';
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#262522] text-[#fffdf0]">
       <Header />
+      <RouteScroll />
       <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />

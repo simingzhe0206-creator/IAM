@@ -1,30 +1,9 @@
-import { ArrowRight, CheckCircle, ClipboardText, EnvelopeSimple, MapTrifold } from '@phosphor-icons/react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
+import { ProjectTimeline } from '../components/ProjectTimeline';
+import { Reveal } from '../components/Reveal';
 import { assets, projectTypes, serviceCategories } from '../content/site';
-
-const steps = [
-  {
-    title: 'Project introduction',
-    text: 'Send the site address, project type and required survey service.',
-    Icon: ClipboardText
-  },
-  {
-    title: 'Review and quotation',
-    text: 'IAM reviews the requirements and provides a clear scope of work and quotation.',
-    Icon: EnvelopeSimple
-  },
-  {
-    title: 'Survey and preparation',
-    text: 'The survey team attends site and prepares professional survey plans and documents.',
-    Icon: MapTrifold
-  },
-  {
-    title: 'Documentation support',
-    text: 'IAM can assist with council, certifier, solicitor and registration related documentation.',
-    Icon: CheckCircle
-  }
-];
 
 const audience = ['Architects', 'Builders', 'Developers', 'Government Agencies', 'Consultants'];
 
@@ -47,7 +26,7 @@ export function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/58 via-[#11100f]/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/64 via-transparent to-[#11100f]/14" />
         <div className="section-shell relative z-10 flex min-h-[100dvh] items-end pb-36 pt-28 md:pb-44">
-          <div className="max-w-4xl">
+          <Reveal className="max-w-4xl">
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.14em] text-white/80">
               Sydney and NSW land surveying
             </p>
@@ -57,13 +36,13 @@ export function Home() {
             <p className="mt-6 max-w-3xl text-lg font-semibold leading-8 text-white/86 md:text-2xl md:leading-9">
               Professional Land Surveying and Development Support Across Sydney and NSW.
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-band section-band-hero py-16 md:py-20">
         <div className="section-shell">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 Service catalogue.
@@ -76,7 +55,7 @@ export function Home() {
             <ButtonLink to="/services" variant="secondary">
               Explore all services
             </ButtonLink>
-          </div>
+          </Reveal>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-5">
             {serviceCategories.map((category, index) => (
@@ -88,7 +67,7 @@ export function Home() {
                 }`}
               >
                 <img
-                  className="absolute inset-0 h-full w-full object-cover opacity-38 transition duration-700 group-hover:scale-105 group-hover:opacity-58 image-treatment"
+                  className="absolute inset-0 h-full w-full object-cover opacity-44 image-treatment"
                   src={category.image}
                   alt=""
                 />
@@ -117,7 +96,7 @@ export function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/82 via-[#11100f]/42 to-[#11100f]/12" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/70 via-transparent to-[#11100f]/16" />
         <div className="section-shell relative z-10 flex min-h-[76vh] items-end pb-16 pt-24 md:pb-20 md:pt-32">
-          <div className="max-w-4xl">
+          <Reveal className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">About IAM</p>
             <h2 className="mt-5 text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-6xl">
               Survey plans, title documentation and practical project coordination.
@@ -136,14 +115,14 @@ export function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-band section-band-muted py-12 md:py-16">
         <div className="section-shell">
           <div className="grid gap-10 overflow-hidden">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
               <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 How we work.
@@ -153,28 +132,9 @@ export function Home() {
               </p>
               </div>
               <ButtonLink to="/quote" variant="secondary">Start a Project</ButtonLink>
-            </div>
+            </Reveal>
 
-            <div className="grid gap-4 lg:grid-cols-4">
-              {steps.map(({ title, text, Icon }, index) => (
-                <article key={title} className="surface-card overflow-hidden">
-                  <div className="relative h-48 overflow-hidden border-b border-[#fffdf0]/12">
-                    <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={assets.howWork[index]} alt="" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/62 to-transparent" />
-                    <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#f4e00c] text-sm font-extrabold text-[#242321]">
-                      {String(index + 1).padStart(2, '0')}
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#fffdf0]/8 text-[#f4e00c]">
-                      <Icon size={22} weight="duotone" />
-                    </div>
-                    <h3 className="text-xl font-extrabold text-[#fffdf0]">{title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <ProjectTimeline />
           </div>
         </div>
       </section>
@@ -182,7 +142,7 @@ export function Home() {
       <section className="section-band py-12 md:py-16">
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-            <div>
+            <Reveal>
               <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 Project types IAM supports.
               </h2>
@@ -192,7 +152,7 @@ export function Home() {
               <div className="mt-8">
                 <ButtonLink to="/projects">View Project Types</ButtonLink>
               </div>
-            </div>
+            </Reveal>
 
             <div className="grid gap-4 md:grid-cols-2">
               {projectTypes.map((project, index) => (
@@ -204,7 +164,7 @@ export function Home() {
                   }`}
                 >
                   <img
-                    className="absolute inset-0 h-full w-full object-cover opacity-35 transition duration-700 group-hover:scale-105 group-hover:opacity-55 image-treatment"
+                    className="absolute inset-0 h-full w-full object-cover opacity-42 image-treatment"
                     src={project.image}
                     alt=""
                   />
@@ -222,7 +182,7 @@ export function Home() {
 
       <section className="section-band section-band-muted py-12 md:py-16">
         <div className="section-shell">
-          <div className="border-y border-[#fffdf0]/12 py-10 text-[#fffdf0] md:py-12">
+          <Reveal className="border-y border-[#fffdf0]/12 py-10 text-[#fffdf0] md:py-12">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <h2 className="text-balance text-4xl font-extrabold tracking-normal md:text-5xl">
@@ -241,7 +201,7 @@ export function Home() {
                 <ArrowRight size={18} weight="bold" />
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -1,6 +1,7 @@
 import { ChatCenteredText, Star } from '@phosphor-icons/react';
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
+import { Reveal } from '../components/Reveal';
 import { assets } from '../content/site';
 
 const reviewPlaceholders = [
@@ -38,7 +39,7 @@ export function Reviews() {
 
       <section className="section-band py-20 md:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-          <div className="sticky top-28">
+          <Reveal className="sticky top-28">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Client confidence</p>
             <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#fffdf0] md:text-6xl">
               Review slots ready for approved client feedback.
@@ -47,9 +48,9 @@ export function Reviews() {
               The prototype keeps review content honest by using placeholders until the business provides approved
               testimonials, names or platform links.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <Reveal className="grid gap-5 md:grid-cols-2" delay={0.08}>
             {reviewPlaceholders.map((review, index) => (
               <article key={review.type} className="surface-card p-6">
                 <div className="flex items-center justify-between gap-4">
@@ -70,22 +71,22 @@ export function Reviews() {
                 <p className="mt-4 text-sm leading-6 text-[#e6e2d2]">{review.note}</p>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-band section-band-muted py-16 md:py-20">
         <div className="section-shell">
-          <div className="grid gap-4 border-y border-[#fffdf0]/12 py-8 md:grid-cols-4">
+          <Reveal className="grid gap-4 border-y border-[#fffdf0]/12 py-8 md:grid-cols-4">
             {signals.map((signal) => (
               <div key={signal} className="text-sm font-bold text-[#fffdf0]">
                 {signal}
               </div>
             ))}
-          </div>
-          <div className="mt-10">
+          </Reveal>
+          <Reveal className="mt-10" delay={0.08}>
             <ButtonLink to="/quote">Discuss a Project</ButtonLink>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

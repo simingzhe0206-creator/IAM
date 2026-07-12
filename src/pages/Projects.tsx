@@ -1,5 +1,6 @@
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
+import { Reveal } from '../components/Reveal';
 import { assets, projectExperience, projectTypes, services } from '../content/site';
 
 export function Projects() {
@@ -15,15 +16,15 @@ export function Projects() {
           <div className="relative min-h-[520px] overflow-hidden rounded-2xl border border-[#fffdf0]/12 bg-[#262522] shadow-[0_24px_68px_rgba(18,17,16,0.30)]">
             <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={assets.projectMap} alt="" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/72 via-[#252422]/16 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
+            <Reveal className="absolute bottom-6 left-6 right-6">
               <div className="max-w-xl text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Project coverage</div>
               <h2 className="mt-4 max-w-2xl text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 Survey experience across residential, civil and development work.
               </h2>
-            </div>
+            </Reveal>
           </div>
 
-          <div className="grid gap-4">
+          <Reveal className="grid gap-4">
             {projectExperience.map(([title, text], index) => (
               <article key={title} className="surface-card p-6">
                 <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
@@ -33,7 +34,7 @@ export function Projects() {
                 <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{text}</p>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -49,7 +50,7 @@ export function Projects() {
               <div className="min-h-80 overflow-hidden">
                 <img className="h-full w-full object-cover transition duration-700 hover:scale-105 image-treatment" src={project.image} alt="" />
               </div>
-              <div className="p-7 md:p-10">
+              <Reveal className="p-7 md:p-10">
                 <div className="text-sm font-extrabold text-[#f4e00c]">Project category {index + 1}</div>
                 <h2 className="mt-5 text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0]">{project.title}</h2>
                 <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">{project.description}</p>
@@ -60,7 +61,7 @@ export function Projects() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             </article>
           ))}
         </div>
@@ -68,7 +69,7 @@ export function Projects() {
 
       <section className="pb-20 md:pb-28">
         <div className="section-shell">
-          <div className="glass-panel rounded-2xl p-8 md:p-10">
+          <Reveal className="glass-panel rounded-2xl p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <h2 className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">Have project documents ready?</h2>
@@ -78,7 +79,7 @@ export function Projects() {
             </div>
             <ButtonLink to="/quote">Start Quote Request</ButtonLink>
           </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
