@@ -1,3 +1,4 @@
+import { ArrowRight } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
@@ -6,60 +7,70 @@ import { assets, serviceCategories } from '../content/site';
 
 export function Services() {
   return (
-    <>
-    <PageHero title="Our Surveying Services" image={assets.servicesBg}>
-        IAM Surveyors provides a comprehensive range of land surveying services for architects, builders, developers,
-        homeowners, certifiers, solicitors and government related projects.
+    <div className="editorial-page">
+      <PageHero title="Our Surveying Services" image={assets.servicesBg}>
+        Professional land surveying for architects, builders, developers, homeowners, certifiers, solicitors and
+        government related projects.
       </PageHero>
 
-      <section className="py-20 md:py-28">
+      <section className="editorial-section py-20 md:py-28">
         <div className="section-shell">
-          <Reveal className="grid gap-5 lg:grid-cols-5">
-            {serviceCategories.map((category, index) => (
-              <Link
-                id={category.slug}
-                key={category.title}
-                to={`/services/category/${category.slug}`}
-                className={`surface-card relative min-h-[420px] scroll-mt-28 overflow-hidden p-5 ${index % 2 ? 'lg:translate-y-8' : ''}`}
-              >
-                <img className="absolute inset-0 h-full w-full object-cover opacity-38 image-treatment" src={category.image} alt="" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/90 via-[#252422]/58 to-[#252422]/18" />
-                <div className="relative z-10 flex h-full flex-col justify-end">
-                  <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
-                    Service group {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h2 className="mt-4 text-2xl font-extrabold leading-tight text-[#fffdf0]">{category.title}</h2>
-                  <p className="mt-4 line-clamp-5 text-sm leading-6 text-[#e6e2d2]">{category.description}</p>
-                  <div className="mt-5 grid gap-2">
-                    {category.services.map((item) => (
-                      <div key={item.label} className="rounded-lg border border-[#fffdf0]/12 bg-[#fffdf0]/8 px-3 py-2 text-xs font-bold text-[#e6e2d2]">
-                        {item.label}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
+          <Reveal className="grid gap-8 pb-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <p className="editorial-kicker">Service directory</p>
+              <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">Five coordinated areas of practice.</h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-[#d8d5ca]">
+              Select a service group to review the detailed survey scope, typical deliverables and project uses.
+            </p>
           </Reveal>
+
+          <div className="border-t border-[#fffdf0]/16">
+            {serviceCategories.map((category, index) => (
+              <article id={category.slug} key={category.title} className="scroll-mt-24 border-b border-[#fffdf0]/16 py-10 md:py-14">
+                <div className={`grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch ${index % 2 ? 'lg:[&>div:first-child]:order-2' : ''}`}>
+                  <div className="min-h-72 overflow-hidden lg:min-h-[420px]">
+                    <img className="editorial-image image-treatment" src={category.image} alt="" />
+                  </div>
+                  <Reveal className="flex flex-col justify-between py-1 lg:px-6">
+                    <div>
+                      <div className="text-sm font-extrabold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</div>
+                      <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-5xl">{category.title}</h2>
+                      <p className="mt-6 text-base leading-8 text-[#d8d5ca]">{category.description}</p>
+                    </div>
+                    <div className="mt-9">
+                      <div className="border-t border-[#fffdf0]/16">
+                        {category.services.map((item) => (
+                          <div key={item.label} className="border-b border-[#fffdf0]/12 py-3 text-sm font-semibold text-[#ece9df]">
+                            {item.label}
+                          </div>
+                        ))}
+                      </div>
+                      <Link className="mt-7 inline-flex items-center gap-3 text-sm font-extrabold text-[#f4e00c]" to={`/services/category/${category.slug}`}>
+                        View service details <ArrowRight size={18} weight="bold" />
+                      </Link>
+                    </div>
+                  </Reveal>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-band section-band-muted py-14 md:py-[4.5rem]">
+      <section className="editorial-section-soft py-16 md:py-20">
         <div className="section-shell">
-          <Reveal className="grid gap-6 border-y border-[#fffdf0]/12 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <Reveal className="grid gap-8 border-y border-[#fffdf0]/16 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-            <h2 className="text-3xl font-extrabold tracking-normal text-[#fffdf0]">
-                Not sure which survey you need?
-              </h2>
-              <p className="mt-3 max-w-2xl text-[#e6e2d2]">
-                Send the address, project stage and documents you already have. IAM can review the information and
-                guide the next step.
+              <h2 className="text-3xl font-normal text-[#fffdf0] md:text-4xl">Not sure which survey you need?</h2>
+              <p className="mt-4 max-w-2xl leading-7 text-[#d8d5ca]">
+                Send the site address, project stage and documents you already have. IAM will help define the next step.
               </p>
             </div>
             <ButtonLink to="/quote">Get a Quote</ButtonLink>
           </Reveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }

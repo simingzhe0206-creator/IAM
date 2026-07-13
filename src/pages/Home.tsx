@@ -13,16 +13,17 @@ export function Home() {
       <section className="relative min-h-[100dvh] overflow-hidden bg-[#262522]">
         <video
           className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-          src={assets.heroVideo}
           autoPlay
           muted
           loop
           playsInline
-          poster={assets.homePoster}
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
           tabIndex={-1}
-        />
+        >
+          <source media="(max-width: 767px)" src={assets.heroVideoMobile} type="video/mp4" />
+          <source src={assets.heroVideoDesktop} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/58 via-[#11100f]/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/64 via-transparent to-[#11100f]/14" />
         <div className="section-shell relative z-10 flex min-h-[100dvh] items-end pb-36 pt-28 md:pb-44">
@@ -57,34 +58,19 @@ export function Home() {
             </ButtonLink>
           </Reveal>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-5">
+          <div className="mt-10 border-t border-[#fffdf0]/16">
             {serviceCategories.map((category, index) => (
               <Link
                 key={category.title}
                 to={`/services/category/${category.slug}`}
-                className={`group surface-card relative min-h-[360px] overflow-hidden p-5 transition duration-500 hover:-translate-y-1 hover:border-[#f4e00c]/75 ${
-                  index === 0 || index === 2 ? 'lg:translate-y-6' : ''
-                }`}
+                className="group grid gap-5 border-b border-[#fffdf0]/16 py-6 transition hover:bg-[#fffdf0]/[0.025] md:grid-cols-[5rem_1fr_1fr_auto] md:items-center md:px-4"
               >
-                <img
-                  className="absolute inset-0 h-full w-full object-cover opacity-44 image-treatment"
-                  src={category.image}
-                  alt=""
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
-                <div className="relative z-10 flex h-full flex-col justify-end">
-                  <div className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">
-                    Catalogue {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#fffdf0]">{category.title}</h3>
-                  <div className="mt-5 grid gap-2">
-                    {category.services.slice(0, 4).map((item) => (
-                      <span key={item.label} className="text-sm font-semibold leading-5 text-[#e6e2d2]">
-                        {item.label}
-                      </span>
-                    ))}
-                  </div>
+                <div className="text-sm font-extrabold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</div>
+                <h3 className="text-2xl font-normal leading-tight text-[#fffdf0] md:text-3xl">{category.title}</h3>
+                <div className="text-sm leading-6 text-[#d8d5ca]">
+                  {category.services.slice(0, 4).map((item) => item.label).join(' / ')}
                 </div>
+                <ArrowRight className="text-[#f4e00c] transition group-hover:translate-x-1" size={22} weight="bold" />
               </Link>
             ))}
           </div>
@@ -105,11 +91,11 @@ export function Home() {
               IAM Surveyors supports property owners, architects, builders and development teams with accurate survey
               information across Sydney and NSW.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-8 grid border-t border-white/20 sm:grid-cols-2 lg:grid-cols-5">
               {audience.map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-[#fffdf0]/18 bg-[#11100f]/42 px-4 py-3 text-center text-sm font-bold text-[#fffdf0] backdrop-blur-sm"
+                  className="border-b border-white/20 px-4 py-4 text-sm font-bold text-[#fffdf0] sm:border-r"
                 >
                   {item}
                 </div>
@@ -154,25 +140,19 @@ export function Home() {
               </div>
             </Reveal>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="border-t border-[#fffdf0]/16">
               {projectTypes.map((project, index) => (
                 <Link
                   key={project.title}
                   to="/projects"
-                  className={`group surface-card relative min-h-56 overflow-hidden p-5 ${
-                    index === 0 ? 'md:col-span-2' : ''
-                  }`}
+                  className="group grid gap-4 border-b border-[#fffdf0]/16 py-6 md:grid-cols-[4rem_1fr_auto] md:items-start"
                 >
-                  <img
-                    className="absolute inset-0 h-full w-full object-cover opacity-42 image-treatment"
-                    src={project.image}
-                    alt=""
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#252422]/58 via-[#252422]/42 to-[#252422]/22" />
-                  <div className="relative z-10 flex h-full flex-col justify-end">
-                    <h3 className="max-w-xl text-2xl font-extrabold tracking-normal text-[#fffdf0]">{project.title}</h3>
+                  <div className="text-sm font-extrabold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</div>
+                  <div>
+                    <h3 className="max-w-xl text-2xl font-normal tracking-normal text-[#fffdf0]">{project.title}</h3>
                     <p className="mt-3 max-w-xl text-sm leading-6 text-[#e6e2d2]">{project.description}</p>
                   </div>
+                  <ArrowRight className="text-[#f4e00c] transition group-hover:translate-x-1" size={20} weight="bold" />
                 </Link>
               ))}
             </div>

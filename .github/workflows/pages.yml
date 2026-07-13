@@ -34,6 +34,9 @@ jobs:
         run: npm ci
 
       - name: Build static preview
+        env:
+          VITE_QUOTE_ENABLED: "false"
+          VITE_QUOTE_API_BASE_URL: ""
         run: npm run build:client -- --base=/IAM/
 
       - name: Add SPA fallback

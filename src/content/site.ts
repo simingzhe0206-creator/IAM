@@ -19,8 +19,8 @@ export const assets = {
   logo: assetPath('/images/iam-logo.png'),
   logoFooter: assetPath('/images/iam-logo.png'),
   hero: assetPath('/images/hero-blue-survey.png'),
-  heroVideo: assetPath('/videos/iam-home-hero.mp4'),
-  homePoster: assetPath('/images/iam-update/home-poster.jpg'),
+  heroVideoDesktop: assetPath('/videos/iam-home-hero-desktop.mp4'),
+  heroVideoMobile: assetPath('/videos/iam-home-hero-mobile.mp4'),
   aboutBg: assetPath('/images/iam-update/about-bg.jpg'),
   servicesBg: assetPath('/images/iam-update/services-bg.jpg'),
   reviewsBg: assetPath('/images/iam-update/reviews-bg.jpg'),
@@ -51,10 +51,14 @@ export const assets = {
 };
 
 export const contact = {
-  address: '47/8 Avenue of the Americas, Newington NSW 2127',
+  address: 'Shop 2/30-32 Herbert Street, West Ryde, NSW 2114',
   hours: 'Monday to Friday, 9AM to 5PM',
-  phone: '(+61) 426 668 800',
-  email: 'email placeholder',
+  phone: '+61 452 666 691',
+  email: 'office@iamsurveyor.com.au',
+  phoneHref: 'tel:+61452666691',
+  emailHref: 'mailto:office@iamsurveyor.com.au',
+  mapsHref:
+    'https://www.google.com/maps/search/?api=1&query=Shop%202%2F30-32%20Herbert%20Street%2C%20West%20Ryde%2C%20NSW%202114',
   whatsapp: 'WhatsApp placeholder',
   wechat: 'WeChat placeholder',
   xiaohongshu: 'Xiaohongshu placeholder'

@@ -28,33 +28,43 @@ function enquiryText(fields: QuotePayload) {
 }
 
 export function createMailer(config: ServerConfig): EnquiryMailer {
-  return {
-    async sendQuoteEnquiry({ fields, files }) {
-      if (
-        !config.smtpHost ||
-        !config.smtpUser ||
-        !config.smtpPass ||
-        !config.enquiryToEmail ||
-        !config.enquiryFromEmail
-      ) {
-        throw new Error('SMTP is not configured. Check .env settings.');
-      }
-
-      const transporter = nodemailer.createTransport({
+  const mailReady = Boolean(
+    config.smtpHost &&
+      config.smtpUser &&
+      config.smtpPass &&
+      config.enquiryToEmail &&
+      config.enquiryFromEmail
+  );
+  const transporter = mailReady
+    ? nodemailer.createTransport({
+        pool: true,
+        maxConnections: 3,
+        maxMessages: 100,
         host: config.smtpHost,
         port: config.smtpPort,
         secure: config.smtpPort === 465,
+        connectionTimeout: 10_000,
+        greetingTimeout: 10_000,
+        socketTimeout: 20_000,
         auth: {
           user: config.smtpUser,
           pass: config.smtpPass
         }
-      });
+      })
+    : undefined;
+
+  return {
+    mailReady,
+    async sendQuoteEnquiry({ fields, files }) {
+      if (!transporter || !config.enquiryToEmail || !config.enquiryFromEmail) {
+        throw new Error('SMTP is not configured. Check .env settings.');
+      }
 
       await transporter.sendMail({
         to: config.enquiryToEmail,
         from: config.enquiryFromEmail,
         replyTo: fields.email,
-        subject: `New IAM Surveyors quote enquiry from ${fields.name}`,
+        subject: `New IAM Surveyors quote enquiry from ${fields.name?.replace(/[\r\n]+/g, ' ')}`,
         text: enquiryText(fields),
         attachments: files.map((file) => ({
           filename: file.originalname,

@@ -7,13 +7,13 @@ type PageHeroProps = {
 export function PageHero({ title, children, image }: PageHeroProps) {
   if (image) {
     return (
-      <section className="relative min-h-[64vh] overflow-hidden bg-[#1c1b19]">
+      <section className="relative min-h-[68vh] overflow-hidden bg-[#181817]">
         <img className="absolute inset-0 h-full w-full object-cover image-treatment" src={image} alt="" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/82 via-[#11100f]/44 to-[#11100f]/12" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/64 via-transparent to-[#11100f]/22" />
-        <div className="section-shell relative z-10 flex min-h-[64vh] items-end pb-16 pt-32 md:pb-20 md:pt-40">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#11100f]/70 via-[#11100f]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/50 via-transparent to-[#11100f]/18" />
+        <div className="section-shell relative z-10 flex min-h-[68vh] items-end pb-16 pt-32 md:pb-20 md:pt-40">
           <Reveal className="max-w-4xl">
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.04] tracking-normal text-[#fffdf0] sm:text-5xl md:text-7xl">
+            <h1 className="text-balance text-4xl font-normal leading-[1.04] tracking-normal text-[#fffdf0] sm:text-5xl md:text-7xl">
               {title}
             </h1>
             <div className="mt-6 max-w-2xl text-base font-semibold leading-8 text-[#f0eedc] sm:text-lg">{children}</div>

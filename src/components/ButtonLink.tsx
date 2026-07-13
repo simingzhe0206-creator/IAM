@@ -19,7 +19,7 @@ export function ButtonLink({ to, children, variant = 'primary' }: ButtonLinkProp
   return (
     <Link
       to={to}
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-semibold transition duration-200 active:translate-y-px ${variants[variant]}`}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-sm px-5 text-sm font-semibold transition duration-200 active:translate-y-px ${variants[variant]}`}
     >
       {children}
       <ArrowRight size={17} weight="bold" />

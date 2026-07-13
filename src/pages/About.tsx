@@ -1,11 +1,17 @@
-import { Buildings, CheckCircle, FileText, MapTrifold, Ruler, UsersThree, UserCircle } from '@phosphor-icons/react';
+import { Buildings, CheckCircle, MapTrifold, Ruler, UserCircle, UsersThree } from '@phosphor-icons/react';
 import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
-import { StatsStrip } from '../components/StatsStrip';
 import { assets, stats } from '../content/site';
 
-const values = ['Accuracy', 'Professionalism', 'Clear Communication', 'Efficiency', 'Practical Problem Solving', 'Long-Term Client Relationships'];
+const values = [
+  'Accuracy',
+  'Professionalism',
+  'Clear Communication',
+  'Efficiency',
+  'Practical Problem Solving',
+  'Long-Term Client Relationships'
+];
 
 const peopleSlots = ['Team member placeholder', 'Team member placeholder', 'Team member placeholder'];
 
@@ -40,164 +46,153 @@ const deliveryStandards = [
   'Responsive coordination with the wider project consultant team'
 ];
 
+const companyStrengths = [
+  'Experienced land surveyors and development support professionals.',
+  'Residential, commercial, infrastructure and land development project experience.',
+  'Detail survey, boundary survey, setout survey, WAE, subdivision, strata, 88E and title related matters.',
+  'Collaboration with architects, engineers, builders, certifiers, councils and solicitors.'
+];
+
 export function About() {
   return (
-    <>
+    <div className="editorial-page">
       <PageHero title="About IAM Surveyors" image={assets.aboutBg}>
         IAM Surveyors is a Sydney-based surveying company providing professional land surveying and land development
         support services across Sydney and New South Wales.
       </PageHero>
 
-      <section className="py-20 md:py-28">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <Reveal className="sticky top-28">
-          <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-6xl">
+      <section className="editorial-section py-20 md:py-28">
+        <div className="section-shell grid gap-12 lg:grid-cols-[0.88fr_1.12fr]">
+          <Reveal>
+            <p className="editorial-kicker">Who we are</p>
+            <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">
               Accurate survey information with clear development support.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#d8d5ca]">
               IAM does not only provide survey plans. The team supports clients through the full development
               documentation process.
             </p>
           </Reveal>
-          <Reveal className="grid gap-5" delay={0.08}>
-            {[
-              'Experienced land surveyors and development support professionals.',
-              'Residential, commercial, infrastructure and land development project experience.',
-              'Detail survey, boundary survey, setout survey, WAE, subdivision, strata, 88E and title related matters.',
-              'Collaboration with architects, engineers, builders, certifiers, councils and solicitors.'
-            ].map((item) => (
-              <div key={item} className="glass-panel flex gap-4 rounded-2xl p-6">
-            <CheckCircle className="mt-1 shrink-0 text-[#f4e00c]" size={24} weight="fill" />
-                <p className="text-lg leading-8 text-[#e6e2d2]">{item}</p>
-              </div>
+          <div className="border-t border-[#fffdf0]/16">
+            {companyStrengths.map((item, index) => (
+              <Reveal key={item} className="grid gap-4 border-b border-[#fffdf0]/16 py-6 sm:grid-cols-[3rem_1fr]" delay={index * 0.04}>
+                <span className="text-sm font-bold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</span>
+                <p className="text-lg leading-8 text-[#ece9df]">{item}</p>
+              </Reveal>
             ))}
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      <StatsStrip />
-
-      <section className="section-band py-20 md:py-28">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <Reveal className="sticky top-28">
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Capabilities</p>
-            <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#fffdf0] md:text-6xl">
-              Built for technical survey delivery and development support.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
-              IAM supports property, design and development teams with survey information, title documentation and
-              practical project coordination across Sydney and NSW.
+      <section className="editorial-section-light py-20 md:py-28">
+        <div className="section-shell">
+          <Reveal className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6810]">Capabilities</p>
+              <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">
+                Technical delivery for every stage of development.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-[#4b4a48]">
+              Survey information, title documentation and practical coordination for property, design and development
+              teams across Sydney and NSW.
             </p>
           </Reveal>
 
-          <Reveal className="grid gap-5 md:grid-cols-2" delay={0.08}>
-            {capabilityGroups.map(({ title, text, Icon }) => (
-              <article key={title} className="surface-card p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#242321]">
-                  <Icon size={24} weight="duotone" />
+          <div className="mt-14 grid border-t border-[#181817]/20 md:grid-cols-2">
+            {capabilityGroups.map(({ title, text, Icon }, index) => (
+              <Reveal
+                key={title}
+                className={`grid gap-5 border-b border-[#181817]/20 py-8 md:grid-cols-[3rem_1fr] ${index % 2 === 0 ? 'md:border-r md:pr-8' : 'md:pl-8'}`}
+                delay={index * 0.04}
+              >
+                <Icon className="text-[#4b4a48]" size={30} weight="light" />
+                <div>
+                  <h3 className="text-2xl font-normal">{title}</h3>
+                  <p className="mt-3 leading-7 text-[#5f5d58]">{text}</p>
                 </div>
-                <h3 className="mt-6 text-2xl font-extrabold text-[#fffdf0]">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#e6e2d2]">{text}</p>
-              </article>
+              </Reveal>
             ))}
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-band section-band-muted py-16 md:py-20">
-        <div className="section-shell grid gap-8 lg:grid-cols-[1fr_1fr]">
-          <Reveal className="glass-panel rounded-2xl p-7 md:p-9">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#242321]">
-              <FileText size={24} weight="duotone" />
-            </div>
-            <h2 className="mt-6 text-3xl font-extrabold text-[#fffdf0]">Delivery standards</h2>
-            <div className="mt-6 grid gap-4">
-              {deliveryStandards.map((item) => (
-                <div key={item} className="flex gap-3 text-sm leading-6 text-[#e6e2d2]">
-                  <CheckCircle className="mt-0.5 shrink-0 text-[#f4e00c]" size={18} weight="fill" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal className="grid gap-4 sm:grid-cols-2" delay={0.08}>
-            {stats.slice(0, 4).map(([value, label]) => (
-              <div key={label} className="surface-card p-6">
-                <div className="text-4xl font-extrabold text-[#fffdf0]">{value}</div>
-                <div className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e2d2]">{label}</div>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28">
-        <div className="section-shell grid gap-8 lg:grid-cols-2">
-        <div className="overflow-hidden rounded-2xl border border-[#f4e00c]/25 shadow-[0_18px_60px_rgba(26,25,23,0.30)]">
-            <img className="h-full min-h-[440px] w-full object-cover image-treatment" src={assets.projectField} alt="IAM surveying team in the field" />
           </div>
-          <Reveal className="glass-panel rounded-2xl p-8 md:p-10">
-          <h2 className="text-4xl font-extrabold tracking-normal text-[#fffdf0]">Mission and values</h2>
-            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
+        </div>
+      </section>
+
+      <section className="editorial-section-soft py-16 md:py-20">
+        <div className="section-shell grid border-t border-[#fffdf0]/16 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.slice(0, 4).map(([value, label], index) => (
+            <Reveal key={label} className={`border-b border-[#fffdf0]/16 py-8 ${index < 3 ? 'lg:border-r lg:px-7' : 'lg:pl-7'}`}>
+              <div className="text-4xl font-normal text-[#fffdf0] md:text-5xl">{value}</div>
+              <div className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#b8b5aa]">{label}</div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid bg-[#181817] lg:grid-cols-2">
+        <div className="min-h-[520px] overflow-hidden">
+          <img className="editorial-image image-treatment" src={assets.projectField} alt="IAM surveying team in the field" />
+        </div>
+        <div className="flex items-center px-6 py-16 sm:px-10 lg:px-16 xl:px-24">
+          <Reveal className="max-w-2xl">
+            <p className="editorial-kicker">Mission and values</p>
+            <h2 className="mt-5 text-4xl font-normal leading-tight md:text-6xl">Reliable information. Practical support.</h2>
+            <p className="mt-6 text-lg leading-8 text-[#d8d5ca]">
               To deliver accurate survey information, clear documentation and reliable support throughout every stage
               of the development process.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="mt-10 grid border-t border-[#fffdf0]/16 sm:grid-cols-2">
               {values.map((value) => (
-                <div key={value} className="rounded-xl border border-[#fffdf0]/14 bg-[#fffdf0]/8 px-4 py-3 text-sm font-bold text-[#fffdf0]">
+                <div key={value} className="border-b border-[#fffdf0]/16 py-4 text-sm font-bold sm:pr-4">
                   {value}
                 </div>
               ))}
             </div>
-            <div className="mt-8">
-              <ButtonLink to="/quote">Talk to IAM</ButtonLink>
-            </div>
+            <div className="mt-9"><ButtonLink to="/quote">Talk to IAM</ButtonLink></div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section-band section-band-muted py-20 md:py-28">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">People</p>
-            <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#fffdf0] md:text-6xl">
-              The team behind IAM Surveyors.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
-              Staff photos and team profiles can be added here once approved images and role details are ready.
-            </p>
-          </Reveal>
-
-          <Reveal className="grid gap-5 md:grid-cols-3" delay={0.08}>
-            {peopleSlots.map((label, index) => (
-              <article key={`${label}-${index}`} className="surface-card overflow-hidden">
-                <div className="grid aspect-[4/5] place-items-center border-b border-[#fffdf0]/12 bg-[#fffdf0]/7">
-                  <UserCircle className="text-[#fffdf0]/48" size={92} weight="thin" />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-extrabold text-[#fffdf0]">{label}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#e6e2d2]">Role and profile details pending.</p>
-                </div>
-              </article>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section-band py-16 md:py-20">
+      <section className="editorial-section-light py-20 md:py-28">
         <div className="section-shell">
-          <Reveal className="grid gap-6 border-y border-[#fffdf0]/12 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <Reveal className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
-              <h2 className="text-3xl font-extrabold text-[#fffdf0]">Need a capability matched to your project?</h2>
-              <p className="mt-3 max-w-2xl text-[#e6e2d2]">
-                Send the address, project stage and required survey outcome. IAM can recommend the right service path.
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6810]">People</p>
+              <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">The team behind IAM.</h2>
+              <p className="mt-5 max-w-lg text-lg leading-8 text-[#4b4a48]">
+                Staff photos and profiles can be added once approved images and role details are ready.
               </p>
             </div>
-            <ButtonLink to="/quote">Request a Quote</ButtonLink>
+            <div className="grid border-t border-[#181817]/20 sm:grid-cols-3">
+              {peopleSlots.map((label, index) => (
+                <div key={`${label}-${index}`} className="border-b border-[#181817]/20 p-5 sm:border-r last:sm:border-r-0">
+                  <div className="flex aspect-[4/5] items-center justify-center bg-[#d3d1ca] text-[#706e68]">
+                    <UserCircle size={64} weight="thin" />
+                  </div>
+                  <p className="mt-4 text-sm font-bold">{label}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.1em] text-[#6b6964]">Role to be confirmed</p>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
-    </>
+
+      <section className="editorial-section py-16 md:py-20">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <Reveal>
+            <p className="editorial-kicker">Delivery standards</p>
+            <h2 className="mt-5 text-4xl font-normal leading-tight md:text-5xl">Clear scope. Useful deliverables.</h2>
+          </Reveal>
+          <div className="border-t border-[#fffdf0]/16">
+            {deliveryStandards.map((item, index) => (
+              <Reveal key={item} className="flex gap-4 border-b border-[#fffdf0]/16 py-5" delay={index * 0.03}>
+                <CheckCircle className="mt-1 shrink-0 text-[#f4e00c]" size={19} weight="fill" />
+                <p className="leading-7 text-[#d8d5ca]">{item}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

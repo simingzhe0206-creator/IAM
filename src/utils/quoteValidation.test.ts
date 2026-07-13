@@ -9,6 +9,9 @@ import {
 const file = (name: string, size: number) =>
   new File([new Uint8Array(size)], name, { type: 'application/octet-stream' });
 
+const typedFile = (name: string, type: string, size = 128) =>
+  new File([new Uint8Array(size)], name, { type });
+
 const validPayload = {
   name: 'Alex Chen',
   email: 'alex@example.com',
@@ -55,6 +58,30 @@ describe('quote form validation', () => {
     expect(result.valid).toBe(false);
     expect(result.errors.files).toContain('Allowed file types');
     expect(result.errors.files).toContain('Each file must be 10MB or smaller');
-    expect(result.errors.files).toContain('Total attachments must be 25MB or smaller');
+    expect(result.errors.files).toContain('Total attachments must be 18MB or smaller');
+  });
+
+  it('rejects more than eight files and mismatched MIME types', () => {
+    const tooManyFiles = Array.from({ length: 9 }, (_, index) => file(`plan-${index}.pdf`, 1));
+    const result = validateQuotePayload(validPayload, [
+      ...tooManyFiles,
+      typedFile('renamed.pdf', 'application/x-msdownload')
+    ]);
+
+    expect(result.valid).toBe(false);
+    expect(result.errors.files).toContain('A maximum of 8 files');
+    expect(result.errors.files).toContain('does not match its file type');
+  });
+
+  it('rejects fields that exceed production length limits', () => {
+    const result = validateQuotePayload({
+      ...validPayload,
+      name: 'A'.repeat(121),
+      message: 'M'.repeat(5001)
+    });
+
+    expect(result.valid).toBe(false);
+    expect(result.errors.name).toBe('Name must be 120 characters or fewer.');
+    expect(result.errors.message).toBe('Message must be 5000 characters or fewer.');
   });
 });

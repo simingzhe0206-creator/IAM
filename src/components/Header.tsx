@@ -21,8 +21,8 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="fixed inset-x-0 top-0 z-50 bg-[#22211f]/92 py-3 backdrop-blur-xl">
-        <div className="section-shell flex h-16 items-center justify-between gap-5 border-b border-[#fffdf0]/14 bg-[#22211f]/72 px-4 shadow-[0_16px_38px_rgba(18,17,16,0.28)] md:px-5">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-[#fffdf0]/14 bg-[#181817]/96 backdrop-blur-md">
+        <div className="section-shell flex h-20 items-center justify-between gap-5 px-4 md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
             <img className="h-12 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
           </Link>
@@ -63,7 +63,7 @@ export function Header() {
               </NavLink>
               <div className="invisible absolute left-1/2 top-full z-50 w-[min(28rem,calc(100vw-2rem))] -translate-x-1/2 translate-y-1 pt-3 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                 <div
-                  className="rounded-2xl border border-[#fffdf0]/14 bg-[#262522] p-3 shadow-[0_18px_44px_rgba(18,17,16,0.34)]"
+                  className="rounded-sm border border-[#fffdf0]/14 bg-[#181817] p-2 shadow-[0_18px_44px_rgba(18,17,16,0.34)]"
                   data-testid="desktop-service-menu"
                 >
                   <div className="grid gap-2">
@@ -71,7 +71,7 @@ export function Header() {
                       <Link
                         key={category.slug}
                         to={`/services#${category.slug}`}
-                        className="rounded-xl border border-[#fffdf0]/10 bg-[#fffdf0]/6 px-4 py-3 text-sm font-bold leading-5 text-[#fffdf0] transition hover:border-[#f4e00c]/70 hover:text-[#f4e00c]"
+                        className="border-b border-[#fffdf0]/10 px-4 py-3 text-sm font-bold leading-5 text-[#fffdf0] transition last:border-b-0 hover:bg-[#fffdf0]/5 hover:text-[#f4e00c]"
                       >
                         {category.title}
                       </Link>
@@ -100,7 +100,7 @@ export function Header() {
           </div>
 
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#fffdf0]/16 bg-[#fffdf0]/8 text-[#fffdf0] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-[#fffdf0]/16 text-[#fffdf0] lg:hidden"
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen((value) => !value)}
@@ -111,14 +111,14 @@ export function Header() {
 
         {open && (
           <div className="section-shell pb-3 lg:hidden">
-            <div className="mt-2 rounded-2xl border border-[#fffdf0]/16 bg-[#262522] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
+            <div className="mt-2 rounded-sm border border-[#fffdf0]/16 bg-[#181817] p-4 shadow-[0_18px_44px_rgba(26,25,23,0.30)]">
               <nav className="grid gap-2" aria-label="Mobile navigation">
                 {nav.slice(0, 1).map(([label, path]) => (
                   <NavLink
                     key={path}
                     to={path}
                     onClick={() => setOpen(false)}
-                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                    className="border-b border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
                   >
                     {label}
                   </NavLink>
@@ -126,14 +126,14 @@ export function Header() {
                 <NavLink
                   to="/about"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                  className="border-b border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
                 >
                   About
                 </NavLink>
                 <NavLink
                   to="/services"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                  className="border-b border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
                 >
                   Services
                 </NavLink>
@@ -142,7 +142,7 @@ export function Header() {
                     key={path}
                     to={path}
                     onClick={() => setOpen(false)}
-                    className="rounded-xl border border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
+                    className="border-b border-[#fffdf0]/14 px-4 py-3 text-sm font-semibold text-[#fffdf0]"
                   >
                     {label}
                   </NavLink>
@@ -150,7 +150,7 @@ export function Header() {
                 <Link
                   to="/quote"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl bg-[#f4e00c] px-4 py-3 text-center text-sm font-bold text-[#242321] transition hover:brightness-105"
+                  className="rounded-sm bg-[#f4e00c] px-4 py-3 text-center text-sm font-bold text-[#242321] transition hover:brightness-105"
                 >
                   Get a Free Quote
                 </Link>
@@ -159,7 +159,7 @@ export function Header() {
                 {serviceCategories.map((category) => (
                   <Link
                     key={category.slug}
-                    className="rounded-xl border border-[#fffdf0]/10 bg-[#fffdf0]/6 px-4 py-3 text-sm font-bold leading-5 text-[#fffdf0]"
+                    className="border-b border-[#fffdf0]/10 px-4 py-3 text-sm font-bold leading-5 text-[#fffdf0] last:border-b-0"
                     to={`/services#${category.slug}`}
                     onClick={() => setOpen(false)}
                   >
