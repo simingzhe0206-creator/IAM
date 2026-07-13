@@ -1,73 +1,94 @@
-import { ArrowSquareOut, CheckCircle, MagnifyingGlass } from '@phosphor-icons/react';
+import { ChatCenteredText, Star } from '@phosphor-icons/react';
+import { ButtonLink } from '../components/ButtonLink';
 import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
 import { assets } from '../content/site';
 
-const googleSearchUrl =
-  'https://www.google.com/search?q=ISA+Surveyors+47%2F8+Avenue+of+the+Americas+Newington+NSW+reviews';
-
-const verificationItems = [
-  'Australian business identity matched to ISA Surveyors Pty Ltd',
-  'Former Newington website, address and phone matched',
-  'No overseas or similarly named company reviews used',
-  'Review text withheld until the exact Google Business Profile is confirmed'
+const reviewPlaceholders = [
+  {
+    type: 'Architect / Designer',
+    project: 'Residential design support',
+    note: 'Client review placeholder. Replace with an approved testimonial when available.'
+  },
+  {
+    type: 'Builder',
+    project: 'Construction and setout support',
+    note: 'Client review placeholder. Replace with an approved testimonial when available.'
+  },
+  {
+    type: 'Developer',
+    project: 'Subdivision and title workflow',
+    note: 'Client review placeholder. Replace with an approved testimonial when available.'
+  },
+  {
+    type: 'Homeowner',
+    project: 'Boundary and detail survey',
+    note: 'Client review placeholder. Replace with an approved testimonial when available.'
+  }
 ];
+
+const signals = ['Accuracy', 'Clear communication', 'Reliable documentation', 'Practical project support'];
 
 export function Reviews() {
   return (
-    <div className="editorial-page">
+    <>
       <PageHero title="Customer Reviews" image={assets.reviewsBg}>
-        Independent feedback should remain connected to its original source. IAM only republishes reviews when the
-        business identity and Google listing can be confirmed.
+        A dedicated place for approved client feedback, project experience notes and review links once final customer
+        testimonials are supplied.
       </PageHero>
 
-      <section className="editorial-section py-20 md:py-28">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
-          <Reveal>
-            <p className="editorial-kicker">Source verification</p>
-            <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">No borrowed reviews. No invented testimonials.</h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#d8d5ca]">
-              The exact Google Business Profile could not be independently verified from public search results on 13
-              July 2026. Until the updated IAM listing is confirmed, this page does not publish names, ratings or
-              review excerpts.
+      <section className="section-band py-20 md:py-28">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <Reveal className="sticky top-28">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">Client confidence</p>
+            <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#fffdf0] md:text-6xl">
+              Review slots ready for approved client feedback.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-[#e6e2d2]">
+              The prototype keeps review content honest by using placeholders until the business provides approved
+              testimonials, names or platform links.
             </p>
           </Reveal>
 
-          <div className="border-t border-[#fffdf0]/16">
-            {verificationItems.map((item, index) => (
-              <Reveal key={item} className="grid gap-4 border-b border-[#fffdf0]/16 py-6 sm:grid-cols-[3rem_1fr]" delay={index * 0.04}>
-                <CheckCircle className="text-[#f4e00c]" size={21} weight="fill" />
-                <p className="text-lg leading-8 text-[#ece9df]">{item}</p>
-              </Reveal>
+          <Reveal className="grid gap-5 md:grid-cols-2" delay={0.08}>
+            {reviewPlaceholders.map((review, index) => (
+              <article key={review.type} className="surface-card p-6">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f4e00c] text-[#242321]">
+                    <ChatCenteredText size={24} weight="duotone" />
+                  </div>
+                  <div className="flex gap-1 text-[#f4e00c]" aria-label="Review rating placeholder">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                      <Star key={`${review.type}-${starIndex}`} size={16} weight="fill" />
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e2d2]">
+                  Review {String(index + 1).padStart(2, '0')}
+                </div>
+                <h3 className="mt-3 text-2xl font-extrabold text-[#fffdf0]">{review.type}</h3>
+                <p className="mt-2 text-sm font-bold text-[#f4e00c]">{review.project}</p>
+                <p className="mt-4 text-sm leading-6 text-[#e6e2d2]">{review.note}</p>
+              </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="editorial-section-light py-20 md:py-28">
-        <div className="section-shell">
-          <Reveal className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
-            <div>
-              <MagnifyingGlass size={38} weight="light" />
-              <h2 className="mt-6 text-balance text-4xl font-normal leading-tight md:text-6xl">Find the original ISA listing on Google.</h2>
-            </div>
-            <div>
-              <p className="max-w-xl text-lg leading-8 text-[#4b4a48]">
-                The business is moving from its former ISA/Newington identity to IAM Surveyors in West Ryde. Use this
-                search link to view any Google information currently available at the source.
-              </p>
-              <a
-                className="mt-8 inline-flex min-h-12 items-center gap-3 rounded-sm bg-[#181817] px-5 text-sm font-extrabold text-[#f7f5ed]"
-                href={googleSearchUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Search on Google <ArrowSquareOut size={18} weight="bold" />
-              </a>
-            </div>
           </Reveal>
         </div>
       </section>
-    </div>
+
+      <section className="section-band section-band-muted py-16 md:py-20">
+        <div className="section-shell">
+          <Reveal className="grid gap-4 border-y border-[#fffdf0]/12 py-8 md:grid-cols-4">
+            {signals.map((signal) => (
+              <div key={signal} className="text-sm font-bold text-[#fffdf0]">
+                {signal}
+              </div>
+            ))}
+          </Reveal>
+          <Reveal className="mt-10" delay={0.08}>
+            <ButtonLink to="/quote">Discuss a Project</ButtonLink>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }

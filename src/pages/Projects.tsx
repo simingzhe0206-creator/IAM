@@ -11,19 +11,19 @@ export function Projects() {
         categories, not invented case studies.
       </PageHero>
 
-      <section className="editorial-section-light py-20 md:py-28">
+      <section className="border-t border-[#4b4a48]/25 bg-[#a9a9a7] py-20 text-[#181817] md:py-28">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
           <Reveal>
-            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6810]">Project experience</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#242321]">Project experience</p>
             <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">Survey support across the development lifecycle.</h2>
           </Reveal>
           <div className="border-t border-[#181817]/20">
             {projectExperience.map(([title, text], index) => (
               <Reveal key={title} className="grid gap-4 border-b border-[#181817]/20 py-6 sm:grid-cols-[4rem_1fr]" delay={index * 0.04}>
-                <span className="text-sm font-extrabold text-[#6d6810]">{String(index + 1).padStart(2, '0')}</span>
+                <span className="text-sm font-extrabold text-[#242321]">{String(index + 1).padStart(2, '0')}</span>
                 <div>
                   <h3 className="text-2xl font-normal">{title}</h3>
-                  <p className="mt-3 leading-7 text-[#5f5d58]">{text}</p>
+                  <p className="mt-3 leading-7 text-[#4b4a48]">{text}</p>
                 </div>
               </Reveal>
             ))}

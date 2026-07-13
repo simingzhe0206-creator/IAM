@@ -84,11 +84,11 @@ export function About() {
         </div>
       </section>
 
-      <section className="editorial-section-light py-20 md:py-28">
+      <section className="border-t border-[#a9a9a7] bg-[#cdcdcd] py-20 text-[#181817] md:py-28">
         <div className="section-shell">
           <Reveal className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6810]">Capabilities</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#4b4a48]">Capabilities</p>
               <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">
                 Technical delivery for every stage of development.
               </h2>
@@ -109,7 +109,7 @@ export function About() {
                 <Icon className="text-[#4b4a48]" size={30} weight="light" />
                 <div>
                   <h3 className="text-2xl font-normal">{title}</h3>
-                  <p className="mt-3 leading-7 text-[#5f5d58]">{text}</p>
+                  <p className="mt-3 leading-7 text-[#4b4a48]">{text}</p>
                 </div>
               </Reveal>
             ))}
@@ -152,11 +152,11 @@ export function About() {
         </div>
       </section>
 
-      <section className="editorial-section-light py-20 md:py-28">
+      <section className="border-t border-[#a9a9a7] bg-[#cdcdcd] py-20 text-[#181817] md:py-28">
         <div className="section-shell">
           <Reveal className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6810]">People</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#4b4a48]">People</p>
               <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">The team behind IAM.</h2>
               <p className="mt-5 max-w-lg text-lg leading-8 text-[#4b4a48]">
                 Staff photos and profiles can be added once approved images and role details are ready.
