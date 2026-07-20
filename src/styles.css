@@ -14,17 +14,13 @@
   --iam-blue-mist: rgba(205, 205, 205, 0.16);
   --iam-line: rgba(255, 253, 240, 0.14);
   font-family:
-    "Aptos",
-    "Segoe UI",
-    "Helvetica Neue",
-    Arial,
-    system-ui,
+    "Plus Jakarta Sans Variable",
+    "Plus Jakarta Sans",
     sans-serif;
   --iam-heading-font:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
+    "Plus Jakarta Sans Variable",
+    "Plus Jakarta Sans",
+    sans-serif;
   background: var(--iam-page-blue);
   color: #f7f5ed;
 }
@@ -49,9 +45,21 @@ body {
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 .heading-font {
   font-family: var(--iam-heading-font);
+  font-weight: 800;
   letter-spacing: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", sans-serif;
 }
 
 a {

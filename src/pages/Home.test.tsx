@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import type { PropsWithChildren } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
@@ -39,6 +39,31 @@ describe('home hero video', () => {
     expect(video?.querySelector('source:not([media])')).toHaveAttribute(
       'src',
       expect.stringContaining('iam-home-hero-desktop.mp4')
+    );
+  });
+
+  it('uses the approved About IAM copy and offsets catalogue item five', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.getByRole('heading', { name: 'Reliable survey data for every stage of your project.' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'From detail surveys and boundary identification to subdivision and construction support, we deliver accurate information that keeps your project moving.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('We Support')).toBeInTheDocument();
+
+    const infrastructureCard = screen.getByRole('link', { name: /Infrastructure & Utility Surveys/i });
+    expect(infrastructureCard).toHaveClass('lg:translate-y-6');
+    expect(infrastructureCard.querySelector('img')).toHaveAttribute(
+      'src',
+      expect.stringContaining('pexels-serjosoza-30463192.jpg')
     );
   });
 });

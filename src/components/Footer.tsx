@@ -1,6 +1,6 @@
-import { ArrowSquareOut, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react';
+import { EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
-import { assets, contact, serviceCategories } from '../content/site';
+import { assets, contact } from '../content/site';
 
 const quickLinks = [
   ['Home', '/'],
@@ -18,7 +18,7 @@ export function Footer() {
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.65fr_0.9fr]">
           <div>
-            <img className="h-12 w-auto rounded-sm bg-white px-2 py-1" src={assets.logo} alt="IAM Surveyors" />
+            <img className="h-12 w-auto object-contain" src={assets.logoFooter} alt="IAM Surveyors" />
             <h2 className="mt-8 max-w-xl text-3xl font-normal leading-tight md:text-4xl">Professional surveying and development support across Sydney and NSW.</h2>
           </div>
 
@@ -49,22 +49,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-[#fffdf0]/14 pt-8">
-          <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#8f8c82]">Service groups</p>
-          <div className="mt-5 grid border-t border-[#fffdf0]/12 md:grid-cols-5">
-            {serviceCategories.map((category) => (
-              <Link
-                key={category.slug}
-                className="flex min-h-20 items-center justify-between gap-3 border-b border-[#fffdf0]/12 py-4 text-sm font-bold text-[#d8d5ca] md:border-r md:px-4 first:md:pl-0 last:md:border-r-0"
-                to={`/services/category/${category.slug}`}
-              >
-                {category.title}<ArrowSquareOut className="shrink-0 text-[#f4e00c]" size={16} />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-3 border-t border-[#fffdf0]/14 pt-6 text-xs text-[#8f8c82] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-[#fffdf0]/14 pt-6 text-xs text-[#8f8c82] sm:flex-row sm:items-center sm:justify-between">
           <span>Copyright 2026 IAM Surveyors.</span>
           <span>Website enquiries are sent securely to {contact.email}.</span>
         </div>

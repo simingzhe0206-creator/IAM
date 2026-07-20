@@ -24,7 +24,7 @@ export function Header() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[#fffdf0]/14 bg-[#181817]/96 backdrop-blur-md">
         <div className="section-shell flex h-20 items-center justify-between gap-5 px-4 md:px-5">
           <Link to="/" className="flex items-center gap-3" aria-label="IAM Surveyors home">
-            <img className="h-12 w-auto rounded-sm bg-white" src={assets.logo} alt="IAM Surveyors" />
+            <img className="h-12 w-auto object-contain" src={assets.logo} alt="IAM Surveyors" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">

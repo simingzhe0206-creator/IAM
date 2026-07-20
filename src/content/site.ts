@@ -16,8 +16,8 @@ import type { Icon } from '@phosphor-icons/react';
 const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
 export const assets = {
-  logo: assetPath('/images/iam-logo.png'),
-  logoFooter: assetPath('/images/iam-logo.png'),
+  logo: assetPath('/images/iam-logo-colour-reverse.png'),
+  logoFooter: assetPath('/images/iam-logo-colour-reverse.png'),
   hero: assetPath('/images/hero-blue-survey.png'),
   heroVideoDesktop: assetPath('/videos/iam-home-hero-desktop.mp4'),
   heroVideoMobile: assetPath('/videos/iam-home-hero-mobile.mp4'),
@@ -35,6 +35,7 @@ export const assets = {
   projectCivil: assetPath('/images/iam-update/project-civil.jpg'),
   projectField: assetPath('/images/iam-update/project-field.jpg'),
   projectApartment: assetPath('/images/iam-update/project-apartment.jpg'),
+  infrastructureCatalogue: assetPath('/images/iam-update/pexels-serjosoza-30463192.jpg'),
   serviceDetailSurvey: assetPath('/images/iam-update/service-detail-survey.jpg'),
   serviceBoundarySurvey: assetPath('/images/iam-update/service-boundary-survey.jpg'),
   serviceIdentification: assetPath('/images/iam-update/service-identification.jpg'),
@@ -451,7 +452,7 @@ export const serviceCategories: ServiceCategory[] = [
     title: 'Infrastructure & Utility Surveys',
     description:
       'Our infrastructure and utility survey services provide accurate information for roads, public spaces and underground assets. We work alongside engineers, councils and contractors to deliver reliable survey data that supports planning, design, construction and ongoing asset management.',
-    image: assets.projectCivil,
+    image: assets.infrastructureCatalogue,
     services: [
       { label: 'Public Domain Survey', slug: 'title-council-and-development-consultation' },
       { label: 'Underground Utility Survey' },

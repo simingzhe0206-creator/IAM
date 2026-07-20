@@ -64,7 +64,7 @@ export function Home() {
                 key={category.title}
                 to={`/services/category/${category.slug}`}
                 className={`group surface-card relative min-h-[360px] overflow-hidden p-5 transition duration-500 hover:-translate-y-1 hover:border-[#f4e00c]/75 ${
-                  index === 0 || index === 2 ? 'lg:translate-y-6' : ''
+                  index === 0 || index === 2 || index === 4 ? 'lg:translate-y-6' : ''
                 }`}
               >
                 <img
@@ -100,17 +100,18 @@ export function Home() {
           <Reveal className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f4e00c]">About IAM</p>
             <h2 className="mt-5 text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-6xl">
-              Survey plans, title documentation and practical project coordination.
+              Reliable survey data for every stage of your project.
             </h2>
-            <p className="mt-5 max-w-3xl text-lg font-semibold leading-8 text-[#f0eedc]">
-              IAM Surveyors supports property owners, architects, builders and development teams with accurate survey
-              information across Sydney and NSW.
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#f0eedc] md:text-xl">
+              From detail surveys and boundary identification to subdivision and construction support, we deliver
+              accurate information that keeps your project moving.
             </p>
-            <div className="mt-8 grid border-t border-white/20 sm:grid-cols-2 lg:grid-cols-5">
+            <p className="mt-10 text-sm font-semibold text-[#f0eedc]">We Support</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {audience.map((item) => (
                 <div
                   key={item}
-                  className="border-b border-white/20 px-4 py-4 text-sm font-bold text-[#fffdf0] sm:border-r"
+                  className="flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-gradient-to-b from-white/20 to-white/8 px-5 py-3 text-center text-sm font-semibold text-[#fffdf0] shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-xl transition hover:border-white/40 hover:from-white/26 hover:to-white/12"
                 >
                   {item}
                 </div>
