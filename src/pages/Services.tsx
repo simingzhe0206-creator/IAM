@@ -15,16 +15,6 @@ export function Services() {
 
       <section className="editorial-section py-20 md:py-28">
         <div className="section-shell">
-          <Reveal className="grid gap-8 pb-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-            <div>
-              <p className="editorial-kicker">Service directory</p>
-              <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">Five coordinated areas of practice.</h2>
-            </div>
-            <p className="max-w-2xl text-lg leading-8 text-[#d8d5ca]">
-              Select a service group to review the detailed survey scope, typical deliverables and project uses.
-            </p>
-          </Reveal>
-
           <div className="border-t border-[#fffdf0]/16">
             {serviceCategories.map((category, index) => (
               <article id={category.slug} key={category.title} className="scroll-mt-24 border-b border-[#fffdf0]/16 py-10 md:py-14">

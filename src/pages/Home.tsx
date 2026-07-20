@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ButtonLink } from '../components/ButtonLink';
 import { ProjectTimeline } from '../components/ProjectTimeline';
 import { Reveal } from '../components/Reveal';
-import { assets, projectTypes, serviceCategories } from '../content/site';
+import { assets, projects, serviceCategories } from '../content/site';
 
 const audience = ['Architects', 'Builders', 'Developers', 'Government Agencies', 'Consultants'];
 
@@ -69,7 +69,7 @@ export function Home() {
               >
                 <img
                   className="absolute inset-0 h-full w-full object-cover opacity-44 image-treatment"
-                  src={category.image}
+                  src={category.catalogueImage ?? category.image}
                   alt=""
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
@@ -121,54 +121,63 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-band section-band-muted py-12 md:py-16">
+      <section id="how-we-work" className="scroll-mt-20 border-y border-[#242321]/12 bg-[#f7f5e9] py-16 text-[#242321] md:py-24">
         <div className="section-shell">
           <div className="grid gap-10 overflow-hidden">
             <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-              <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#77736b]">Our process</p>
+              <h2 className="mt-4 text-balance text-4xl font-extrabold tracking-normal text-[#242321] md:text-5xl">
                 How we work.
               </h2>
-              <p className="mt-4 max-w-xl text-lg leading-8 text-[#e6e2d2]">
+              <p className="mt-4 max-w-xl text-lg leading-8 text-[#56534e]">
                 A simple workflow for moving from project information to a clear surveying scope and deliverables.
               </p>
               </div>
-              <ButtonLink to="/quote" variant="secondary">Start a Project</ButtonLink>
+              <ButtonLink to="/quote">Start a Project</ButtonLink>
             </Reveal>
 
-            <ProjectTimeline />
+            <ProjectTimeline images={assets.howWork} />
           </div>
         </div>
       </section>
 
-      <section className="section-band py-12 md:py-16">
+      <section id="featured-projects" className="section-band scroll-mt-20 py-12 md:py-16">
         <div className="section-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:items-start">
             <Reveal>
               <h2 className="text-balance text-4xl font-extrabold tracking-normal text-[#fffdf0] md:text-5xl">
                 Project types IAM supports.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#e6e2d2]">
-                The prototype avoids invented case studies and presents the project categories supplied in the brief.
+                Selected IAM project experience across strata, digital modelling, construction and land development.
               </p>
               <div className="mt-8">
                 <ButtonLink to="/projects">View Project Types</ButtonLink>
               </div>
             </Reveal>
 
-            <div className="border-t border-[#fffdf0]/16">
-              {projectTypes.map((project, index) => (
+            <div className="flex snap-x snap-mandatory gap-px overflow-x-auto border-y border-[#fffdf0]/16 bg-[#fffdf0]/14 lg:grid lg:grid-cols-4 lg:overflow-visible">
+              {projects.map((project) => (
                 <Link
                   key={project.title}
-                  to="/projects"
-                  className="group grid gap-4 border-b border-[#fffdf0]/16 py-6 md:grid-cols-[4rem_1fr_auto] md:items-start"
+                  to={`/projects/${project.slug}`}
+                  className="group relative min-h-[480px] min-w-[78vw] snap-start overflow-hidden bg-[#181817] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#f4e00c] sm:min-w-[46vw] lg:min-w-0"
+                  aria-label={`${project.number}. ${project.title}`}
                 >
-                  <div className="text-sm font-extrabold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</div>
-                  <div>
-                    <h3 className="max-w-xl text-2xl font-normal tracking-normal text-[#fffdf0]">{project.title}</h3>
-                    <p className="mt-3 max-w-xl text-sm leading-6 text-[#e6e2d2]">{project.description}</p>
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover brightness-[0.42] saturate-[0.72] transition-[filter] duration-500 group-hover:brightness-[0.84] group-hover:saturate-100 group-focus-visible:brightness-[0.84] group-focus-visible:saturate-100"
+                    src={project.image}
+                    alt=""
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-[#11100f]/20 to-[#11100f]/24 transition group-hover:from-[#11100f]/68 group-focus-visible:from-[#11100f]/68" />
+                  <div className="absolute inset-x-0 bottom-0 z-10 flex min-h-64 items-end justify-between gap-5 p-5">
+                    <div className="text-5xl font-extrabold text-white/88">{project.number}</div>
+                    <h3 className="project-vertical-title text-sm font-extrabold uppercase leading-tight text-white">
+                      {project.shortTitle}
+                      <span className="mt-3 block text-xs font-semibold normal-case text-white/72">{project.location}</span>
+                    </h3>
                   </div>
-                  <ArrowRight className="text-[#f4e00c] transition group-hover:translate-x-1" size={20} weight="bold" />
                 </Link>
               ))}
             </div>

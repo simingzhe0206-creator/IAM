@@ -3,64 +3,60 @@ import { motion, useReducedMotion } from 'motion/react';
 const milestones = [
   {
     number: '01',
-    title: 'Project introduction',
-    text: 'Send the site address, project type and required survey service.'
+    title: 'Tell Us About Your Project',
+    text: 'Email us at office@iamsurveyor.com.au with your project address, project type and survey requirements.'
   },
   {
     number: '02',
-    title: 'Review and quotation',
-    text: 'IAM confirms the requirements, scope of work and quotation.'
+    title: 'Assessment & Quote',
+    text: "We'll review your requirements, recommend the most suitable surveying service and provide a detailed quotation."
   },
   {
     number: '03',
-    title: 'Survey and preparation',
-    text: 'The survey team attends site and prepares the required plans and documents.'
+    title: 'Survey & Documentation',
+    text: 'Our surveyors complete the field survey and prepare all required plans and deliverables.'
   },
   {
     number: '04',
-    title: 'Documentation support',
-    text: 'IAM supports the relevant council, certifier and registration documentation.'
+    title: 'Project Support',
+    text: 'We continue to support your project with council, certifier, Architect and registration documentation where required.'
   }
 ];
 
-export function ProjectTimeline() {
+export function ProjectTimeline({ images }: { images: string[] }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative mt-4">
-      <div className="absolute bottom-auto left-5 top-6 h-[calc(100%-3rem)] w-px bg-[#fffdf0]/16 lg:left-0 lg:right-0 lg:top-[3.35rem] lg:h-px lg:w-full" />
-      <motion.div
-        className="absolute left-5 top-6 h-[calc(100%-3rem)] w-px origin-top bg-[#f4e00c] lg:hidden"
-        initial={reduceMotion ? false : { scaleY: 0 }}
-        whileInView={reduceMotion ? undefined : { scaleY: 1 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.div
-        className="absolute left-0 top-[3.35rem] hidden h-px w-full origin-left bg-[#f4e00c] lg:block"
-        initial={reduceMotion ? false : { scaleX: 0 }}
-        whileInView={reduceMotion ? undefined : { scaleX: 1 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <div className="grid gap-10 lg:grid-cols-4 lg:gap-6">
+    <div className="mt-4 border-t border-[#242321]/16">
+      <div className="grid">
         {milestones.map((milestone, index) => (
-          <motion.article
+          <article
             key={milestone.number}
-            className="relative grid grid-cols-[2.5rem_1fr] gap-5 lg:block lg:pt-0"
-            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.45 }}
-            transition={{ duration: 0.55, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="grid min-h-[300px] items-center gap-5 border-b border-[#242321]/16 py-8 md:grid-cols-2 md:gap-16 md:py-10"
           >
-            <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[#f4e00c]/60 bg-[#262522] text-xs font-extrabold text-[#f4e00c] lg:mt-[2.15rem]">
+            <motion.div
+              className={`process-number select-none ${index % 2 ? 'md:order-2 md:text-right' : ''}`}
+              style={{ backgroundImage: `url(${images[index]})` }}
+              initial={reduceMotion ? false : { opacity: 0 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1 }}
+              viewport={{ once: true, amount: 0.45 }}
+              transition={{ duration: 0.75, delay: index * 0.08 }}
+              aria-hidden="true"
+            >
               {milestone.number}
-            </div>
-            <div className="lg:mt-7">
-              <h3 className="text-xl font-extrabold text-[#fffdf0]">{milestone.title}</h3>
-              <p className="mt-3 max-w-xs text-sm leading-6 text-[#e6e2d2]">{milestone.text}</p>
-            </div>
-          </motion.article>
+            </motion.div>
+            <motion.div
+              className={`max-w-xl ${index % 2 ? 'md:order-1 md:justify-self-end' : ''}`}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.58, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#6d6a63]">Step {milestone.number}</p>
+              <h3 className="mt-4 text-2xl font-extrabold text-[#242321] md:text-3xl">{milestone.title}</h3>
+              <p className="mt-4 text-base leading-7 text-[#56534e] md:text-lg md:leading-8">{milestone.text}</p>
+            </motion.div>
+          </article>
         ))}
       </div>
     </div>

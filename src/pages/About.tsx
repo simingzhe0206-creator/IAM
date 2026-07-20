@@ -1,19 +1,9 @@
-import { Buildings, CheckCircle, MapTrifold, Ruler, UserCircle, UsersThree } from '@phosphor-icons/react';
-import { ButtonLink } from '../components/ButtonLink';
+import { Buildings, CheckCircle, MapTrifold, Ruler, UsersThree } from '@phosphor-icons/react';
 import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
 import { assets, stats } from '../content/site';
 
-const values = [
-  'Accuracy',
-  'Professionalism',
-  'Clear Communication',
-  'Efficiency',
-  'Practical Problem Solving',
-  'Long-Term Client Relationships'
-];
-
-const peopleSlots = ['Team member placeholder', 'Team member placeholder', 'Team member placeholder'];
+const peopleSlots = Array.from({ length: 9 }, (_, index) => `Portrait ${String(index + 1).padStart(2, '0')}`);
 
 const capabilityGroups = [
   {
@@ -84,7 +74,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="border-t border-[#a9a9a7] bg-[#cdcdcd] py-20 text-[#181817] md:py-28">
+      <section className="border-t border-[#d8d4c3] bg-[#f7f5e9] py-20 text-[#181817] md:py-28">
         <div className="section-shell">
           <Reveal className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
@@ -128,33 +118,9 @@ export function About() {
         </div>
       </section>
 
-      <section className="grid bg-[#181817] lg:grid-cols-2">
-        <div className="min-h-[520px] overflow-hidden">
-          <img className="editorial-image image-treatment" src={assets.projectField} alt="IAM surveying team in the field" />
-        </div>
-        <div className="flex items-center px-6 py-16 sm:px-10 lg:px-16 xl:px-24">
-          <Reveal className="max-w-2xl">
-            <p className="editorial-kicker">Mission and values</p>
-            <h2 className="mt-5 text-4xl font-normal leading-tight md:text-6xl">Reliable information. Practical support.</h2>
-            <p className="mt-6 text-lg leading-8 text-[#d8d5ca]">
-              To deliver accurate survey information, clear documentation and reliable support throughout every stage
-              of the development process.
-            </p>
-            <div className="mt-10 grid border-t border-[#fffdf0]/16 sm:grid-cols-2">
-              {values.map((value) => (
-                <div key={value} className="border-b border-[#fffdf0]/16 py-4 text-sm font-bold sm:pr-4">
-                  {value}
-                </div>
-              ))}
-            </div>
-            <div className="mt-9"><ButtonLink to="/quote">Talk to IAM</ButtonLink></div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-t border-[#a9a9a7] bg-[#cdcdcd] py-20 text-[#181817] md:py-28">
+      <section className="border-t border-[#d8d4c3] bg-[#f7f5e9] py-20 text-[#181817] md:py-28">
         <div className="section-shell">
-          <Reveal className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
+          <Reveal className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:items-start">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#4b4a48]">People</p>
               <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">The team behind IAM.</h2>
@@ -162,14 +128,15 @@ export function About() {
                 Staff photos and profiles can be added once approved images and role details are ready.
               </p>
             </div>
-            <div className="grid border-t border-[#181817]/20 sm:grid-cols-3">
+            <div className="team-collage" aria-label="Future IAM team photo collage">
               {peopleSlots.map((label, index) => (
-                <div key={`${label}-${index}`} className="border-b border-[#181817]/20 p-5 sm:border-r last:sm:border-r-0">
-                  <div className="flex aspect-[4/5] items-center justify-center bg-[#d3d1ca] text-[#706e68]">
-                    <UserCircle size={64} weight="thin" />
-                  </div>
-                  <p className="mt-4 text-sm font-bold">{label}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.1em] text-[#6b6964]">Role to be confirmed</p>
+                <div
+                  key={label}
+                  className={`team-portrait team-portrait-${index + 1}`}
+                  aria-label="Future IAM team portrait"
+                  role="img"
+                >
+                  <span>{label}</span>
                 </div>
               ))}
             </div>

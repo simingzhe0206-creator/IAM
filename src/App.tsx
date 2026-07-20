@@ -7,8 +7,8 @@ import { Contact } from './pages/Contact';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { Projects } from './pages/Projects';
+import { ProjectDetail } from './pages/ProjectDetail';
 import { Quote } from './pages/Quote';
-import { Reviews } from './pages/Reviews';
 import { ServiceCategoryDetail } from './pages/ServiceCategoryDetail';
 import { ServiceDetail } from './pages/ServiceDetail';
 import { Services } from './pages/Services';
@@ -27,7 +27,8 @@ export default function App() {
           <Route path="/services/category/:categorySlug" element={<ServiceCategoryDetail />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/projects/:projectSlug" element={<ProjectDetail />} />
+          <Route path="/reviews" element={<Navigate to="/projects#reviews" replace />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

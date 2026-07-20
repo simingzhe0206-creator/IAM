@@ -11,9 +11,10 @@ describe('official company information', () => {
     expect(contact.mapsHref).toContain('Shop%202%2F30-32%20Herbert%20Street');
   });
 
-  it('uses the approved reverse logo and infrastructure catalogue image', () => {
+  it('uses the approved reverse logo and separates service and catalogue infrastructure images', () => {
     expect(assets.logo).toContain('iam-logo-colour-reverse.png');
     expect(assets.logoFooter).toContain('iam-logo-colour-reverse.png');
-    expect(serviceCategories[4].image).toContain('pexels-serjosoza-30463192.jpg');
+    expect(serviceCategories[4].image).toContain('pexels-serjosoza-30117031.jpg');
+    expect(serviceCategories[4].catalogueImage).toContain('pexels-serjosoza-30463192.jpg');
   });
 });

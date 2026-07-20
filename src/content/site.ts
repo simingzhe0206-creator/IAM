@@ -26,16 +26,24 @@ export const assets = {
   reviewsBg: assetPath('/images/iam-update/reviews-bg.jpg'),
   contactBg: assetPath('/images/iam-update/contact-bg.jpg'),
   howWork: [
-    assetPath('/images/iam-update/how-work-01.jpg'),
-    assetPath('/images/iam-update/how-work-02.jpg'),
-    assetPath('/images/iam-update/how-work-03.jpg'),
-    assetPath('/images/iam-update/how-work-04.jpg')
+    assetPath('/images/iam-update/how-we-work/01.jpg'),
+    assetPath('/images/iam-update/how-we-work/02.jpg'),
+    assetPath('/images/iam-update/how-we-work/03.jpg'),
+    assetPath('/images/iam-update/how-we-work/04.jpg')
+  ],
+  projectHero: assetPath('/images/iam-update/project-bk.webp'),
+  projectCovers: [
+    assetPath('/images/iam-update/projects/01.webp'),
+    assetPath('/images/iam-update/projects/02.webp'),
+    assetPath('/images/iam-update/projects/03.jpg'),
+    assetPath('/images/iam-update/projects/04.webp')
   ],
   projectMap: assetPath('/images/iam-update/project-map.jpg'),
   projectCivil: assetPath('/images/iam-update/project-civil.jpg'),
   projectField: assetPath('/images/iam-update/project-field.jpg'),
   projectApartment: assetPath('/images/iam-update/project-apartment.jpg'),
   infrastructureCatalogue: assetPath('/images/iam-update/pexels-serjosoza-30463192.jpg'),
+  infrastructureService: assetPath('/images/iam-update/pexels-serjosoza-30117031.jpg'),
   serviceDetailSurvey: assetPath('/images/iam-update/service-detail-survey.jpg'),
   serviceBoundarySurvey: assetPath('/images/iam-update/service-boundary-survey.jpg'),
   serviceIdentification: assetPath('/images/iam-update/service-identification.jpg'),
@@ -93,8 +101,91 @@ export type ServiceCategory = {
   title: string;
   description: string;
   image: string;
+  catalogueImage?: string;
   services: Array<{ label: string; slug?: string }>;
 };
+
+export const googleReviewProfile = {
+  businessName: 'IAM Surveyors Pty Ltd',
+  rating: '4.7',
+  reviewCount: 17,
+  verifiedOn: '21 July 2026',
+  href: 'https://www.google.com/maps/search/?api=1&query=IAM%20Surveyors%20Pty%20Ltd%20West%20Ryde',
+  excerpts: [
+    {
+      rating: 5,
+      text: 'The staff are very caring and thorough in their services.',
+      attribution: 'Public Google review'
+    },
+    {
+      rating: 5,
+      text: 'Had a great experience with the survey work.',
+      attribution: 'Public Google review'
+    }
+  ]
+} as const;
+
+export type ProjectRecord = {
+  slug: string;
+  number: string;
+  title: string;
+  shortTitle: string;
+  location: string;
+  image: string;
+  imageAlt: string;
+  details: Array<{ label: string; value: string }>;
+};
+
+const pendingProjectDetails = () =>
+  ['Client', 'Project scope', 'Survey services', 'Deliverables', 'Completion'].map((label) => ({
+    label,
+    value: 'Project information to be supplied'
+  }));
+
+export const projects: ProjectRecord[] = [
+  {
+    slug: 'strata-plan-help-st-chatswood',
+    number: '01',
+    title: 'STRATA PLAN - 3-5 Help St Chatswood',
+    shortTitle: 'Strata Plan',
+    location: '3-5 Help St Chatswood',
+    image: assets.projectCovers[0],
+    imageAlt: 'Multi-storey development at 3-5 Help Street, Chatswood',
+    details: pendingProjectDetails()
+  },
+  {
+    slug: 'bim-modelling-kent-street-sydney',
+    number: '02',
+    title: 'BIM MODELLING - 529 KENT STREET SYDNEY',
+    shortTitle: 'BIM Modelling',
+    location: '529 Kent Street Sydney',
+    image: assets.projectCovers[1],
+    imageAlt: 'BIM modelling project at 529 Kent Street, Sydney',
+    details: pendingProjectDetails()
+  },
+  {
+    slug: 'construction-survey-m7-m12',
+    number: '03',
+    title: 'CONSTRUCTION SURVEY - M7-M12 Integration project',
+    shortTitle: 'Construction Survey',
+    location: 'M7-M12 Integration project',
+    image: assets.projectCovers[2],
+    imageAlt: 'Aerial view of motorway infrastructure for the M7-M12 integration project',
+    details: pendingProjectDetails()
+  },
+  {
+    slug: 'deposit-plan-hynds-box-hill',
+    number: '04',
+    title: 'DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765',
+    shortTitle: 'Deposit Plan',
+    location: '33-35 Hynds, Box Hill, NSW 2765',
+    image: assets.projectCovers[3],
+    imageAlt: 'Residential development at 33-35 Hynds, Box Hill',
+    details: pendingProjectDetails()
+  }
+];
+
+export const getProjectBySlug = (slug: string | undefined) => projects.find((project) => project.slug === slug);
 
 export const services: Service[] = [
   {
@@ -452,7 +543,8 @@ export const serviceCategories: ServiceCategory[] = [
     title: 'Infrastructure & Utility Surveys',
     description:
       'Our infrastructure and utility survey services provide accurate information for roads, public spaces and underground assets. We work alongside engineers, councils and contractors to deliver reliable survey data that supports planning, design, construction and ongoing asset management.',
-    image: assets.infrastructureCatalogue,
+    image: assets.infrastructureService,
+    catalogueImage: assets.infrastructureCatalogue,
     services: [
       { label: 'Public Domain Survey', slug: 'title-council-and-development-consultation' },
       { label: 'Underground Utility Survey' },
@@ -460,41 +552,6 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   }
 ];
-
-export const projectTypes = [
-  {
-    title: 'Residential Renovation and New Builds',
-    description: 'Survey information for architects, designers, builders and homeowners.',
-    image: assets.projectApartment
-  },
-  {
-    title: 'Duplex and Dual Occupancy Development',
-    description: 'Detail surveys, subdivision support, WAE documentation and 88E coordination.',
-    image: assets.serviceSubdivision
-  },
-  {
-    title: 'Torrens Title Subdivision',
-    description: 'Subdivision plans, administration sheets, council support and registration documentation.',
-    image: assets.projectMap
-  },
-  {
-    title: 'Strata Subdivision',
-    description: 'Strata plans for residential, mixed-use and development projects.',
-    image: assets.serviceStrata
-  },
-  {
-    title: 'Commercial and Industrial Projects',
-    description: 'Construction setout, 3D scanning, as-built surveys and compliance support.',
-    image: assets.projectCivil
-  }
-];
-
-export const projectExperience = [
-  ['Road and civil infrastructure', 'Construction control, WAE and public domain survey support.'],
-  ['Large apartment developments', 'Strata, setout and as-built documentation across multi-unit projects.'],
-  ['Land subdivision programs', 'Subdivision plans and registration support for staged land release.'],
-  ['Duplex and small developments', 'Detail, boundary, construction and title support for local projects.']
-] as const;
 
 export const formOptions = {
   services: services.map((service) => service.title),

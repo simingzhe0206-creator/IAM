@@ -16,8 +16,6 @@ export function ServiceCategoryDetail() {
   const detailedServices = Array.from(new Set(category.services.flatMap((item) => item.slug ?? [])))
     .map((slug) => services.find((service) => service.slug === slug))
     .filter((service): service is Service => Boolean(service));
-  const additionalCapabilities = category.services.filter((item) => !item.slug);
-
   return (
     <div className="editorial-page">
       <PageHero title={category.title} image={category.image}>{category.description}</PageHero>
@@ -27,13 +25,13 @@ export function ServiceCategoryDetail() {
           <Link className="mb-10 inline-flex items-center gap-2 text-sm font-bold text-[#ece9df]" to="/services">
             <ArrowLeft size={18} /> Back to services
           </Link>
-          <div className="grid gap-12 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
-            <aside className="border-t border-[#fffdf0]/16 lg:sticky lg:top-28">
+          <div id="category-top" className="grid scroll-mt-28 gap-12 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
+            <aside className="border-t border-[#fffdf0]/16 lg:sticky lg:top-28" data-testid="service-category-navigation">
               <p className="editorial-kicker py-5">In this category</p>
               {category.services.map((item) => (
                 <a
                   key={item.label}
-                  href={item.slug ? `#${item.slug}` : '#additional-capabilities'}
+                  href={item.slug ? `#${item.slug}` : '#category-top'}
                   className="block border-t border-[#fffdf0]/12 py-4 text-sm font-bold leading-6 text-[#d8d5ca] transition hover:text-[#f4e00c]"
                 >
                   {item.label}
@@ -47,22 +45,6 @@ export function ServiceCategoryDetail() {
                 <ServiceSection key={service.slug} service={service} index={index} />
               ))}
 
-              {additionalCapabilities.length > 0 && (
-                <section id="additional-capabilities" className="scroll-mt-28 border-b border-[#fffdf0]/16 py-12">
-                  <Reveal>
-                    <p className="editorial-kicker">Additional capabilities</p>
-                    <h2 className="mt-4 text-4xl font-normal">Supporting survey services</h2>
-                    <div className="mt-8 grid border-t border-[#fffdf0]/14 sm:grid-cols-2">
-                      {additionalCapabilities.map((item, index) => (
-                        <div key={item.label} className={`flex gap-3 border-b border-[#fffdf0]/14 py-4 ${index % 2 === 0 ? 'sm:border-r sm:pr-5' : 'sm:pl-5'}`}>
-                          <CheckCircle className="mt-0.5 shrink-0 text-[#f4e00c]" size={18} weight="fill" />
-                          <span className="text-sm font-bold text-[#d8d5ca]">{item.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </Reveal>
-                </section>
-              )}
             </div>
           </div>
         </div>

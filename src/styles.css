@@ -223,6 +223,108 @@ textarea {
   object-fit: cover;
 }
 
+.process-number {
+  display: inline-block;
+  width: fit-content;
+  color: transparent;
+  background-position: center;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: clamp(8rem, 22vw, 17rem);
+  font-weight: 800;
+  line-height: 0.72;
+  letter-spacing: 0;
+  -webkit-text-stroke: 1px rgba(36, 35, 33, 0.14);
+}
+
+.project-vertical-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  max-height: 16rem;
+}
+
+.project-vertical-title span {
+  writing-mode: vertical-rl;
+}
+
+.team-collage {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  border-top: 1px solid rgba(24, 24, 23, 0.2);
+  border-bottom: 1px solid rgba(24, 24, 23, 0.2);
+  background: #efede2;
+}
+
+.team-portrait {
+  position: absolute;
+  width: 24%;
+  aspect-ratio: 0.76;
+  overflow: hidden;
+  border: 8px solid #fff;
+  background:
+    radial-gradient(circle at 50% 31%, #777 0 11%, transparent 11.5%),
+    radial-gradient(ellipse at 50% 78%, #5d5d5d 0 31%, transparent 31.5%),
+    linear-gradient(145deg, #dedede, #f8f8f8 58%, #c9c9c9);
+  box-shadow: 0 16px 28px rgba(24, 24, 23, 0.12);
+}
+
+.team-portrait span {
+  position: absolute;
+  bottom: 0.55rem;
+  left: 0.65rem;
+  color: rgba(24, 24, 23, 0.48);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team-portrait-1 { left: 4%; top: 7%; transform: rotate(-5deg); }
+.team-portrait-2 { left: 27%; top: 2%; transform: rotate(2deg); }
+.team-portrait-3 { right: 25%; top: 9%; transform: rotate(-1deg); }
+.team-portrait-4 { right: 3%; top: 4%; transform: rotate(5deg); }
+.team-portrait-5 { left: 10%; top: 36%; transform: rotate(2deg); }
+.team-portrait-6 { left: 36%; top: 31%; transform: rotate(-3deg); }
+.team-portrait-7 { right: 17%; top: 37%; transform: rotate(3deg); }
+.team-portrait-8 { left: 23%; bottom: 1%; transform: rotate(-4deg); }
+.team-portrait-9 { right: 9%; bottom: 3%; transform: rotate(2deg); }
+
+@media (max-width: 767px) {
+  .team-collage {
+    min-height: 520px;
+  }
+
+  .team-portrait {
+    width: 32%;
+    border-width: 5px;
+  }
+
+  .team-portrait-1 { left: 3%; top: 5%; }
+  .team-portrait-2 { left: 34%; top: 1%; }
+  .team-portrait-3 { right: 3%; top: 7%; }
+  .team-portrait-4 { left: 9%; top: 34%; }
+  .team-portrait-5 { left: 37%; top: 31%; }
+  .team-portrait-6 { right: 1%; top: 38%; }
+  .team-portrait-7 { left: 4%; bottom: 2%; }
+  .team-portrait-8 { left: 36%; bottom: 0; }
+  .team-portrait-9 { right: 2%; bottom: 4%; }
+}
+
+@media (max-width: 639px) {
+  .project-vertical-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    max-height: none;
+    max-width: 12rem;
+  }
+
+  .project-vertical-title span {
+    writing-mode: horizontal-tb;
+  }
+}
+
 .text-balance {
   text-wrap: balance;
   overflow-wrap: break-word;

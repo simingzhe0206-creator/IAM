@@ -30,4 +30,14 @@ describe('services navigation', () => {
       '/services#infrastructure-utility-surveys'
     ]);
   });
+
+  it('moves Reviews out of the primary navigation', () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    expect(screen.queryByRole('link', { name: 'Reviews' })).not.toBeInTheDocument();
+  });
 });

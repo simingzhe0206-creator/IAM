@@ -7,7 +7,6 @@ import { ButtonLink } from './ButtonLink';
 const nav = [
   ['Home', '/'],
   ['Projects', '/projects'],
-  ['Reviews', '/reviews'],
   ['Contact', '/contact']
 ] as const;
 

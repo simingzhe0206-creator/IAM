@@ -66,4 +66,36 @@ describe('home hero video', () => {
       expect.stringContaining('pexels-serjosoza-30463192.jpg')
     );
   });
+
+  it('shows the approved four-step process and links each featured project', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByRole('heading', { name: 'Tell Us About Your Project' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Assessment & Quote' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Survey & Documentation' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Project Support' })).toBeInTheDocument();
+    expect(screen.getByText(/Email us at office@iamsurveyor.com.au/)).toBeInTheDocument();
+
+    expect(screen.getByRole('link', { name: /STRATA PLAN - 3-5 Help St Chatswood/i })).toHaveAttribute(
+      'href',
+      '/projects/strata-plan-help-st-chatswood'
+    );
+    expect(screen.getByRole('link', { name: /BIM MODELLING - 529 KENT STREET SYDNEY/i })).toHaveAttribute(
+      'href',
+      '/projects/bim-modelling-kent-street-sydney'
+    );
+    expect(screen.getByRole('link', { name: /CONSTRUCTION SURVEY - M7-M12 Integration project/i })).toHaveAttribute(
+      'href',
+      '/projects/construction-survey-m7-m12'
+    );
+    expect(screen.getByRole('link', { name: /DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765/i })).toHaveAttribute(
+      'href',
+      '/projects/deposit-plan-hynds-box-hill'
+    );
+    expect(screen.queryByText(/prototype avoids invented case studies/i)).not.toBeInTheDocument();
+  });
 });

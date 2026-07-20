@@ -7,7 +7,7 @@ const quickLinks = [
   ['About IAM', '/about'],
   ['Services', '/services'],
   ['Projects', '/projects'],
-  ['Customer Reviews', '/reviews'],
+  ['Customer Reviews', '/projects#reviews'],
   ['Get a Quote', '/quote'],
   ['Contact', '/contact']
 ] as const;
