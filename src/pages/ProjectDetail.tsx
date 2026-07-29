@@ -33,20 +33,15 @@ export function ProjectDetail() {
             <ArrowLeft size={18} weight="bold" /> Back to Projects
           </Link>
 
-          <div className="mx-auto mt-12 max-w-3xl">
-            <Reveal>
-              <p className="editorial-kicker">Project overview</p>
-              <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight md:text-5xl">{project.shortTitle}</h2>
-            </Reveal>
-
-            <Reveal className="mt-10" delay={0.06}>
-              <dl className="border-y border-[#fffdf0]/16">
+          <div className="mx-auto mt-12 max-w-3xl text-center">
+            <Reveal delay={0.06}>
+              <dl className="space-y-10">
                 {project.metadata.map((detail) => (
-                  <div key={detail.label} className="grid gap-3 border-b border-[#fffdf0]/16 py-6 last:border-b-0 sm:grid-cols-[0.7fr_1.3fr]">
+                  <div key={detail.label} className="space-y-3">
                     <dt className="text-sm font-extrabold text-[#f4e00c]">{detail.label}</dt>
-                    <dd className="text-sm leading-7 text-[#ece9df]">
+                    <dd className="text-sm leading-7 text-[#fffdf0]">
                       {detail.label === 'Services' ? (
-                        <ul className="space-y-1">
+                        <ul className="list-none space-y-1">
                           {detail.value.map((service) => <li key={service}>{service}</li>)}
                         </ul>
                       ) : (
@@ -58,8 +53,11 @@ export function ProjectDetail() {
               </dl>
             </Reveal>
 
-            <Reveal className="mt-10 space-y-6 text-lg leading-8 text-[#d8d5ca]" delay={0.1}>
-              {project.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <Reveal className="mt-12" delay={0.1}>
+              <p className="text-sm font-extrabold text-[#f4e00c]">Overview</p>
+              <div className="mx-auto mt-4 max-w-4xl space-y-6 text-lg leading-8 text-[#d8d5ca]">
+                {project.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
             </Reveal>
 
             <Reveal className="mt-16 flex flex-col justify-between gap-6 border-y border-[#fffdf0]/14 py-9 sm:flex-row sm:items-center" delay={0.14}>
