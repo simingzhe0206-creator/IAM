@@ -18,10 +18,10 @@ export function ProjectDetail() {
         <img className="absolute inset-0 h-full w-full object-cover" src={project.image} alt={project.imageAlt} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-[#11100f]/22 to-[#11100f]/8" />
         <div className="section-shell relative z-10 flex min-h-[calc(72vh-5rem)] items-end pb-14 pt-24 md:pb-20">
-          <Reveal className="max-w-5xl">
+          <Reveal className="w-full min-w-0 max-w-5xl">
             <p className="editorial-kicker">Project {project.number}</p>
-            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.06] text-[#fffdf0] md:text-7xl">
-              {project.title}
+            <h1 className="mt-5 max-w-full text-4xl font-extrabold leading-[1.06] text-[#fffdf0] md:text-7xl">
+              {project.detailTitle}
             </h1>
           </Reveal>
         </div>
@@ -33,41 +33,41 @@ export function ProjectDetail() {
             <ArrowLeft size={18} weight="bold" /> Back to Projects
           </Link>
 
-          <div className="mt-12 grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
-            <Reveal>
-              <p className="editorial-kicker">Project overview</p>
-              <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight md:text-5xl">
-                {project.shortTitle}
-              </h2>
-              <p className="mt-5 text-lg leading-8 text-[#d8d5ca]">{project.location}</p>
-              <p className="mt-7 max-w-xl leading-8 text-[#b8b5aa]">
-                Detailed project scope, deliverables and completion information will be added after the approved
-                project material is supplied.
-              </p>
+          <div className="mx-auto mt-12 max-w-3xl text-center">
+            <Reveal delay={0.06}>
+              <dl className="space-y-10">
+                {project.metadata.map((detail) => (
+                  <div key={detail.label} className="space-y-3">
+                    <dt className="text-sm font-extrabold text-[#f4e00c]">{detail.label}</dt>
+                    <dd className="text-sm leading-7 text-[#fffdf0]">
+                      {detail.label === 'Services' ? (
+                        <ul className="list-none space-y-1">
+                          {detail.value.map((service) => <li key={service}>{service}</li>)}
+                        </ul>
+                      ) : (
+                        detail.value.map((value) => <p key={value}>{value}</p>)
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
 
-            <div className="border-t border-[#fffdf0]/16">
-              {project.details.map((detail, index) => (
-                <Reveal
-                  key={detail.label}
-                  className="grid gap-3 border-b border-[#fffdf0]/16 py-6 sm:grid-cols-[3rem_0.7fr_1.3fr]"
-                  delay={index * 0.04}
-                >
-                  <span className="text-xs font-extrabold text-[#f4e00c]">{String(index + 1).padStart(2, '0')}</span>
-                  <h3 className="text-base font-extrabold text-[#fffdf0]">{detail.label}</h3>
-                  <p className="text-sm leading-7 text-[#b8b5aa]">{detail.value}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+            <Reveal className="mt-12" delay={0.1}>
+              <p className="text-sm font-extrabold text-[#f4e00c]">Overview</p>
+              <div className="mx-auto mt-4 max-w-4xl space-y-6 text-lg leading-8 text-[#d8d5ca]">
+                {project.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </Reveal>
 
-          <Reveal className="mt-16 flex flex-col justify-between gap-6 border-y border-[#fffdf0]/14 py-9 sm:flex-row sm:items-center">
-            <div>
-              <h2 className="text-2xl font-extrabold text-[#fffdf0]">Discuss a similar project with IAM.</h2>
-              <p className="mt-2 text-sm leading-6 text-[#b8b5aa]">Send your site address, plans and survey requirements.</p>
-            </div>
-            <ButtonLink to="/quote">Request a Quote</ButtonLink>
-          </Reveal>
+            <Reveal className="mt-16 flex flex-col justify-between gap-6 border-y border-[#fffdf0]/14 py-9 sm:flex-row sm:items-center" delay={0.14}>
+              <div>
+                <h2 className="text-2xl font-extrabold text-[#fffdf0]">Discuss a similar project with IAM.</h2>
+                <p className="mt-2 text-sm leading-6 text-[#b8b5aa]">Send your site address, plans and survey requirements.</p>
+              </div>
+              <ButtonLink to="/quote">Request a Quote</ButtonLink>
+            </Reveal>
+          </div>
         </div>
       </section>
     </div>

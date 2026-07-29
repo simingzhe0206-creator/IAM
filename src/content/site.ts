@@ -54,6 +54,8 @@ export const assets = {
   serviceEasement: assetPath('/images/iam-update/service-easement.jpg'),
   service3dScanning: assetPath('/images/iam-update/service-3d-scanning.jpg'),
   serviceTitleCouncil: assetPath('/images/iam-update/service-title-council.jpg'),
+  serviceLettableAreaSurvey: assetPath('/images/iam-update/service-lettable-area-survey.jpg'),
+  projectKentStreet: assetPath('/images/iam-update/projects/529-kent-street-sydney.png'),
   field: assetPath('/images/field.jpg'),
   equipment: assetPath('/images/equipment.jpg'),
   construction: assetPath('/images/construction.jpg')
@@ -133,14 +135,10 @@ export type ProjectRecord = {
   location: string;
   image: string;
   imageAlt: string;
-  details: Array<{ label: string; value: string }>;
+  detailTitle: string;
+  metadata: Array<{ label: 'Project Type' | 'Value' | 'Duration' | 'Services'; value: string[] }>;
+  overview: string[];
 };
-
-const pendingProjectDetails = () =>
-  ['Client', 'Project scope', 'Survey services', 'Deliverables', 'Completion'].map((label) => ({
-    label,
-    value: 'Project information to be supplied'
-  }));
 
 export const projects: ProjectRecord[] = [
   {
@@ -151,7 +149,25 @@ export const projects: ProjectRecord[] = [
     location: '3-5 Help St Chatswood',
     image: assets.projectCovers[0],
     imageAlt: 'Multi-storey development at 3-5 Help Street, Chatswood',
-    details: pendingProjectDetails()
+    detailTitle: '3-5 Help St Chatswood',
+    metadata: [
+      { label: 'Project Type', value: ['Mixed Use Development', 'Location Chatswood, NSW Project'] },
+      { label: 'Value', value: ['AUD $61.9 Million Project'] },
+      { label: 'Duration', value: ['Multi-stage planning and approvals (2021–Present)'] },
+      {
+        label: 'Services',
+        value: [
+          'Draft Strata Plan',
+          'CIVIL EARTH WORK',
+          'Public Domain Survey',
+          'Plan of Consolidation',
+          'Electronic Plan Lodgement (NSW LRS)'
+        ]
+      }
+    ],
+    overview: [
+      "Located in the heart of Chatswood CBD, this landmark mixed use development represents one of the area's significant urban renewal projects. The development comprises a high-rise residential tower, commercial podium, public domain upgrades and associated infrastructure works, supporting the continued growth of one of Sydney's busiest metropolitan centres. The project progressed through multiple planning and approval stages over several years, with a declared capital investment value of approximately AUD $61.9 million. IAM Surveyors provided a range of cadastral and land development surveying services throughout the planning and registration process, supporting the project team with accurate survey information and specialist documentation."
+    ]
   },
   {
     slug: 'bim-modelling-kent-street-sydney',
@@ -159,9 +175,18 @@ export const projects: ProjectRecord[] = [
     title: 'BIM MODELLING - 529 KENT STREET SYDNEY',
     shortTitle: 'BIM Modelling',
     location: '529 Kent Street Sydney',
-    image: assets.projectCovers[1],
+    image: assets.projectKentStreet,
     imageAlt: 'BIM modelling project at 529 Kent Street, Sydney',
-    details: pendingProjectDetails()
+    detailTitle: '529 KENT STREET SYDNEY',
+    metadata: [
+      { label: 'Project Type', value: ['Commercial Fit-out | Wellness & Fitness Centre'] },
+      { label: 'Value', value: ['Confidential'] },
+      { label: 'Duration', value: ['2024–2026'] },
+      { label: 'Services', value: ['Detail Survey', 'Internal Survey', 'BIM Modelling'] }
+    ],
+    overview: [
+      'Located at 529 Kent Street in the Sydney CBD, this project involved the transformation of an existing commercial building into a premium wellness and fitness centre. IAM Surveyors provided comprehensive detail and internal surveying services to accurately capture the existing external site conditions, internal layouts, floor levels, structural elements and key building features. The collected survey data was then developed into a detailed BIM model, creating a reliable digital representation of the existing building. These deliverables provided architects, designers and consultants with an accurate foundation for design development, spatial planning, consultant coordination and the preparation of fit-out documentation, helping to reduce design conflicts and support the efficient delivery of the project.'
+    ]
   },
   {
     slug: 'construction-survey-m7-m12',
@@ -171,7 +196,26 @@ export const projects: ProjectRecord[] = [
     location: 'M7-M12 Integration project',
     image: assets.projectCovers[2],
     imageAlt: 'Aerial view of motorway infrastructure for the M7-M12 integration project',
-    details: pendingProjectDetails()
+    detailTitle: 'M7 - M12 Integration project',
+    metadata: [
+      { label: 'Project Type', value: ['Major Transport Infrastructure | Motorway Upgrade and Interchange'] },
+      { label: 'Value', value: ['$1.7 Billion'] },
+      { label: 'Duration', value: ['2023–2026'] },
+      {
+        label: 'Services',
+        value: [
+          'Survey Control',
+          'Construction and Structural Set-Out',
+          'Earthworks and Volume Surveys',
+          'Drainage and Civil Infrastructure Surveys',
+          'Work-As-Executed Surveys'
+        ]
+      }
+    ],
+    overview: [
+      'The M7-M12 Integration Project is a major Western Sydney transport infrastructure development involving the widening of approximately 26 kilometres of the existing M7 Motorway, construction of the new M7-M12 interchange and delivery of the Elizabeth Drive Connection. The project will provide a direct motorway connection to the new M12 Motorway and Western Sydney International Airport.',
+      'Members of the IAM Surveyors team contributed survey control, bulk earthworks and structural set-out services across the project. Survey support also included drainage and staged civil interfaces, volume calculations, work-as-executed surveys and conformance verification. Accurate and timely survey information supported coordination between construction and engineering teams, quality assurance requirements and the delivery of complex works within an operational motorway environment.'
+    ]
   },
   {
     slug: 'deposit-plan-hynds-box-hill',
@@ -181,11 +225,31 @@ export const projects: ProjectRecord[] = [
     location: '33-35 Hynds, Box Hill, NSW 2765',
     image: assets.projectCovers[3],
     imageAlt: 'Residential development at 33-35 Hynds, Box Hill',
-    details: pendingProjectDetails()
+    detailTitle: '33-35 Hynds, Box Hill, NSW 2765',
+    metadata: [
+      { label: 'Project Type', value: ['Residential Subdivision | Land Development'] },
+      { label: 'Value', value: ['Confidential'] },
+      { label: 'Duration', value: ['2022 – NOW'] },
+      { label: 'Services', value: ['Construction Support', 'Boundary Definition', 'Deposited Plan Preparation'] }
+    ],
+    overview: [
+      'Located within the rapidly developing Box Hill precinct, this project involved a multi-stage residential subdivision across an approximately 3.37-hectare site. IAM Surveyors provided boundary definition services to accurately establish the legal property boundaries and support the proposed subdivision layout.',
+      'Ongoing construction survey support was also provided throughout the development, supplying reliable survey information for site coordination and the delivery of civil and residential works. Deposited Plans were prepared to define the new lots, roads and associated land interests, supporting the subdivision approval and land registration process.',
+      'The project demonstrates IAM Surveyors\' capability to deliver coordinated cadastral and construction surveying services for complex residential land developments.'
+    ]
   }
 ];
 
 export const getProjectBySlug = (slug: string | undefined) => projects.find((project) => project.slug === slug);
+
+export const employees = [
+  { name: 'Marcus Jiang', role: 'Director', image: assetPath('/images/iam-update/people/marcus-jiang.jpg') },
+  { name: 'Bennie Ai', role: 'Project Administration', image: assetPath('/images/iam-update/people/bennie-ai.png') },
+  { name: 'Rayna Sun', role: 'Accountant', image: assetPath('/images/iam-update/people/rayna-sun.png') },
+  { name: 'Ming Su', role: 'Lead Draftman', image: assetPath('/images/iam-update/people/ming-su.jpg') },
+  { name: 'Jannie Hu', role: 'Draftman', image: assetPath('/images/iam-update/people/jannie-hu.png') },
+  { name: 'Justin Yu', role: 'Draftman', image: assetPath('/images/iam-update/people/justin-yu.jpg') }
+] as const;
 
 export const services: Service[] = [
   {
@@ -276,6 +340,34 @@ export const services: Service[] = [
     ],
     icon: FileMagnifyingGlass,
     image: assets.serviceIdentification
+  },
+  {
+    slug: 'lettable-area-survey',
+    title: 'Lettable Area Survey',
+    shortTitle: 'Lettable Area',
+    intro:
+      'A lettable area survey accurately measures the floor area of commercial, office, retail or industrial premises. It provides reliable area calculations for lease documentation, rental assessments and property management.',
+    when:
+      'Before entering into or renewing a lease, reviewing rent, dividing tenancy areas, completing a commercial fit-out or resolving discrepancies in the stated floor area.',
+    includes: [
+      'Internal tenancy dimensions',
+      'Walls, columns and structural elements',
+      'Tenancy and common-area boundaries',
+      'Relevant inclusions and exclusions',
+      'NLA, GLA or GLAR calculations',
+      'Area schedule for each tenancy or floor'
+    ],
+    deliverables: [
+      'PDF survey plan',
+      'Lettable area calculation schedule',
+      'CAD survey file',
+      'Clearly identified measurement methodology',
+      'Optional survey certification'
+    ],
+    clients: ['Property owners', 'Commercial landlords', 'Property managers', 'Leasing agents', 'Commercial tenants', 'Developers', 'Solicitors and valuers'],
+    faq: [],
+    icon: Buildings,
+    image: assets.serviceLettableAreaSurvey
   },
   {
     slug: 'construction-setout-survey',
@@ -494,8 +586,8 @@ export const serviceCategories: ServiceCategory[] = [
       { label: 'Detail & Contour Survey', slug: 'detail-and-level-survey' },
       { label: 'Boundary Identification Survey', slug: 'boundary-survey-and-boundary-marking' },
       { label: 'Identification Survey', slug: 'identification-survey' },
-      { label: 'Existing Conditions Survey', slug: 'detail-and-level-survey' },
-      { label: 'Lease Area Survey' }
+      { label: 'Lettable Area Survey', slug: 'lettable-area-survey' },
+      { label: 'Existing Conditions Survey', slug: 'detail-and-level-survey' }
     ]
   },
   {

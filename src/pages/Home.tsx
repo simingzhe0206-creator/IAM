@@ -71,6 +71,8 @@ export function Home() {
                   className="absolute inset-0 h-full w-full object-cover opacity-44 image-treatment"
                   src={category.catalogueImage ?? category.image}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
                 <div className="relative z-10 flex h-full flex-col justify-end">
@@ -107,11 +109,15 @@ export function Home() {
               accurate information that keeps your project moving.
             </p>
             <p className="mt-10 text-sm font-semibold text-[#f0eedc]">We Support</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <div
+              className="mt-4 flex max-w-full gap-3 overflow-x-auto pb-1 lg:flex-nowrap lg:overflow-visible"
+              data-testid="home-support-audiences"
+            >
               {audience.map((item) => (
                 <div
                   key={item}
-                  className="flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-gradient-to-b from-white/20 to-white/8 px-5 py-3 text-center text-sm font-semibold text-[#fffdf0] shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-xl transition hover:border-white/40 hover:from-white/26 hover:to-white/12"
+                  className="home-support-audience flex min-h-14 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-semibold text-[#fffdf0] shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-xl transition hover:border-white/35 hover:bg-white/15"
+                  data-testid="home-support-audience"
                 >
                   {item}
                 </div>
@@ -158,7 +164,7 @@ export function Home() {
             </Reveal>
 
             <div className="flex snap-x snap-mandatory gap-px overflow-x-auto border-y border-[#fffdf0]/16 bg-[#fffdf0]/14 lg:grid lg:grid-cols-4 lg:overflow-visible">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <Link
                   key={project.title}
                   to={`/projects/${project.slug}`}
@@ -169,6 +175,8 @@ export function Home() {
                     className="absolute inset-0 h-full w-full object-cover brightness-[0.42] saturate-[0.72] transition-[filter] duration-500 group-hover:brightness-[0.84] group-hover:saturate-100 group-focus-visible:brightness-[0.84] group-focus-visible:saturate-100"
                     src={project.image}
                     alt=""
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-[#11100f]/20 to-[#11100f]/24 transition group-hover:from-[#11100f]/68 group-focus-visible:from-[#11100f]/68" />
                   <div className="absolute inset-x-0 bottom-0 z-10 flex min-h-64 items-end justify-between gap-5 p-5">

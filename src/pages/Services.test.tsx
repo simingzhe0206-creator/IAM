@@ -5,7 +5,7 @@ import { Services } from './Services';
 
 describe('Services overview cleanup', () => {
   it('starts with the five service groups without the old directory introduction', () => {
-    render(
+    const { container } = render(
       <MemoryRouter>
         <Services />
       </MemoryRouter>
@@ -15,5 +15,12 @@ describe('Services overview cleanup', () => {
     expect(screen.queryByRole('heading', { name: 'Five coordinated areas of practice.' })).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Property & Boundary Surveys' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Infrastructure & Utility Surveys' })).toBeInTheDocument();
+
+    const serviceImages = Array.from(container.querySelectorAll('article img'));
+    expect(serviceImages).toHaveLength(5);
+    serviceImages.forEach((image) => {
+      expect(image).toHaveAttribute('loading', 'lazy');
+      expect(image).toHaveAttribute('decoding', 'async');
+    });
   });
 });
