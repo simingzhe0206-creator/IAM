@@ -1,9 +1,7 @@
 import { Buildings, CheckCircle, MapTrifold, Ruler, UsersThree } from '@phosphor-icons/react';
 import { PageHero } from '../components/PageHero';
 import { Reveal } from '../components/Reveal';
-import { assets, stats } from '../content/site';
-
-const peopleSlots = Array.from({ length: 9 }, (_, index) => `Portrait ${String(index + 1).padStart(2, '0')}`);
+import { assets, employees, stats } from '../content/site';
 
 const capabilityGroups = [
   {
@@ -125,19 +123,18 @@ export function About() {
               <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#4b4a48]">People</p>
               <h2 className="mt-5 text-balance text-4xl font-normal leading-tight md:text-6xl">The team behind IAM.</h2>
               <p className="mt-5 max-w-lg text-lg leading-8 text-[#4b4a48]">
-                Staff photos and profiles can be added once approved images and role details are ready.
+                The people who keep IAM projects moving from survey through to documentation and delivery.
               </p>
             </div>
-            <div className="team-collage" aria-label="Future IAM team photo collage">
-              {peopleSlots.map((label, index) => (
-                <div
-                  key={label}
-                  className={`team-portrait team-portrait-${index + 1}`}
-                  aria-label="Future IAM team portrait"
-                  role="img"
-                >
-                  <span>{label}</span>
-                </div>
+            <div className="team-grid" aria-label="IAM team">
+              {employees.map((employee) => (
+                <figure key={employee.name} className="team-member" tabIndex={0}>
+                  <img src={employee.image} alt={`IAM team member: ${employee.name}`} />
+                  <figcaption className="team-member-caption">
+                    <span className="team-member-name">{employee.name}</span>
+                    <span className="team-member-role">{employee.role}</span>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </Reveal>

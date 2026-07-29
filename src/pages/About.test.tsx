@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { About } from './About';
 
 describe('About editorial update', () => {
-  it('removes mission and values and keeps the empty People portrait framework', () => {
+  it('renders the approved IAM team portraits', () => {
     render(
       <MemoryRouter>
         <About />
@@ -14,6 +14,10 @@ describe('About editorial update', () => {
     expect(screen.queryByText('Mission and values')).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Reliable information. Practical support.' })).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'The team behind IAM.' })).toBeInTheDocument();
-    expect(screen.getAllByLabelText('Future IAM team portrait')).toHaveLength(9);
+    expect(screen.getByText('Marcus Jiang')).toBeInTheDocument();
+    expect(screen.getByText('Director')).toBeInTheDocument();
+    expect(screen.getByText('Rayna Sun')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Future IAM team portrait')).not.toBeInTheDocument();
+    expect(screen.getAllByRole('img', { name: /IAM team member:/ })).toHaveLength(6);
   });
 });
