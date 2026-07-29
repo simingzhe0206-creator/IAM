@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { Projects } from './Projects';
 
 describe('Projects editorial portfolio', () => {
-  it('shows the approved introduction, four projects and Google reviews entry', () => {
+  it('shows the approved introduction, four project links and no stale helper copy', () => {
     render(
       <MemoryRouter>
         <Projects />
@@ -23,6 +23,7 @@ describe('Projects editorial portfolio', () => {
     expect(screen.getByRole('link', { name: /BIM MODELLING - 529 KENT STREET SYDNEY/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /CONSTRUCTION SURVEY - M7-M12 Integration project/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765/i })).toBeInTheDocument();
+    expect(screen.queryByText(/Detailed project information will be added as approved/i)).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Google Reviews' })).toBeInTheDocument();
     expect(screen.getByText('4.7')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Read all reviews on Google' })).toHaveAttribute(
