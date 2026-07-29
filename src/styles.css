@@ -230,8 +230,8 @@ textarea {
   overflow: hidden;
   vertical-align: top;
   color: transparent;
-  background-position: center 42%;
-  background-size: 170% auto;
+  background-position: center;
+  background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
   font-size: clamp(8rem, 22vw, 17rem);
