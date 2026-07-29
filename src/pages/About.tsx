@@ -126,7 +126,7 @@ export function About() {
                 The people who keep IAM projects moving from survey through to documentation and delivery.
               </p>
             </div>
-            <div className="team-grid" aria-label="IAM team">
+            <div className="team-grid team-collage" aria-label="IAM team">
               {employees.map((employee) => (
                 <figure key={employee.name} className="team-member" tabIndex={0}>
                   <img
