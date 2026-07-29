@@ -224,21 +224,35 @@ textarea {
 }
 
 .process-number {
-  display: block;
+  display: flex;
   width: fit-content;
-  height: 0.72em;
-  overflow: hidden;
-  vertical-align: top;
+  gap: 0.02em;
+}
+
+.process-number-glyph {
+  display: inline-block;
   color: transparent;
-  background-position: center;
-  background-size: cover;
+  background-color: #a8a39a;
+  background-blend-mode: multiply;
+  background-position: 54% 52%;
+  background-size: auto 160%;
   background-clip: text;
   -webkit-background-clip: text;
   font-size: clamp(8rem, 22vw, 17rem);
   font-weight: 800;
-  line-height: 0.72;
+  line-height: 1;
   letter-spacing: 0;
   -webkit-text-stroke: 1px rgba(36, 35, 33, 0.14);
+}
+
+.process-number-glyph:nth-child(2) {
+  background-position: 48% 58%;
+}
+
+@media (min-width: 768px) {
+  .process-number--right {
+    margin-left: auto;
+  }
 }
 
 .project-vertical-title {
