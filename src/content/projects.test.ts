@@ -14,7 +14,7 @@ describe('approved IAM projects', () => {
       {
         slug: 'bim-modelling-kent-street-sydney',
         title: 'BIM MODELLING - 529 KENT STREET SYDNEY',
-        image: '02.webp'
+        image: '529-kent-street-sydney.png'
       },
       {
         slug: 'construction-survey-m7-m12',
@@ -29,11 +29,18 @@ describe('approved IAM projects', () => {
     ]);
   });
 
-  it('resolves known projects and leaves unsupplied facts explicit', () => {
-    const project = getProjectBySlug('strata-plan-help-st-chatswood');
+  it('provides approved project detail titles, metadata and overview copy', () => {
+    expect(projects.map((project) => project.detailTitle)).toEqual([
+      '3-5 Help St Chatswood',
+      '529 KENT STREET SYDNEY',
+      'M7 - M12 Integration project',
+      '33-35 Hynds, Box Hill, NSW 2765'
+    ]);
 
-    expect(project?.details).toHaveLength(5);
-    expect(project?.details.every((detail) => detail.value === 'Project information to be supplied')).toBe(true);
+    expect(projects[0].metadata.map((item) => item.label)).toEqual(['Project Type', 'Value', 'Duration', 'Services']);
+    expect(projects[0].metadata.flatMap((item) => item.value)).not.toContain('Project information to be supplied');
+    expect(projects[2].overview).toHaveLength(2);
+    expect(projects.every((project) => !JSON.stringify(project).includes('Project information to be supplied'))).toBe(true);
     expect(getProjectBySlug('not-a-project')).toBeUndefined();
   });
 });
