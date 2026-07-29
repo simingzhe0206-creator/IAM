@@ -35,15 +35,22 @@ export function ProjectTimeline({ images }: { images: string[] }) {
             className="grid min-h-[300px] items-center gap-5 border-b border-[#242321]/16 py-8 md:grid-cols-2 md:gap-16 md:py-10"
           >
             <motion.div
-              className={`process-number select-none ${index % 2 ? 'md:order-2 md:text-right' : ''}`}
-              style={{ backgroundImage: `url(${images[index]})` }}
+              className={`process-number select-none ${index % 2 ? 'process-number--right md:order-2' : ''}`}
               initial={reduceMotion ? false : { opacity: 0 }}
               whileInView={reduceMotion ? undefined : { opacity: 1 }}
               viewport={{ once: true, amount: 0.45 }}
               transition={{ duration: 0.75, delay: index * 0.08 }}
               aria-hidden="true"
             >
-              {milestone.number}
+              {milestone.number.split('').map((digit) => (
+                <span
+                  className="process-number-glyph"
+                  key={digit}
+                  style={{ backgroundImage: `url(${images[index]})` }}
+                >
+                  {digit}
+                </span>
+              ))}
             </motion.div>
             <motion.div
               className={`max-w-xl ${index % 2 ? 'md:order-1 md:justify-self-end' : ''}`}

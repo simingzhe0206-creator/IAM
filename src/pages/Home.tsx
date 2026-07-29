@@ -128,7 +128,7 @@ export function Home() {
       </section>
 
       <section id="how-we-work" className="scroll-mt-20 border-y border-[#242321]/12 bg-[#f7f5e9] py-16 text-[#242321] md:py-24">
-        <div className="section-shell">
+          <div className="section-shell max-w-[1180px]">
           <div className="grid gap-10 overflow-hidden">
             <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
