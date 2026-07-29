@@ -107,11 +107,15 @@ export function Home() {
               accurate information that keeps your project moving.
             </p>
             <p className="mt-10 text-sm font-semibold text-[#f0eedc]">We Support</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <div
+              className="mt-4 flex max-w-full gap-3 overflow-x-auto pb-1 lg:flex-nowrap lg:overflow-visible"
+              data-testid="home-support-audiences"
+            >
               {audience.map((item) => (
                 <div
                   key={item}
-                  className="flex min-h-14 items-center justify-center rounded-full border border-white/25 bg-gradient-to-b from-white/20 to-white/8 px-5 py-3 text-center text-sm font-semibold text-[#fffdf0] shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-xl transition hover:border-white/40 hover:from-white/26 hover:to-white/12"
+                  className="home-support-audience flex min-h-14 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-semibold text-[#fffdf0] shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] backdrop-blur-xl transition hover:border-white/35 hover:bg-white/15"
+                  data-testid="home-support-audience"
                 >
                   {item}
                 </div>

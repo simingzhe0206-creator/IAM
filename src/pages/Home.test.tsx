@@ -67,6 +67,19 @@ describe('home hero video', () => {
     );
   });
 
+  it('keeps all support audiences in a desktop flex row', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    const supportRow = screen.getByTestId('home-support-audiences');
+    expect(supportRow).toHaveClass('lg:flex-nowrap');
+    expect(screen.getByText('Government Agencies')).toBeInTheDocument();
+    expect(screen.getAllByTestId('home-support-audience')).toHaveLength(5);
+  });
+
   it('shows the approved four-step process and links each featured project', () => {
     render(
       <MemoryRouter>

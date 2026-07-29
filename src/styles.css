@@ -444,3 +444,10 @@ textarea {
     transition-duration: 1ms !important;
   }
 }
+
+@media (prefers-reduced-transparency: reduce) {
+  .home-support-audience {
+    background: #242321;
+    backdrop-filter: none;
+  }
+}
