@@ -18,9 +18,9 @@ export function ProjectDetail() {
         <img className="absolute inset-0 h-full w-full object-cover" src={project.image} alt={project.imageAlt} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-[#11100f]/22 to-[#11100f]/8" />
         <div className="section-shell relative z-10 flex min-h-[calc(72vh-5rem)] items-end pb-14 pt-24 md:pb-20">
-          <Reveal className="max-w-5xl">
+          <Reveal className="w-full min-w-0 max-w-5xl">
             <p className="editorial-kicker">Project {project.number}</p>
-            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.06] text-[#fffdf0] md:text-7xl">
+            <h1 className="mt-5 max-w-full text-4xl font-extrabold leading-[1.06] text-[#fffdf0] md:text-7xl">
               {project.detailTitle}
             </h1>
           </Reveal>
