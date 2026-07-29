@@ -24,8 +24,9 @@ describe('Projects editorial portfolio', () => {
     expect(screen.getByRole('link', { name: /CONSTRUCTION SURVEY - M7-M12 Integration project/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765/i })).toBeInTheDocument();
     expect(screen.queryByText(/Detailed project information will be added as approved/i)).not.toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Google Reviews' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '5 Star Google Reviews' })).toBeInTheDocument();
     expect(screen.getByText('4.7')).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Google reviews' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Read all reviews on Google' })).toHaveAttribute(
       'href',
       expect.stringContaining('google.com/maps')
