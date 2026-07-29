@@ -84,51 +84,48 @@ export function Projects() {
 
       <section id="reviews" className="scroll-mt-24 border-t border-[#d8d4c3] bg-[#f7f5e9] py-16 text-[#181817] md:py-20">
         <div className="section-shell">
-          <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#77736b]">Client feedback</p>
-              <h2 className="mt-4 text-4xl font-extrabold md:text-5xl">Google Reviews</h2>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-[#656159]">
-              Public rating matched to IAM Surveyors Pty Ltd using the business name and phone number. Verified {googleReviewProfile.verifiedOn}.
-            </p>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#77736b]">Client testimonials</p>
+            <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">5 Star Google Reviews</h2>
+            <span className="mx-auto mt-5 block h-px w-12 bg-[#d0bc00]" />
           </Reveal>
 
-          <div className="mt-10 flex snap-x snap-mandatory gap-px overflow-x-auto border-y border-[#181817]/18 bg-[#181817]/16">
-            <div className="flex min-h-72 min-w-[82vw] shrink-0 snap-start flex-col justify-between bg-[#efede2] p-7 sm:min-w-[340px]">
-              <div>
-                <div className="text-7xl font-extrabold leading-none">{googleReviewProfile.rating}</div>
-                <div className="mt-4 flex gap-1 text-[#d0bc00]" aria-label="4.7 out of 5 stars">
-                  {Array.from({ length: 5 }).map((_, index) => <Star key={index} size={20} weight="fill" />)}
-                </div>
+          <div
+            className="mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-3"
+            role="region"
+            aria-label="Google reviews"
+          >
+            <div className="flex min-h-56 min-w-[200px] shrink-0 snap-start flex-col justify-center border-r border-[#181817]/16 pr-7 text-center sm:min-w-[220px]">
+              <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-[#77736b]">Excellent</p>
+              <div className="mt-3 text-5xl font-extrabold leading-none">{googleReviewProfile.rating}</div>
+              <div className="mt-3 flex justify-center gap-1 text-[#d0bc00]" aria-label="4.7 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} weight="fill" />)}
               </div>
-              <div>
-                <p className="text-sm font-extrabold">{googleReviewProfile.businessName}</p>
-                <p className="mt-2 text-sm text-[#656159]">{googleReviewProfile.reviewCount} public Google reviews</p>
-              </div>
+              <p className="mt-5 text-xs leading-5 text-[#656159]">Based on {googleReviewProfile.reviewCount} public Google reviews</p>
+              <p className="mt-2 text-sm font-extrabold tracking-wide text-[#4285f4]">Google</p>
             </div>
 
             {googleReviewProfile.excerpts.map((review) => (
-              <article key={review.text} className="flex min-h-72 min-w-[82vw] shrink-0 snap-start flex-col justify-between bg-[#f7f5e9] p-7 sm:min-w-[400px]">
+              <article key={review.text} className="flex min-h-56 w-[78vw] min-w-[260px] shrink-0 snap-start flex-col rounded-sm bg-white p-5 shadow-[0_8px_22px_rgba(24,24,23,0.08)] sm:w-[290px]">
                 <div className="flex gap-1 text-[#d0bc00]" aria-label={`${review.rating} out of 5 stars`}>
-                  {Array.from({ length: review.rating }).map((_, index) => <Star key={index} size={17} weight="fill" />)}
+                  {Array.from({ length: review.rating }).map((_, index) => <Star key={index} size={14} weight="fill" />)}
                 </div>
-                <blockquote className="my-8 text-2xl font-extrabold leading-snug">“{review.text}”</blockquote>
-                <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-[#77736b]">{review.attribution}</p>
+                <blockquote className="mt-5 text-base font-bold leading-7">“{review.text}”</blockquote>
+                <p className="mt-auto pt-5 text-xs font-extrabold uppercase tracking-[0.1em] text-[#77736b]">{review.attribution}</p>
               </article>
             ))}
 
             <a
-              className="group flex min-h-72 min-w-[82vw] shrink-0 snap-start flex-col justify-between bg-[#242321] p-7 text-[#fffdf0] sm:min-w-[340px]"
+              className="group flex min-h-56 w-[78vw] min-w-[260px] shrink-0 snap-start flex-col justify-between rounded-sm bg-[#242321] p-5 text-[#fffdf0] sm:w-[290px]"
               href={googleReviewProfile.href}
               target="_blank"
               rel="noreferrer"
               aria-label="Read all reviews on Google"
             >
               <span className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#f4e00c]">Google Maps</span>
-              <span className="flex items-end justify-between gap-5 text-3xl font-extrabold">
+              <span className="flex items-end justify-between gap-5 text-xl font-extrabold">
                 Read all reviews
-                <ArrowRight className="shrink-0 transition group-hover:translate-x-1" size={28} weight="bold" />
+                <ArrowRight className="shrink-0 transition group-hover:translate-x-1" size={22} weight="bold" />
               </span>
             </a>
           </div>

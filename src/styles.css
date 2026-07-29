@@ -224,8 +224,11 @@ textarea {
 }
 
 .process-number {
-  display: inline-block;
+  display: block;
   width: fit-content;
+  height: 0.72em;
+  overflow: hidden;
+  vertical-align: top;
   color: transparent;
   background-position: center;
   background-size: cover;
