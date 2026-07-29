@@ -252,7 +252,7 @@ textarea {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid #181817;
   background: #181817;
 }
@@ -264,6 +264,8 @@ textarea {
   overflow: hidden;
   margin: 0;
   background: #d8d4c3;
+  transform-origin: center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .team-member:focus {
@@ -276,7 +278,6 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 180ms ease;
 }
 
 .team-member-caption {
@@ -312,12 +313,9 @@ textarea {
 
 .team-member:hover,
 .team-member:focus {
-  z-index: 1;
-}
-
-.team-member:hover img,
-.team-member:focus img {
+  z-index: 2;
   transform: scale(1.04);
+  box-shadow: 0 16px 34px rgba(24, 24, 23, 0.24);
 }
 
 .team-member:hover .team-member-caption,
@@ -332,7 +330,7 @@ textarea {
   }
 
   .team-member {
-    overflow: visible;
+    aspect-ratio: auto;
   }
 
   .team-member img {
@@ -349,7 +347,7 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .team-member img,
+  .team-member,
   .team-member-caption {
     transition: none;
   }

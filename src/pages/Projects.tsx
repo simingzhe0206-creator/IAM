@@ -50,18 +50,24 @@ export function Projects() {
           </Reveal>
         </div>
 
-        <div className="grid gap-px border-y border-[#fffdf0]/16 bg-[#fffdf0]/14 md:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project) => (
+        <div
+          className="flex snap-x snap-mandatory gap-px overflow-x-auto border-y border-[#fffdf0]/16 bg-[#fffdf0]/14 md:grid md:grid-cols-4 md:overflow-visible md:snap-none"
+          role="region"
+          aria-label="Selected projects"
+        >
+          {projects.map((project, index) => (
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
-              className="group relative min-h-[520px] overflow-hidden bg-[#181817] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#f4e00c] lg:min-h-[620px]"
+              className="group relative min-h-[520px] w-[82vw] min-w-[280px] shrink-0 snap-start overflow-hidden bg-[#181817] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#f4e00c] sm:w-[420px] sm:min-w-[420px] md:w-auto md:min-w-0 lg:min-h-[620px]"
               aria-label={`${project.number}. ${project.title}`}
             >
               <img
                 className="absolute inset-0 h-full w-full object-cover brightness-[0.42] saturate-[0.72] transition-[filter] duration-500 group-hover:brightness-[0.9] group-hover:saturate-100 group-focus-visible:brightness-[0.9] group-focus-visible:saturate-100"
                 src={project.image}
                 alt=""
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-transparent to-[#11100f]/24 transition group-hover:from-[#11100f]/62 group-focus-visible:from-[#11100f]/62" />
               <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-5 p-6">

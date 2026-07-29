@@ -60,7 +60,13 @@ function ServiceSection({ service, index }: { service: Service; index: number })
     <article id={service.slug} className="scroll-mt-28 border-b border-[#fffdf0]/16 py-12 md:py-16">
       <div className="grid gap-8 md:grid-cols-[0.42fr_0.58fr] md:items-stretch">
         <div className="relative min-h-72 overflow-hidden">
-          <img className="editorial-image image-treatment" src={service.image} alt="" />
+          <img
+            className="editorial-image image-treatment"
+            src={service.image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
           <div className="absolute bottom-0 left-0 flex h-12 w-12 items-center justify-center bg-[#f4e00c] text-[#242321]">
             <Icon size={25} weight="duotone" />
           </div>
@@ -80,17 +86,19 @@ function ServiceSection({ service, index }: { service: Service; index: number })
         <InfoList title="Typical clients" items={service.clients} />
       </div>
 
-      <Reveal className="mt-10 border-t border-[#fffdf0]/14 pt-8">
-        <h3 className="text-2xl font-normal">Frequently asked questions</h3>
-        <div className="mt-6 grid md:grid-cols-2">
-          {service.faq.map((item, faqIndex) => (
-            <div key={item.question} className={`border-t border-[#fffdf0]/12 py-5 ${faqIndex % 2 === 0 ? 'md:pr-6' : 'md:border-l md:pl-6'}`}>
-              <h4 className="font-bold text-[#fffdf0]">{item.question}</h4>
-              <p className="mt-2 text-sm leading-6 text-[#d8d5ca]">{item.answer}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
+      {service.faq.length > 0 ? (
+        <Reveal className="mt-10 border-t border-[#fffdf0]/14 pt-8">
+          <h3 className="text-2xl font-normal">Frequently asked questions</h3>
+          <div className="mt-6 grid md:grid-cols-2">
+            {service.faq.map((item, faqIndex) => (
+              <div key={item.question} className={`border-t border-[#fffdf0]/12 py-5 ${faqIndex % 2 === 0 ? 'md:pr-6' : 'md:border-l md:pl-6'}`}>
+                <h4 className="font-bold text-[#fffdf0]">{item.question}</h4>
+                <p className="mt-2 text-sm leading-6 text-[#d8d5ca]">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      ) : null}
     </article>
   );
 }

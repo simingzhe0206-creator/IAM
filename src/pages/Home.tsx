@@ -71,6 +71,8 @@ export function Home() {
                   className="absolute inset-0 h-full w-full object-cover opacity-44 image-treatment"
                   src={category.catalogueImage ?? category.image}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/86 via-[#252422]/52 to-[#252422]/16" />
                 <div className="relative z-10 flex h-full flex-col justify-end">
@@ -162,7 +164,7 @@ export function Home() {
             </Reveal>
 
             <div className="flex snap-x snap-mandatory gap-px overflow-x-auto border-y border-[#fffdf0]/16 bg-[#fffdf0]/14 lg:grid lg:grid-cols-4 lg:overflow-visible">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <Link
                   key={project.title}
                   to={`/projects/${project.slug}`}
@@ -173,6 +175,8 @@ export function Home() {
                     className="absolute inset-0 h-full w-full object-cover brightness-[0.42] saturate-[0.72] transition-[filter] duration-500 group-hover:brightness-[0.84] group-hover:saturate-100 group-focus-visible:brightness-[0.84] group-focus-visible:saturate-100"
                     src={project.image}
                     alt=""
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/88 via-[#11100f]/20 to-[#11100f]/24 transition group-hover:from-[#11100f]/68 group-focus-visible:from-[#11100f]/68" />
                   <div className="absolute inset-x-0 bottom-0 z-10 flex min-h-64 items-end justify-between gap-5 p-5">

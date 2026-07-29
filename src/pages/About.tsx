@@ -129,7 +129,12 @@ export function About() {
             <div className="team-grid" aria-label="IAM team">
               {employees.map((employee) => (
                 <figure key={employee.name} className="team-member" tabIndex={0}>
-                  <img src={employee.image} alt={`IAM team member: ${employee.name}`} />
+                  <img
+                    src={employee.image}
+                    alt={`IAM team member: ${employee.name}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <figcaption className="team-member-caption">
                     <span className="team-member-name">{employee.name}</span>
                     <span className="team-member-role">{employee.role}</span>

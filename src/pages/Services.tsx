@@ -20,7 +20,13 @@ export function Services() {
               <article id={category.slug} key={category.title} className="scroll-mt-24 border-b border-[#fffdf0]/16 py-10 md:py-14">
                 <div className={`grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch ${index % 2 ? 'lg:[&>div:first-child]:order-2' : ''}`}>
                   <div className="min-h-72 overflow-hidden lg:min-h-[420px]">
-                    <img className="editorial-image image-treatment" src={category.image} alt="" />
+                    <img
+                      className="editorial-image image-treatment"
+                      src={category.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <Reveal className="flex flex-col justify-between py-1 lg:px-6">
                     <div>

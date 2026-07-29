@@ -151,9 +151,9 @@ export const projects: ProjectRecord[] = [
     imageAlt: 'Multi-storey development at 3-5 Help Street, Chatswood',
     detailTitle: '3-5 Help St Chatswood',
     metadata: [
-      { label: 'Project Type', value: ['Mixed Use Development', 'Chatswood, NSW Project'] },
+      { label: 'Project Type', value: ['Mixed Use Development', 'Location Chatswood, NSW Project'] },
       { label: 'Value', value: ['AUD $61.9 Million Project'] },
-      { label: 'Duration', value: ['Multi-stage planning and approvals (2021-Present)'] },
+      { label: 'Duration', value: ['Multi-stage planning and approvals (2021–Present)'] },
       {
         label: 'Services',
         value: [
@@ -181,7 +181,7 @@ export const projects: ProjectRecord[] = [
     metadata: [
       { label: 'Project Type', value: ['Commercial Fit-out | Wellness & Fitness Centre'] },
       { label: 'Value', value: ['Confidential'] },
-      { label: 'Duration', value: ['2024-2026'] },
+      { label: 'Duration', value: ['2024–2026'] },
       { label: 'Services', value: ['Detail Survey', 'Internal Survey', 'BIM Modelling'] }
     ],
     overview: [
@@ -200,7 +200,7 @@ export const projects: ProjectRecord[] = [
     metadata: [
       { label: 'Project Type', value: ['Major Transport Infrastructure | Motorway Upgrade and Interchange'] },
       { label: 'Value', value: ['$1.7 Billion'] },
-      { label: 'Duration', value: ['2023-2026'] },
+      { label: 'Duration', value: ['2023–2026'] },
       {
         label: 'Services',
         value: [
@@ -229,7 +229,7 @@ export const projects: ProjectRecord[] = [
     metadata: [
       { label: 'Project Type', value: ['Residential Subdivision | Land Development'] },
       { label: 'Value', value: ['Confidential'] },
-      { label: 'Duration', value: ['2022 - NOW'] },
+      { label: 'Duration', value: ['2022 – NOW'] },
       { label: 'Services', value: ['Construction Support', 'Boundary Definition', 'Deposited Plan Preparation'] }
     ],
     overview: [
@@ -362,7 +362,7 @@ export const services: Service[] = [
       'Lettable area calculation schedule',
       'CAD survey file',
       'Clearly identified measurement methodology',
-      'Optional surveyor certification'
+      'Optional survey certification'
     ],
     clients: ['Property owners', 'Commercial landlords', 'Property managers', 'Leasing agents', 'Commercial tenants', 'Developers', 'Solicitors and valuers'],
     faq: [],

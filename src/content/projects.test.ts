@@ -38,6 +38,18 @@ describe('approved IAM projects', () => {
     ]);
 
     expect(projects[0].metadata.map((item) => item.label)).toEqual(['Project Type', 'Value', 'Duration', 'Services']);
+    expect(projects[0].metadata.find((item) => item.label === 'Project Type')?.value).toEqual([
+      'Mixed Use Development',
+      'Location Chatswood, NSW Project'
+    ]);
+    expect(
+      projects.map((project) => project.metadata.find((item) => item.label === 'Duration')?.value[0])
+    ).toEqual([
+      'Multi-stage planning and approvals (2021–Present)',
+      '2024–2026',
+      '2023–2026',
+      '2022 – NOW'
+    ]);
     expect(projects[0].metadata.flatMap((item) => item.value)).not.toContain('Project information to be supplied');
     expect(projects[2].overview).toHaveLength(2);
     expect(projects.every((project) => !JSON.stringify(project).includes('Project information to be supplied'))).toBe(true);

@@ -21,4 +21,11 @@ describe('service navigation content', () => {
 
     expect(services.map((service) => service.slug).filter((slug) => !mappedSlugs.has(slug))).toEqual([]);
   });
+
+  it('keeps the approved lettable area survey deliverable wording', () => {
+    const lettableAreaSurvey = services.find((service) => service.slug === 'lettable-area-survey');
+
+    expect(lettableAreaSurvey?.deliverables).toContain('Optional survey certification');
+    expect(lettableAreaSurvey?.deliverables).not.toContain('Optional surveyor certification');
+  });
 });

@@ -65,6 +65,8 @@ describe('home hero video', () => {
       'src',
       expect.stringContaining('pexels-serjosoza-30463192.jpg')
     );
+    expect(infrastructureCard.querySelector('img')).toHaveAttribute('loading', 'lazy');
+    expect(infrastructureCard.querySelector('img')).toHaveAttribute('decoding', 'async');
   });
 
   it('keeps all support audiences in a desktop flex row', () => {
@@ -93,22 +95,34 @@ describe('home hero video', () => {
     expect(screen.getByRole('heading', { name: 'Project Support' })).toBeInTheDocument();
     expect(screen.getByText(/Email us at office@iamsurveyor.com.au/)).toBeInTheDocument();
 
-    expect(screen.getByRole('link', { name: /STRATA PLAN - 3-5 Help St Chatswood/i })).toHaveAttribute(
+    const projectLinks = [
+      screen.getByRole('link', { name: /STRATA PLAN - 3-5 Help St Chatswood/i }),
+      screen.getByRole('link', { name: /BIM MODELLING - 529 KENT STREET SYDNEY/i }),
+      screen.getByRole('link', { name: /CONSTRUCTION SURVEY - M7-M12 Integration project/i }),
+      screen.getByRole('link', { name: /DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765/i })
+    ];
+
+    expect(projectLinks[0]).toHaveAttribute(
       'href',
       '/projects/strata-plan-help-st-chatswood'
     );
-    expect(screen.getByRole('link', { name: /BIM MODELLING - 529 KENT STREET SYDNEY/i })).toHaveAttribute(
+    expect(projectLinks[1]).toHaveAttribute(
       'href',
       '/projects/bim-modelling-kent-street-sydney'
     );
-    expect(screen.getByRole('link', { name: /CONSTRUCTION SURVEY - M7-M12 Integration project/i })).toHaveAttribute(
+    expect(projectLinks[2]).toHaveAttribute(
       'href',
       '/projects/construction-survey-m7-m12'
     );
-    expect(screen.getByRole('link', { name: /DEPOSIT PLAN - 33-35 Hynds, Box Hill, NSW 2765/i })).toHaveAttribute(
+    expect(projectLinks[3]).toHaveAttribute(
       'href',
       '/projects/deposit-plan-hynds-box-hill'
     );
+
+    const projectImages = projectLinks.map((link) => link.querySelector('img'));
+    expect(projectImages[0]).toHaveAttribute('loading', 'eager');
+    projectImages.slice(1).forEach((image) => expect(image).toHaveAttribute('loading', 'lazy'));
+    projectImages.forEach((image) => expect(image).toHaveAttribute('decoding', 'async'));
     expect(screen.queryByText(/prototype avoids invented case studies/i)).not.toBeInTheDocument();
   });
 });
