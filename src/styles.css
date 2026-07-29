@@ -324,21 +324,65 @@ textarea {
   transform: translateY(0);
 }
 
+.team-collage {
+  display: block;
+  position: relative;
+  min-height: 42rem;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.team-collage .team-member {
+  position: absolute;
+  width: 32%;
+  aspect-ratio: 0.78;
+  border: 1px solid rgba(24, 24, 23, 0.12);
+  box-shadow: 0 12px 26px rgba(24, 24, 23, 0.12);
+}
+
+.team-collage .team-member:nth-child(1) { top: 0; left: 2%; transform: rotate(-4deg); }
+.team-collage .team-member:nth-child(2) { top: 2%; left: 34%; transform: rotate(1deg); }
+.team-collage .team-member:nth-child(3) { top: 8%; right: 1%; transform: rotate(4deg); }
+.team-collage .team-member:nth-child(4) { top: 42%; left: 7%; transform: rotate(3deg); }
+.team-collage .team-member:nth-child(5) { top: 39%; left: 38%; transform: rotate(-2deg); }
+.team-collage .team-member:nth-child(6) { top: 46%; right: 3%; transform: rotate(3deg); }
+
+.team-collage .team-member:hover,
+.team-collage .team-member:focus {
+  transform: scale(1.04);
+}
+
 @media (max-width: 767px) {
+  .team-collage {
+    min-height: 31rem;
+  }
+
+  .team-collage .team-member {
+    width: 43%;
+  }
+
+  .team-collage .team-member:nth-child(1) { top: 0; left: 1%; }
+  .team-collage .team-member:nth-child(2) { top: 4%; right: 1%; left: auto; }
+  .team-collage .team-member:nth-child(3) { top: 30%; right: auto; left: 7%; }
+  .team-collage .team-member:nth-child(4) { top: 35%; left: auto; right: 3%; }
+  .team-collage .team-member:nth-child(5) { top: 61%; left: 2%; }
+  .team-collage .team-member:nth-child(6) { top: 65%; right: 1%; }
+
   .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .team-member {
+  .team-grid:not(.team-collage) .team-member {
     aspect-ratio: auto;
   }
 
-  .team-member img {
+  .team-grid:not(.team-collage) .team-member img {
     aspect-ratio: 0.78;
     height: auto;
   }
 
-  .team-member-caption {
+  .team-grid:not(.team-collage) .team-member-caption {
     position: static;
     min-height: 4.9rem;
     opacity: 1;
