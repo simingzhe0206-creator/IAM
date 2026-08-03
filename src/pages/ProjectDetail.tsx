@@ -60,6 +60,18 @@ export function ProjectDetail() {
               </div>
             </Reveal>
 
+            {project.detailImage && (
+              <Reveal className="mt-12" delay={0.12}>
+                <img
+                  className="mx-auto w-full max-w-4xl border border-[#fffdf0]/14 object-cover"
+                  src={project.detailImage}
+                  alt={project.detailImageAlt ?? ''}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Reveal>
+            )}
+
             <Reveal className="mt-16 flex flex-col justify-between gap-6 border-y border-[#fffdf0]/14 py-9 sm:flex-row sm:items-center" delay={0.14}>
               <div>
                 <h2 className="text-2xl font-extrabold text-[#fffdf0]">Discuss a similar project with IAM.</h2>

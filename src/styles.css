@@ -224,18 +224,11 @@ textarea {
 }
 
 .process-number {
-  display: flex;
-  width: fit-content;
-  gap: 0.02em;
-}
-
-.process-number-glyph {
   display: inline-block;
+  width: fit-content;
   color: transparent;
-  background-color: #a8a39a;
-  background-blend-mode: multiply;
-  background-position: 54% 52%;
-  background-size: auto 160%;
+  background-position: center;
+  background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
   font-size: clamp(8rem, 22vw, 17rem);
@@ -243,10 +236,6 @@ textarea {
   line-height: 1;
   letter-spacing: 0;
   -webkit-text-stroke: 1px rgba(36, 35, 33, 0.14);
-}
-
-.process-number-glyph:nth-child(2) {
-  background-position: 48% 58%;
 }
 
 @media (min-width: 768px) {

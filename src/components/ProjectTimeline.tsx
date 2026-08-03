@@ -36,21 +36,14 @@ export function ProjectTimeline({ images }: { images: string[] }) {
           >
             <motion.div
               className={`process-number select-none ${index % 2 ? 'process-number--right md:order-2' : ''}`}
+              style={{ backgroundImage: `url(${images[index]})` }}
               initial={reduceMotion ? false : { opacity: 0 }}
               whileInView={reduceMotion ? undefined : { opacity: 1 }}
               viewport={{ once: true, amount: 0.45 }}
               transition={{ duration: 0.75, delay: index * 0.08 }}
               aria-hidden="true"
             >
-              {milestone.number.split('').map((digit) => (
-                <span
-                  className="process-number-glyph"
-                  key={digit}
-                  style={{ backgroundImage: `url(${images[index]})` }}
-                >
-                  {digit}
-                </span>
-              ))}
+              {milestone.number}
             </motion.div>
             <motion.div
               className={`max-w-xl ${index % 2 ? 'md:order-1 md:justify-self-end' : ''}`}

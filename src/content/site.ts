@@ -135,6 +135,8 @@ export type ProjectRecord = {
   location: string;
   image: string;
   imageAlt: string;
+  detailImage?: string;
+  detailImageAlt?: string;
   detailTitle: string;
   metadata: Array<{ label: 'Project Type' | 'Value' | 'Duration' | 'Services'; value: string[] }>;
   overview: string[];
@@ -173,10 +175,12 @@ export const projects: ProjectRecord[] = [
     slug: 'bim-modelling-kent-street-sydney',
     number: '02',
     title: 'BIM MODELLING - 529 KENT STREET SYDNEY',
-    shortTitle: 'BIM Modelling',
-    location: '529 Kent Street Sydney',
-    image: assets.projectKentStreet,
-    imageAlt: 'BIM modelling project at 529 Kent Street, Sydney',
+      shortTitle: 'BIM Modelling',
+      location: '529 Kent Street Sydney',
+      image: assets.projectCovers[1],
+      imageAlt: 'Courtyard at 529 Kent Street, Sydney',
+      detailImage: assets.projectKentStreet,
+      detailImageAlt: 'BIM model for the 529 Kent Street Sydney project',
     detailTitle: '529 KENT STREET SYDNEY',
     metadata: [
       { label: 'Project Type', value: ['Commercial Fit-out | Wellness & Fitness Centre'] },
